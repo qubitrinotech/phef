@@ -1,0 +1,56 @@
+{
+  "answer_acc": 0.03466796875,
+  "retrieval_acc": 0.01787109375,
+  "oracle_bounds": {
+    "enc_m0.0": 1.0,
+    "enc_m0.02": 1.0,
+    "enc_m0.05": 1.0,
+    "enc_m0.1": 1.0,
+    "m0.0": 1.0,
+    "m0.02": 1.0,
+    "m0.05": 1.0,
+    "m0.1": 1.0
+  },
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    0.09185720016044925,
+    0.01355421686746988,
+    0.021341463414634148,
+    0.012696041822255415,
+    0.017699115044247787,
+    0.018726591760299626,
+    0.013675213675213675,
+    0.0160857908847185
+  ],
+  "count_by_distance": [
+    2493.0,
+    1992.0,
+    1640.0,
+    1339.0,
+    1017.0,
+    801.0,
+    585.0,
+    373.0
+  ],
+  "tie_rate": 0.0,
+  "escape_epoch": 1000,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 1.636428952217102,
+  "score_scale": 1.718855857849121,
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 256,
+    "overwrite_p": 0.3,
+    "key_dim": 1,
+    "dim": 128,
+    "epochs": 5000,
+    "batch_size": 512,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "seed": 0,
+    "out": "results/curve_kd1_s0.json"
+  }
+}

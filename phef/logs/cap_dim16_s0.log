@@ -1,0 +1,55 @@
+device=cuda n_segments=256 key_dim=32 dim=16 freeze_recency=False use_best=True
+epoch   250 sel_acc 0.0127 best 0.0127 @ 250
+epoch   500 sel_acc 0.0137 best 0.0137 @ 500
+epoch   500 loss 4.1613 chance 4.1589 escaped=False
+epoch   750 sel_acc 0.0171 best 0.0171 @ 750
+epoch  1000 sel_acc 0.0156 best 0.0171 @ 750
+epoch  1000 loss 4.1633 chance 4.1589 escaped=False
+epoch  1250 sel_acc 0.0220 best 0.0220 @ 1250
+epoch  1500 sel_acc 0.0151 best 0.0220 @ 1250
+epoch  1500 loss 4.1608 chance 4.1589 escaped=False
+epoch  1750 sel_acc 0.0181 best 0.0220 @ 1250
+epoch  2000 sel_acc 0.0210 best 0.0220 @ 1250
+epoch  2000 loss 4.1591 chance 4.1589 escaped=False
+epoch  2250 sel_acc 0.0215 best 0.0220 @ 1250
+epoch  2500 sel_acc 0.0215 best 0.0220 @ 1250
+epoch  2500 loss 4.1480 chance 4.1589 escaped=False
+epoch  2750 sel_acc 0.0210 best 0.0220 @ 1250
+epoch  3000 sel_acc 0.0229 best 0.0229 @ 3000
+epoch  3000 loss 4.1349 chance 4.1589 escaped=False
+epoch  3250 sel_acc 0.0205 best 0.0229 @ 3000
+epoch  3500 sel_acc 0.0879 best 0.0879 @ 3500
+epoch  3500 loss 3.9939 chance 4.1589 escaped=False
+epoch  3750 sel_acc 0.2104 best 0.2104 @ 3750
+epoch  4000 sel_acc 0.6494 best 0.6494 @ 4000
+epoch  4000 loss 1.6573 chance 4.1589 escaped=True
+
+восстановлен best checkpoint: epoch 4000 sel_acc 0.6494
+
+=== ANALYSIS ===
+answer_acc     = 0.817578
+retrieval_acc  = 0.814746
+oracle enc_m0.0 = 0.432520
+oracle enc_m0.02 = 0.271582
+oracle enc_m0.05 = 0.088867
+oracle enc_m0.1 = 0.006543
+oracle m0.0   = 1.000000
+oracle m0.02  = 1.000000
+oracle m0.05  = 1.000000
+oracle m0.1   = 1.000000
+tie_rate       = 0.000000
+recency_scale  = 2.3324
+score_scale    = 4.8063
+memory_gate    = 1.8273
+escape_epoch   = 4000
+best_sel_acc   = 0.6494 @ epoch 4000
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9584 n 2549
+  bucket 1: acc 0.9307 n 2107
+  bucket 2: acc 0.8758 n 1546
+  bucket 3: acc 0.7894 n 1334
+  bucket 4: acc 0.6701 n 976
+  bucket 5: acc 0.6015 n 813
+  bucket 6: acc 0.4832 n 565
+  bucket 7: acc 0.4143 n 350

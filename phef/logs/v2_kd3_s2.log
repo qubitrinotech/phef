@@ -1,0 +1,36 @@
+device=cuda n_segments=256 key_dim=3 freeze_recency=False
+epoch   500 loss 0.7942 chance 4.1589 escaped=True
+epoch  1000 loss 0.8128 chance 4.1589 escaped=True
+epoch  1500 loss 0.7252 chance 4.1589 escaped=True
+epoch  2000 loss 0.7762 chance 4.1589 escaped=True
+epoch  2500 loss 0.8232 chance 4.1589 escaped=True
+epoch  3000 loss 0.8512 chance 4.1589 escaped=True
+
+восстановлен best checkpoint: epoch 909 loss 0.6113
+
+=== ANALYSIS ===
+answer_acc     = 0.968262
+retrieval_acc  = 0.967578
+oracle enc_m0.0 = 0.478027
+oracle enc_m0.02 = 0.111328
+oracle enc_m0.05 = 0.011816
+oracle enc_m0.1 = 0.000195
+oracle m0.0   = 1.000000
+oracle m0.02  = 0.213477
+oracle m0.05  = 0.024316
+oracle m0.1   = 0.000391
+tie_rate       = 0.000000
+recency_scale  = 1.1237
+score_scale    = 1.8052
+escape_epoch   = 500
+best_loss      = 0.6113 @ epoch 909
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9977  n 2555
+  bucket 1: acc 0.9917  n 2036
+  bucket 2: acc 0.9766  n 1582
+  bucket 3: acc 0.9666  n 1288
+  bucket 4: acc 0.9438  n 1015
+  bucket 5: acc 0.9145  n 819
+  bucket 6: acc 0.9028  n 597
+  bucket 7: acc 0.8937  n 348

@@ -1,0 +1,46 @@
+{
+  "answer_acc": 0.99921875,
+  "retrieval_acc": 0.99921875,
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    1.0,
+    0.9994391475042064,
+    1.0,
+    0.9985775248933144,
+    0.9991876523151909,
+    0.9990476190476191,
+    0.9987146529562982,
+    0.9952718676122931
+  ],
+  "count_by_distance": [
+    2033.0,
+    1783.0,
+    1536.0,
+    1406.0,
+    1231.0,
+    1050.0,
+    778.0,
+    423.0
+  ],
+  "tie_rate": 0.0,
+  "escape_epoch": 1000,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 4.421383380889893,
+  "score_scale": 2.863975763320923,
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 256,
+    "overwrite_p": 0.3,
+    "key_dim": 8,
+    "dim": 128,
+    "epochs": 8000,
+    "batch_size": 128,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "seed": 0,
+    "out": "results/kd8.json"
+  }
+}

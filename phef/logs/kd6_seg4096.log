@@ -1,0 +1,35 @@
+device=cuda n_segments=4096 key_dim=6 freeze_recency=False
+epoch   500 loss 4.1752 chance 4.1589 escaped=False
+epoch  1000 loss 4.1943 chance 4.1589 escaped=False
+epoch  1500 loss 4.1550 chance 4.1589 escaped=False
+epoch  2000 loss 4.1652 chance 4.1589 escaped=False
+epoch  2500 loss 4.1658 chance 4.1589 escaped=False
+epoch  3000 loss 4.1707 chance 4.1589 escaped=False
+
+=== ANALYSIS ===
+answer_acc     = 0.017188
+retrieval_acc  = 0.000684
+oracle enc_m0.0 = 0.000488
+oracle enc_m0.02 = 0.000000
+oracle enc_m0.05 = 0.000000
+oracle enc_m0.1 = 0.000000
+oracle m0.0   = 1.000000
+oracle m0.02  = 0.874609
+oracle m0.05  = 0.282129
+oracle m0.1   = 0.000684
+tie_rate       = 0.000000
+recency_scale  = 0.1813
+score_scale    = 0.9156
+escape_epoch   = None
+best_loss      = inf @ epoch 0
+WARNING: модель не покинула chance-плато. Увеличь --epochs, прежде чем делать вывод.
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.0174  n 2476
+  bucket 1: acc 0.0168  n 2019
+  bucket 2: acc 0.0150  n 1597
+  bucket 3: acc 0.0201  n 1391
+  bucket 4: acc 0.0147  n 1017
+  bucket 5: acc 0.0140  n 788
+  bucket 6: acc 0.0272  n 626
+  bucket 7: acc 0.0123  n 326

@@ -1,0 +1,43 @@
+{
+  "answer_acc": 0.99970703125,
+  "retrieval_acc": 0.99970703125,
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    1.0,
+    1.0,
+    0.9993887530562348,
+    1.0,
+    1.0,
+    0.9979818365287588,
+    1.0,
+    1.0
+  ],
+  "count_by_distance": [
+    1992.0,
+    1835.0,
+    1636.0,
+    1400.0,
+    1193.0,
+    991.0,
+    777.0,
+    416.0
+  ],
+  "recency_scale": 3.9203927516937256,
+  "score_scale": 3.0514228343963623,
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 256,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "epochs": 6000,
+    "batch_size": 128,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "seed": 0,
+    "out": "results/dist_seg256.json"
+  }
+}

@@ -1,0 +1,42 @@
+device=cuda memory=False retrieval_weight=1.0 emergent_mode=False answer_chance=0.015625 retrieval_chance=0.003906 escape_threshold=0.031250
+epoch     1 total 4.2975 answer 4.2975 retrieval 0.0000 answer_acc 0.0132 retrieval_acc n/a
+epoch   100 total 4.1903 answer 4.1903 retrieval 0.0000 answer_acc 0.0166 retrieval_acc n/a
+epoch   200 total 4.1860 answer 4.1860 retrieval 0.0000 answer_acc 0.0195 retrieval_acc n/a
+epoch   300 total 4.1711 answer 4.1711 retrieval 0.0000 answer_acc 0.0151 retrieval_acc n/a
+epoch   400 total 4.1698 answer 4.1698 retrieval 0.0000 answer_acc 0.0166 retrieval_acc n/a
+epoch   500 total 4.1644 answer 4.1644 retrieval 0.0000 answer_acc 0.0146 retrieval_acc n/a
+epoch   600 total 4.1832 answer 4.1832 retrieval 0.0000 answer_acc 0.0156 retrieval_acc n/a
+epoch   700 total 4.1603 answer 4.1603 retrieval 0.0000 answer_acc 0.0171 retrieval_acc n/a
+epoch   800 total 4.1718 answer 4.1718 retrieval 0.0000 answer_acc 0.0156 retrieval_acc n/a
+epoch   900 total 4.1579 answer 4.1579 retrieval 0.0000 answer_acc 0.0166 retrieval_acc n/a
+epoch  1000 total 4.1783 answer 4.1783 retrieval 0.0000 answer_acc 0.0146 retrieval_acc n/a
+epoch  1100 total 4.1556 answer 4.1556 retrieval 0.0000 answer_acc 0.0137 retrieval_acc n/a
+epoch  1200 total 4.1609 answer 4.1609 retrieval 0.0000 answer_acc 0.0151 retrieval_acc n/a
+epoch  1300 total 4.1520 answer 4.1520 retrieval 0.0000 answer_acc 0.0142 retrieval_acc n/a
+epoch  1400 total 4.1526 answer 4.1526 retrieval 0.0000 answer_acc 0.0127 retrieval_acc n/a
+epoch  1500 total 4.1628 answer 4.1628 retrieval 0.0000 answer_acc 0.0142 retrieval_acc n/a
+epoch  1600 total 4.1564 answer 4.1564 retrieval 0.0000 answer_acc 0.0195 retrieval_acc n/a
+epoch  1700 total 4.1713 answer 4.1713 retrieval 0.0000 answer_acc 0.0161 retrieval_acc n/a
+epoch  1800 total 4.1766 answer 4.1766 retrieval 0.0000 answer_acc 0.0200 retrieval_acc n/a
+epoch  1900 total 4.1646 answer 4.1646 retrieval 0.0000 answer_acc 0.0151 retrieval_acc n/a
+epoch  2000 total 4.1751 answer 4.1751 retrieval 0.0000 answer_acc 0.0122 retrieval_acc n/a
+epoch  2100 total 4.1578 answer 4.1578 retrieval 0.0000 answer_acc 0.0107 retrieval_acc n/a
+epoch  2200 total 4.1690 answer 4.1690 retrieval 0.0000 answer_acc 0.0195 retrieval_acc n/a
+epoch  2300 total 4.1592 answer 4.1592 retrieval 0.0000 answer_acc 0.0161 retrieval_acc n/a
+epoch  2400 total 4.1636 answer 4.1636 retrieval 0.0000 answer_acc 0.0146 retrieval_acc n/a
+epoch  2500 total 4.1608 answer 4.1608 retrieval 0.0000 answer_acc 0.0195 retrieval_acc n/a
+epoch  2600 total 4.1583 answer 4.1583 retrieval 0.0000 answer_acc 0.0146 retrieval_acc n/a
+epoch  2700 total 4.1571 answer 4.1571 retrieval 0.0000 answer_acc 0.0166 retrieval_acc n/a
+epoch  2800 total 4.1559 answer 4.1559 retrieval 0.0000 answer_acc 0.0171 retrieval_acc n/a
+epoch  2900 total 4.1547 answer 4.1547 retrieval 0.0000 answer_acc 0.0186 retrieval_acc n/a
+epoch  3000 total 4.1580 answer 4.1580 retrieval 0.0000 answer_acc 0.0127 retrieval_acc n/a
+
+=== CONTROLS ===
+answer chance    = 0.015625
+retrieval chance = 0.003906
+real answer      = 0.015820
+real retrieval   = n/a
+baseline без памяти: retrieval не измеряется, ожидаем answer_acc около chance=0.015625
+control status   = baseline_at_chance
+
+сохранено: results/recall/recall_seg256_nomem_s0.json

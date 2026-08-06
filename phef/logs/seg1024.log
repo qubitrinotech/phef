@@ -1,0 +1,52 @@
+device=cuda n_segments=1024 key_dim=32 freeze_recency=False
+epoch   500 loss 4.1477 chance 4.1589 escaped=False
+epoch  1000 loss 4.1484 chance 4.1589 escaped=False
+epoch  1500 loss 4.1714 chance 4.1589 escaped=False
+epoch  2000 loss 4.1655 chance 4.1589 escaped=False
+epoch  2500 loss 4.1973 chance 4.1589 escaped=False
+epoch  3000 loss 4.1582 chance 4.1589 escaped=False
+epoch  3500 loss 4.1331 chance 4.1589 escaped=False
+epoch  4000 loss 0.1906 chance 4.1589 escaped=True
+epoch  4500 loss 0.2005 chance 4.1589 escaped=True
+epoch  5000 loss 0.1052 chance 4.1589 escaped=True
+epoch  5500 loss 0.0421 chance 4.1589 escaped=True
+epoch  6000 loss 0.0214 chance 4.1589 escaped=True
+epoch  6500 loss 0.1474 chance 4.1589 escaped=True
+epoch  7000 loss 0.0453 chance 4.1589 escaped=True
+epoch  7500 loss 0.0272 chance 4.1589 escaped=True
+epoch  8000 loss 0.1004 chance 4.1589 escaped=True
+epoch  8500 loss 0.0108 chance 4.1589 escaped=True
+epoch  9000 loss 0.0283 chance 4.1589 escaped=True
+epoch  9500 loss 0.0088 chance 4.1589 escaped=True
+epoch 10000 loss 0.0237 chance 4.1589 escaped=True
+epoch 10500 loss 0.0158 chance 4.1589 escaped=True
+epoch 11000 loss 0.0012 chance 4.1589 escaped=True
+epoch 11500 loss 0.0058 chance 4.1589 escaped=True
+epoch 12000 loss 0.0367 chance 4.1589 escaped=True
+epoch 12500 loss 0.0062 chance 4.1589 escaped=True
+epoch 13000 loss 0.0206 chance 4.1589 escaped=True
+epoch 13500 loss 0.0240 chance 4.1589 escaped=True
+epoch 14000 loss 0.0053 chance 4.1589 escaped=True
+epoch 14500 loss 0.0584 chance 4.1589 escaped=True
+epoch 15000 loss 0.0161 chance 4.1589 escaped=True
+epoch 15500 loss 0.0100 chance 4.1589 escaped=True
+epoch 16000 loss 0.0224 chance 4.1589 escaped=True
+
+=== ANALYSIS ===
+answer_acc     = 0.999609
+retrieval_acc  = 0.999609
+oracle_bound   = 1.000000
+tie_rate       = 0.000000
+recency_scale  = 7.8354
+score_scale    = 4.5306
+escape_epoch   = 4000
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 1973
+  bucket 1: acc 1.0000  n 1892
+  bucket 2: acc 1.0000  n 1623
+  bucket 3: acc 1.0000  n 1368
+  bucket 4: acc 0.9983  n 1195
+  bucket 5: acc 0.9990  n 1012
+  bucket 6: acc 0.9987  n 748
+  bucket 7: acc 1.0000  n 429

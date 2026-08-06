@@ -1,0 +1,10 @@
+device=cuda n_segments=256 n_keys=512 key_dim=32 dim=128 batch=256 iters=200
+part                    ms    share
+world.batch         49.466   85.23%
+move                 0.629    1.08%
+fwd+bwd+step         1.555    2.68%
+epoch               58.038  100.00%  (= 1.00 по определению)
+
+epochs/sec = 17.23
+Вывод про узкое место делать только по этим числам: если world.batch < 0.3 эпохи, переносить генерацию на GPU бессмысленно.
+peak VRAM = 167.4 MiB

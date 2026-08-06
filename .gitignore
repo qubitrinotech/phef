@@ -41,3 +41,7 @@ Thumbs.db
 
 # Git
 *.orig
+
+# результаты PHEF версионируем принудительно
+!phef/results/**
+!phef/logs/**

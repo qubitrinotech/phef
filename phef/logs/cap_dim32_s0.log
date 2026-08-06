@@ -1,0 +1,55 @@
+device=cuda n_segments=256 key_dim=32 dim=32 freeze_recency=False use_best=True
+epoch   250 sel_acc 0.0122 best 0.0122 @ 250
+epoch   500 sel_acc 0.0156 best 0.0156 @ 500
+epoch   500 loss 4.1591 chance 4.1589 escaped=False
+epoch   750 sel_acc 0.0186 best 0.0186 @ 750
+epoch  1000 sel_acc 0.0215 best 0.0215 @ 1000
+epoch  1000 loss 4.1613 chance 4.1589 escaped=False
+epoch  1250 sel_acc 0.0166 best 0.0215 @ 1000
+epoch  1500 sel_acc 0.0176 best 0.0215 @ 1000
+epoch  1500 loss 4.1484 chance 4.1589 escaped=False
+epoch  1750 sel_acc 0.1060 best 0.1060 @ 1750
+epoch  2000 sel_acc 0.8076 best 0.8076 @ 2000
+epoch  2000 loss 0.8963 chance 4.1589 escaped=True
+epoch  2250 sel_acc 0.9004 best 0.9004 @ 2250
+epoch  2500 sel_acc 0.9268 best 0.9268 @ 2500
+epoch  2500 loss 0.3164 chance 4.1589 escaped=True
+epoch  2750 sel_acc 0.9365 best 0.9365 @ 2750
+epoch  3000 sel_acc 0.9326 best 0.9365 @ 2750
+epoch  3000 loss 0.2784 chance 4.1589 escaped=True
+epoch  3250 sel_acc 0.9351 best 0.9365 @ 2750
+epoch  3500 sel_acc 0.9517 best 0.9517 @ 3500
+epoch  3500 loss 0.1351 chance 4.1589 escaped=True
+epoch  3750 sel_acc 0.9556 best 0.9556 @ 3750
+epoch  4000 sel_acc 0.9561 best 0.9561 @ 4000
+epoch  4000 loss 0.1034 chance 4.1589 escaped=True
+
+восстановлен best checkpoint: epoch 4000 sel_acc 0.9561
+
+=== ANALYSIS ===
+answer_acc     = 0.991797
+retrieval_acc  = 0.991699
+oracle enc_m0.0 = 0.591211
+oracle enc_m0.02 = 0.403613
+oracle enc_m0.05 = 0.117480
+oracle enc_m0.1 = 0.005957
+oracle m0.0   = 1.000000
+oracle m0.02  = 1.000000
+oracle m0.05  = 1.000000
+oracle m0.1   = 1.000000
+tie_rate       = 0.000000
+recency_scale  = 3.5679
+score_scale    = 4.5801
+memory_gate    = 2.0911
+escape_epoch   = 2000
+best_sel_acc   = 0.9561 @ epoch 4000
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000 n 2549
+  bucket 1: acc 0.9995 n 2107
+  bucket 2: acc 0.9961 n 1546
+  bucket 3: acc 0.9910 n 1334
+  bucket 4: acc 0.9877 n 976
+  bucket 5: acc 0.9791 n 813
+  bucket 6: acc 0.9681 n 565
+  bucket 7: acc 0.9486 n 350

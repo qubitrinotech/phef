@@ -1,0 +1,60 @@
+{
+  "answer_acc": 0.0171875,
+  "retrieval_acc": 0.00068359375,
+  "oracle_bounds": {
+    "enc_m0.0": 0.00048828125,
+    "enc_m0.02": 0.0,
+    "enc_m0.05": 0.0,
+    "enc_m0.1": 0.0,
+    "m0.0": 1.0,
+    "m0.02": 0.874609375,
+    "m0.05": 0.28212890625,
+    "m0.1": 0.00068359375
+  },
+  "oracle_bound": 0.28212890625,
+  "acc_by_distance": [
+    0.017366720516962843,
+    0.016840019811788013,
+    0.015028177833437696,
+    0.020129403306973402,
+    0.014749262536873156,
+    0.013959390862944163,
+    0.027156549520766772,
+    0.012269938650306749
+  ],
+  "count_by_distance": [
+    2476.0,
+    2019.0,
+    1597.0,
+    1391.0,
+    1017.0,
+    788.0,
+    626.0,
+    326.0
+  ],
+  "tie_rate": 0.0,
+  "best_loss": Infinity,
+  "best_epoch": 0,
+  "escape_epoch": null,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 0.18131135404109955,
+  "score_scale": 0.915630578994751,
+  "config": {
+    "n_keys": 8192,
+    "n_values": 64,
+    "n_segments": 4096,
+    "overwrite_p": 0.3,
+    "key_dim": 6,
+    "dim": 128,
+    "epochs": 3000,
+    "batch_size": 128,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "use_best": false,
+    "lr_decay": false,
+    "seed": 0,
+    "out": "results/_scratch/kd6_seg4096.json"
+  }
+}

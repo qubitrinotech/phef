@@ -1,0 +1,10 @@
+metric                                  numpy          gpu      delta
+mean_answer_position               167.481797   168.289688   0.807891
+mean_unique_slots                  151.538984   151.446016  -0.092969
+frac_answer_is_last_segment          0.007734     0.009453   0.001719
+oracle_raw_top1                      1.000000     1.000000   0.000000
+max_key_norm_error                   0.000000     0.000000   0.000000
+
+throughput (world generation only)
+numpy {'batches_per_sec': 20.27, 'ms_per_batch': 49.32}
+gpu   {'batches_per_sec': 140.08, 'ms_per_batch': 7.14}

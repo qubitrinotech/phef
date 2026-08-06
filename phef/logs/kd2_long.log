@@ -1,0 +1,57 @@
+device=cuda n_segments=256 key_dim=2 freeze_recency=False
+epoch   500 loss 2.5571 chance 4.1589 escaped=True
+epoch  1000 loss 2.9779 chance 4.1589 escaped=True
+epoch  1500 loss 3.2222 chance 4.1589 escaped=True
+epoch  2000 loss 3.5292 chance 4.1589 escaped=True
+epoch  2500 loss 3.7388 chance 4.1589 escaped=True
+epoch  3000 loss 3.8504 chance 4.1589 escaped=True
+epoch  3500 loss 3.9218 chance 4.1589 escaped=True
+epoch  4000 loss 3.9832 chance 4.1589 escaped=True
+epoch  4500 loss 4.0060 chance 4.1589 escaped=True
+epoch  5000 loss 4.0441 chance 4.1589 escaped=True
+epoch  5500 loss 4.0584 chance 4.1589 escaped=True
+epoch  6000 loss 4.0583 chance 4.1589 escaped=True
+epoch  6500 loss 4.0926 chance 4.1589 escaped=False
+epoch  7000 loss 4.0988 chance 4.1589 escaped=False
+epoch  7500 loss 4.1224 chance 4.1589 escaped=False
+epoch  8000 loss 4.1208 chance 4.1589 escaped=False
+epoch  8500 loss 4.1181 chance 4.1589 escaped=False
+epoch  9000 loss 4.1423 chance 4.1589 escaped=False
+epoch  9500 loss 4.1381 chance 4.1589 escaped=False
+epoch 10000 loss 4.1451 chance 4.1589 escaped=False
+epoch 10500 loss 4.1653 chance 4.1589 escaped=False
+epoch 11000 loss 4.1464 chance 4.1589 escaped=False
+epoch 11500 loss 4.1296 chance 4.1589 escaped=False
+epoch 12000 loss 4.1436 chance 4.1589 escaped=False
+epoch 12500 loss 4.1513 chance 4.1589 escaped=False
+epoch 13000 loss 4.1568 chance 4.1589 escaped=False
+epoch 13500 loss 4.1648 chance 4.1589 escaped=False
+epoch 14000 loss 4.1687 chance 4.1589 escaped=False
+epoch 14500 loss 4.1690 chance 4.1589 escaped=False
+epoch 15000 loss 4.1742 chance 4.1589 escaped=False
+
+=== ANALYSIS ===
+answer_acc     = 0.027051
+retrieval_acc  = 0.304102
+oracle enc_m0.0 = 1.000000
+oracle enc_m0.02 = 0.014355
+oracle enc_m0.05 = 0.000195
+oracle enc_m0.1 = 0.000000
+oracle m0.0   = 1.000000
+oracle m0.02  = 0.000098
+oracle m0.05  = 0.000000
+oracle m0.1   = 0.000000
+tie_rate       = 0.605469
+recency_scale  = 3.0139
+score_scale    = 3.9408
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.0240  n 2496
+  bucket 1: acc 0.0256  n 2073
+  bucket 2: acc 0.0255  n 1607
+  bucket 3: acc 0.0230  n 1303
+  bucket 4: acc 0.0224  n 1025
+  bucket 5: acc 0.0374  n 828
+  bucket 6: acc 0.0397  n 604
+  bucket 7: acc 0.0493  n 304

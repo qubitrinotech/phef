@@ -1,0 +1,242 @@
+nohup: ввод игнорируется
+════════ curve_kd2_s0 ════════
+tie_rate       = 0.007812
+recency_scale  = 1.8412
+score_scale    = 2.0199
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.8305  n 2496
+  bucket 1: acc 0.8345  n 2073
+  bucket 2: acc 0.8233  n 1607
+  bucket 3: acc 0.8066  n 1303
+  bucket 4: acc 0.8137  n 1025
+  bucket 5: acc 0.7899  n 828
+  bucket 6: acc 0.8262  n 604
+  bucket 7: acc 0.7533  n 304
+
+════════ curve_kd2_s1 ════════
+tie_rate       = 0.005859
+recency_scale  = 1.9330
+score_scale    = 2.0049
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.8315  n 2522
+  bucket 1: acc 0.8241  n 2007
+  bucket 2: acc 0.8306  n 1635
+  bucket 3: acc 0.8321  n 1316
+  bucket 4: acc 0.8176  n 1025
+  bucket 5: acc 0.7898  n 766
+  bucket 6: acc 0.7699  n 617
+  bucket 7: acc 0.8068  n 352
+
+════════ curve_kd2_s2 ════════
+tie_rate       = 0.007812
+recency_scale  = 1.9168
+score_scale    = 1.9965
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.8460  n 2526
+  bucket 1: acc 0.8438  n 2049
+  bucket 2: acc 0.8346  n 1632
+  bucket 3: acc 0.8325  n 1272
+  bucket 4: acc 0.8060  n 1031
+  bucket 5: acc 0.8155  n 802
+  bucket 6: acc 0.8007  n 567
+  bucket 7: acc 0.7950  n 361
+
+════════ curve_kd3_s0 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.0071
+score_scale    = 1.9895
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9984  n 2564
+  bucket 1: acc 0.9990  n 1987
+  bucket 2: acc 0.9982  n 1673
+  bucket 3: acc 0.9948  n 1355
+  bucket 4: acc 0.9959  n 968
+  bucket 5: acc 0.9906  n 746
+  bucket 6: acc 0.9810  n 633
+  bucket 7: acc 0.9873  n 314
+
+════════ curve_kd3_s1 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.0055
+score_scale    = 1.9968
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9992  n 2494
+  bucket 1: acc 0.9985  n 1969
+  bucket 2: acc 0.9982  n 1680
+  bucket 3: acc 0.9924  n 1315
+  bucket 4: acc 0.9952  n 1031
+  bucket 5: acc 0.9935  n 765
+  bucket 6: acc 0.9838  n 617
+  bucket 7: acc 0.9810  n 369
+
+════════ curve_kd3_s2 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.0324
+score_scale    = 1.9965
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9992  n 2555
+  bucket 1: acc 0.9951  n 2036
+  bucket 2: acc 0.9949  n 1582
+  bucket 3: acc 0.9961  n 1288
+  bucket 4: acc 0.9961  n 1015
+  bucket 5: acc 0.9890  n 819
+  bucket 6: acc 0.9866  n 597
+  bucket 7: acc 0.9914  n 348
+
+════════ curve_kd4_s0 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.3104
+score_scale    = 1.9885
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9992  n 2478
+  bucket 1: acc 0.9980  n 2015
+  bucket 2: acc 0.9975  n 1615
+  bucket 3: acc 0.9977  n 1296
+  bucket 4: acc 0.9971  n 1047
+  bucket 5: acc 0.9906  n 855
+  bucket 6: acc 0.9865  n 592
+  bucket 7: acc 0.9737  n 342
+
+════════ curve_kd4_s1 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2919
+score_scale    = 2.0208
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9996  n 2558
+  bucket 1: acc 0.9995  n 1975
+  bucket 2: acc 0.9988  n 1639
+  bucket 3: acc 0.9945  n 1262
+  bucket 4: acc 0.9902  n 1025
+  bucket 5: acc 0.9866  n 821
+  bucket 6: acc 0.9965  n 579
+  bucket 7: acc 0.9869  n 381
+
+════════ curve_kd4_s2 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2828
+score_scale    = 1.9966
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 2467
+  bucket 1: acc 1.0000  n 2054
+  bucket 2: acc 0.9987  n 1586
+  bucket 3: acc 0.9947  n 1330
+  bucket 4: acc 0.9952  n 1032
+  bucket 5: acc 0.9927  n 826
+  bucket 6: acc 0.9759  n 623
+  bucket 7: acc 0.9783  n 322
+
+════════ curve_kd5_s0 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2708
+score_scale    = 2.1230
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 2511
+  bucket 1: acc 0.9995  n 2017
+  bucket 2: acc 0.9981  n 1609
+  bucket 3: acc 0.9977  n 1282
+  bucket 4: acc 0.9971  n 1028
+  bucket 5: acc 0.9889  n 813
+  bucket 6: acc 0.9831  n 649
+  bucket 7: acc 0.9970  n 331
+
+════════ curve_kd5_s1 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2769
+score_scale    = 2.1289
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 2530
+  bucket 1: acc 0.9995  n 2045
+  bucket 2: acc 1.0000  n 1592
+  bucket 3: acc 0.9992  n 1281
+  bucket 4: acc 0.9931  n 1019
+  bucket 5: acc 0.9939  n 821
+  bucket 6: acc 0.9913  n 572
+  bucket 7: acc 0.9974  n 380
+
+════════ curve_kd5_s2 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2588
+score_scale    = 2.1488
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9992  n 2531
+  bucket 1: acc 0.9995  n 2072
+  bucket 2: acc 0.9975  n 1620
+  bucket 3: acc 1.0000  n 1300
+  bucket 4: acc 0.9921  n 1016
+  bucket 5: acc 0.9934  n 760
+  bucket 6: acc 0.9950  n 601
+  bucket 7: acc 0.9941  n 340
+
+════════ curve_kd6_s0 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.3066
+score_scale    = 2.0842
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9988  n 2519
+  bucket 1: acc 0.9990  n 2054
+  bucket 2: acc 0.9994  n 1575
+  bucket 3: acc 0.9977  n 1327
+  bucket 4: acc 0.9969  n 974
+  bucket 5: acc 0.9951  n 822
+  bucket 6: acc 0.9904  n 625
+  bucket 7: acc 0.9884  n 344
+
+════════ curve_kd6_s1 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.3009
+score_scale    = 2.0776
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 2558
+  bucket 1: acc 1.0000  n 2077
+  bucket 2: acc 1.0000  n 1620
+  bucket 3: acc 1.0000  n 1270
+  bucket 4: acc 0.9990  n 1050
+  bucket 5: acc 0.9987  n 786
+  bucket 6: acc 0.9963  n 541
+  bucket 7: acc 1.0000  n 338
+
+════════ curve_kd6_s2 ════════
+tie_rate       = 0.000000
+recency_scale  = 2.2965
+score_scale    = 2.1024
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000  n 2501
+  bucket 1: acc 1.0000  n 2063
+  bucket 2: acc 1.0000  n 1597
+  bucket 3: acc 0.9992  n 1274
+  bucket 4: acc 0.9961  n 1014
+  bucket 5: acc 0.9976  n 851
+  bucket 6: acc 0.9983  n 603
+  bucket 7: acc 1.0000  n 337
+
+experiments/run_kd_curve.sh: строка 43: неожиданный конец файла во время поиска «"»

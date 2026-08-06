@@ -1,0 +1,57 @@
+device=cuda n_segments=64 key_dim=32 dim=32 freeze_recency=False use_best=True select_metric=soft
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.0205 best 0.0205 @ 250 escape None
+epoch   500 sel_acc 0.0293 best 0.0293 @ 500 escape None
+epoch   500 loss 4.1031 chance 4.1589
+epoch   750 sel_acc 0.4067 best 0.4067 @ 750 escape 750
+epoch  1000 sel_acc 0.8442 best 0.8442 @ 1000 escape 750
+epoch  1000 loss 0.5367 chance 4.1589
+epoch  1250 sel_acc 0.9189 best 0.9189 @ 1250 escape 750
+epoch  1500 sel_acc 0.9385 best 0.9385 @ 1500 escape 750
+epoch  1500 loss 0.2335 chance 4.1589
+epoch  1750 sel_acc 0.9434 best 0.9434 @ 1750 escape 750
+epoch  2000 sel_acc 0.9453 best 0.9453 @ 2000 escape 750
+epoch  2000 loss 0.1171 chance 4.1589
+
+восстановлен best checkpoint: epoch 2000 sel_acc 0.9453
+
+=== ANALYSIS ===
+answer_acc     = 0.991406
+answer_soft    = 0.942969
+hard_soft_gap  = +0.048438
+retrieval_acc  = 0.991406
+retrieval_val  = 0.991406
+entropy_norm   = 0.190572
+oracle enc_m0.0   = 0.750000
+oracle enc_m0.02  = 0.651953
+oracle enc_m0.05  = 0.475391
+oracle enc_m0.1   = 0.166797
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.107031
+oracle mg_m0.02   = 0.103906
+oracle mg_m0.05   = 0.101172
+oracle mg_m0.1    = 0.096094
+oracle mg_top1    = 0.998828
+oracle raw_top1   = 1.000000
+oracle score_top1 = 0.991406
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 2.3430
+score_scale    = 3.3156
+memory_gate    = 1.5110
+escape_epoch   = 750
+drop           = 0.0263 (1.0000 -> 0.9737)
+best_sel_acc   = 0.9453 @ epoch 2000
+
+acc by distance (recent -> remote):
+  bucket 0: acc 1.0000 n 522
+  bucket 1: acc 0.9979 n 473
+  bucket 2: acc 0.9927 n 410
+  bucket 3: acc 0.9967 n 299
+  bucket 4: acc 0.9864 n 294
+  bucket 5: acc 0.9878 n 245
+  bucket 6: acc 0.9655 n 203
+  bucket 7: acc 0.9737 n 114

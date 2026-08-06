@@ -1,0 +1,56 @@
+{
+  "answer_acc": 0.983984375,
+  "retrieval_acc": 0.9837890625,
+  "oracle_bounds": {
+    "enc_m0.0": 1.0,
+    "enc_m0.02": 0.99580078125,
+    "enc_m0.05": 0.98291015625,
+    "enc_m0.1": 0.933984375,
+    "m0.0": 1.0,
+    "m0.02": 1.0,
+    "m0.05": 1.0,
+    "m0.1": 1.0
+  },
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    0.9918111753371869,
+    0.9877984084880637,
+    0.9861809045226131,
+    0.9804063860667634,
+    0.9784296807592753,
+    0.9801047120418848,
+    0.9719626168224299,
+    0.9775784753363229
+  ],
+  "count_by_distance": [
+    2076.0,
+    1885.0,
+    1592.0,
+    1378.0,
+    1159.0,
+    955.0,
+    749.0,
+    446.0
+  ],
+  "tie_rate": 0.0,
+  "escape_epoch": null,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 0.5073335766792297,
+  "score_scale": 1.5578795671463013,
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 64,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "epochs": 300,
+    "batch_size": 512,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "seed": 0,
+    "out": "results/_scratch/_smoke_enc.json"
+  }
+}

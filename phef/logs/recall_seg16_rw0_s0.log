@@ -1,0 +1,56 @@
+device=cuda memory=True retrieval_weight=0.0 emergent_mode=True answer_chance=0.015625 retrieval_chance=0.062500
+epoch     1 total 4.3164 answer 4.3164 retrieval 0.0000 answer_acc 0.0156 retrieval_acc 0.0420
+epoch   100 total 3.2014 answer 3.2014 retrieval 0.0000 answer_acc 0.1577 retrieval_acc 0.6733
+epoch   200 total 0.8203 answer 0.8203 retrieval 0.0000 answer_acc 0.7471 retrieval_acc 0.9702
+epoch   250 sel_acc 0.8076 best 0.8076 @ 250
+epoch   300 total 0.4223 answer 0.4223 retrieval 0.0000 answer_acc 0.8438 retrieval_acc 0.9961
+epoch   400 total 0.4282 answer 0.4282 retrieval 0.0000 answer_acc 0.8765 retrieval_acc 0.9976
+epoch   500 sel_acc 0.9102 best 0.9102 @ 500
+epoch   500 total 0.2696 answer 0.2696 retrieval 0.0000 answer_acc 0.9097 retrieval_acc 0.9990
+epoch   600 total 0.2572 answer 0.2572 retrieval 0.0000 answer_acc 0.9287 retrieval_acc 0.9985
+epoch   700 total 0.2801 answer 0.2801 retrieval 0.0000 answer_acc 0.9395 retrieval_acc 0.9985
+epoch   750 sel_acc 0.9414 best 0.9414 @ 750
+epoch   800 total 0.1955 answer 0.1955 retrieval 0.0000 answer_acc 0.9546 retrieval_acc 0.9985
+epoch   900 total 0.1841 answer 0.1841 retrieval 0.0000 answer_acc 0.9487 retrieval_acc 0.9990
+epoch  1000 sel_acc 0.9517 best 0.9517 @ 1000
+epoch  1000 total 0.2267 answer 0.2267 retrieval 0.0000 answer_acc 0.9541 retrieval_acc 0.9995
+epoch  1100 total 0.1169 answer 0.1169 retrieval 0.0000 answer_acc 0.9624 retrieval_acc 1.0000
+epoch  1200 total 0.1491 answer 0.1491 retrieval 0.0000 answer_acc 0.9707 retrieval_acc 0.9990
+epoch  1250 sel_acc 0.9658 best 0.9658 @ 1250
+epoch  1300 total 0.1379 answer 0.1379 retrieval 0.0000 answer_acc 0.9717 retrieval_acc 0.9995
+epoch  1400 total 0.1618 answer 0.1618 retrieval 0.0000 answer_acc 0.9692 retrieval_acc 0.9995
+epoch  1500 sel_acc 0.9766 best 0.9766 @ 1500
+epoch  1500 total 0.1495 answer 0.1495 retrieval 0.0000 answer_acc 0.9746 retrieval_acc 1.0000
+epoch  1600 total 0.1153 answer 0.1153 retrieval 0.0000 answer_acc 0.9780 retrieval_acc 0.9995
+epoch  1700 total 0.1023 answer 0.1023 retrieval 0.0000 answer_acc 0.9785 retrieval_acc 0.9990
+epoch  1750 sel_acc 0.9824 best 0.9824 @ 1750
+epoch  1800 total 0.0911 answer 0.0911 retrieval 0.0000 answer_acc 0.9819 retrieval_acc 1.0000
+epoch  1900 total 0.0954 answer 0.0954 retrieval 0.0000 answer_acc 0.9858 retrieval_acc 0.9995
+epoch  2000 sel_acc 0.9839 best 0.9839 @ 2000
+epoch  2000 total 0.1155 answer 0.1155 retrieval 0.0000 answer_acc 0.9868 retrieval_acc 1.0000
+epoch  2100 total 0.0685 answer 0.0685 retrieval 0.0000 answer_acc 0.9839 retrieval_acc 1.0000
+epoch  2200 total 0.0599 answer 0.0599 retrieval 0.0000 answer_acc 0.9863 retrieval_acc 1.0000
+epoch  2250 sel_acc 0.9839 best 0.9839 @ 2000
+epoch  2300 total 0.0665 answer 0.0665 retrieval 0.0000 answer_acc 0.9868 retrieval_acc 0.9995
+epoch  2400 total 0.0436 answer 0.0436 retrieval 0.0000 answer_acc 0.9868 retrieval_acc 1.0000
+epoch  2500 sel_acc 0.9873 best 0.9873 @ 2500
+epoch  2500 total 0.0726 answer 0.0726 retrieval 0.0000 answer_acc 0.9883 retrieval_acc 0.9995
+epoch  2600 total 0.0843 answer 0.0843 retrieval 0.0000 answer_acc 0.9868 retrieval_acc 1.0000
+epoch  2700 total 0.0528 answer 0.0528 retrieval 0.0000 answer_acc 0.9907 retrieval_acc 0.9990
+epoch  2750 sel_acc 0.9937 best 0.9937 @ 2750
+epoch  2800 total 0.0483 answer 0.0483 retrieval 0.0000 answer_acc 0.9912 retrieval_acc 0.9995
+epoch  2900 total 0.0384 answer 0.0384 retrieval 0.0000 answer_acc 0.9917 retrieval_acc 1.0000
+epoch  3000 sel_acc 0.9902 best 0.9937 @ 2750
+epoch  3000 total 0.0575 answer 0.0575 retrieval 0.0000 answer_acc 0.9912 retrieval_acc 0.9990
+
+восстановлен best checkpoint: epoch 2750 sel_acc 0.9937
+
+=== CONTROLS ===
+answer chance    = 0.015625
+retrieval chance = 0.062500
+real answer      = 0.988379
+real retrieval   = 0.999609
+shuffled answer  = 0.015137
+masked answer    = 0.014941
+control status   = PASS
+адресация возникла без retrieval-loss (retrieval_weight=0)

@@ -1,0 +1,46 @@
+{
+  "answer_acc": 0.9994140625,
+  "retrieval_acc": 0.9994140625,
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    1.0,
+    1.0,
+    0.9993894993894994,
+    1.0,
+    0.9991610738255033,
+    0.9979695431472081,
+    0.998639455782313,
+    0.9976303317535545
+  ],
+  "count_by_distance": [
+    2037.0,
+    1818.0,
+    1638.0,
+    1413.0,
+    1192.0,
+    985.0,
+    735.0,
+    422.0
+  ],
+  "tie_rate": 0.0,
+  "escape_epoch": 500,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 3.709404706954956,
+  "score_scale": 3.0601818561553955,
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 256,
+    "overwrite_p": 0.3,
+    "key_dim": 4,
+    "dim": 128,
+    "epochs": 8000,
+    "batch_size": 128,
+    "eval_batch_size": 512,
+    "eval_batches": 20,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "seed": 0,
+    "out": "results/kd4.json"
+  }
+}

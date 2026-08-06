@@ -1,0 +1,3 @@
+device=cuda n_segments=2048 key_dim=32 freeze_recency=False
+epoch   500 loss 4.1671 chance 4.1589 escaped=False
+epoch  1000 loss 4.1693 chance 4.1589 escaped=False

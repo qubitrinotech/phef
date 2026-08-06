@@ -1,0 +1,29 @@
+device=cuda n_segments=256 key_dim=3 freeze_recency=False
+epoch   500 loss 0.7794 chance 4.1589 escaped=True
+epoch  1000 loss 0.8130 chance 4.1589 escaped=True
+epoch  1500 loss 0.6775 chance 4.1589 escaped=True
+epoch  2000 loss 0.8509 chance 4.1589 escaped=True
+epoch  2500 loss 0.8312 chance 4.1589 escaped=True
+epoch  3000 loss 0.8899 chance 4.1589 escaped=True
+
+=== ANALYSIS ===
+answer_acc     = 0.995215
+retrieval_acc  = 0.995215
+oracle m0.0   = 1.000000
+oracle m0.02  = 0.213672
+oracle m0.05  = 0.024316
+oracle m0.1   = 0.000391
+tie_rate       = 0.000000
+recency_scale  = 2.0324
+score_scale    = 1.9965
+escape_epoch   = 500
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9992  n 2555
+  bucket 1: acc 0.9951  n 2036
+  bucket 2: acc 0.9949  n 1582
+  bucket 3: acc 0.9961  n 1288
+  bucket 4: acc 0.9961  n 1015
+  bucket 5: acc 0.9890  n 819
+  bucket 6: acc 0.9866  n 597
+  bucket 7: acc 0.9914  n 348
