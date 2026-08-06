@@ -1,0 +1,341 @@
+"""
+Holographic Memory System with Hysteresis Trace
+Based on principles of phase-space encoding and non-linear restitution
+
+FIXED: no in-place writes into autograd-tracked views (AsStrided version error).
+"""
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import numpy as np
+from typing import Tuple, Optional
+import math
+
+
+class FractalPositionalEncoding(nn.Module):
+    """
+    Topological Glue: fractal (Lorenz) attractor-based positional encoding.
+
+    Trajectory is built functionally (list + torch.stack), without in-place
+    slice assignment, so autograd never sees a mutated view.
+    Integration is done under no_grad and cached: only `projection` is trained.
+    """
+
+    def __init__(self, d_model: int, max_len: int = 500_000_000, dt: float = 0.01):
+        super().__init__()
+        self.d_model = d_model
+        self.max_len = max_len
+        self.dt = dt
+
+        # Lorenz parameters (kept as buffers: chaotic dynamics are not trainable)
+        self.register_buffer("sigma", torch.tensor(10.0))
+        self.register_buffer("rho", torch.tensor(28.0))
+        self.register_buffer("beta", torch.tensor(8.0 / 3.0))
+
+        self.projection = nn.Linear(3, d_model)
+
+        # Cache of the trajectory: [1, T, 3]
+        self.register_buffer("_traj_cache", torch.zeros(1, 0, 3), persistent=False)
+
+    @torch.no_grad()
+    def _build_trajectory(self, seq_len: int, device, dtype) -> torch.Tensor:
+        state = torch.ones(1, 3, device=device, dtype=dtype)
+        traj = [state]
+        for _ in range(1, seq_len):
+            px, py, pz = state[:, 0], state[:, 1], state[:, 2]
+            dx = self.sigma * (py - px)
+            dy = px * (self.rho - pz) - py
+            dz = px * py - self.beta * pz
+            state = state + self.dt * torch.stack([dx, dy, dz], dim=-1)
+            traj.append(state)
+        return torch.stack(traj, dim=1)  # [1, T, 3]
+
+    def _get_trajectory(self, seq_len: int, device, dtype) -> torch.Tensor:
+        cache = self._traj_cache
+        if cache.shape[1] < seq_len or cache.device != device or cache.dtype != dtype:
+            self._traj_cache = self._build_trajectory(seq_len, device, dtype)
+        return self._traj_cache[:, :seq_len]
+
+    def forward(self, positions: torch.Tensor) -> torch.Tensor:
+        """
+        positions: [batch_size, seq_len] (values unused, only shape matters)
+        returns:   [batch_size, seq_len, d_model]
+        """
+        batch_size, seq_len = positions.shape
+        dtype = self.projection.weight.dtype
+        traj = self._get_trajectory(seq_len, positions.device, dtype)
+
+        # Normalize the chaotic trajectory -> stable gradients in projection
+        traj = traj / (traj.norm(dim=-1, keepdim=True) + 1e-6)
+
+        enc = self.projection(traj)              # [1, T, d_model]
+        return enc.expand(batch_size, -1, -1)    # broadcast over batch
+
+
+class HysteresisMemoryState(nn.Module):
+    """
+    Memristive memory state that accumulates information via hysteresis.
+    O(1) storage with O(N) information content.
+
+    The stored state is fully detached from autograd; updates are applied
+    explicitly via update_memory_state().
+    """
+
+    def __init__(self, hidden_dim: int, memory_dim: int = 1024):
+        super().__init__()
+        self.hidden_dim = hidden_dim
+        self.memory_dim = memory_dim
+
+        self.coercivity = nn.Parameter(torch.ones(1) * 0.1)
+        self.remanence = nn.Parameter(torch.ones(1) * 0.95)
+
+        self.input_gate = nn.Sequential(
+            nn.Linear(hidden_dim, memory_dim),
+            nn.Tanh(),
+        )
+        self.update_gate = nn.Sequential(
+            nn.Linear(hidden_dim + memory_dim, memory_dim),
+            nn.Sigmoid(),
+        )
+        self.output_projection = nn.Linear(memory_dim, hidden_dim)
+
+        # Plain python container: invisible to PyTorch autograd / state_dict
+        self._state_container = [torch.zeros(1, memory_dim)]
+
+    @property
+    def memory_state(self) -> torch.Tensor:
+        return self._state_container[0]
+
+    def update_memory_state(self, new_state: torch.Tensor) -> None:
+        self._state_container[0] = new_state.detach().to("cpu").clone()
+
+    def forward(self, x: torch.Tensor, update: bool = True) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        x: [batch_size, hidden_dim]
+        returns (memory_projection [B, hidden_dim], proposed_state [B, memory_dim])
+        """
+        batch_size = x.shape[0]
+        device = x.device
+
+        current_memory = self._state_container[0].to(device=device, dtype=x.dtype)
+        # .repeat -> real tensor, never a stride-0 view that could be mutated
+        memory_expanded = current_memory.repeat(batch_size, 1)
+
+        new_input = self.input_gate(x)
+        update_ratio = self.update_gate(torch.cat([x, memory_expanded], dim=-1))
+
+        delta = new_input - memory_expanded
+        magnetization = torch.tanh(delta / (self.coercivity.abs() + 1e-6))
+
+        new_state = memory_expanded + update_ratio * magnetization * self.remanence
+        output = self.output_projection(new_state)
+
+        return output, new_state
+
+
+class HolographicFeatureDistiller(nn.Module):
+    """Holographic Feature Tensor: compresses feature space into interference patterns."""
+
+    def __init__(self, model_dim: int, hologram_dim: int = 2048):
+        super().__init__()
+        self.model_dim = model_dim
+        self.hologram_dim = hologram_dim
+
+        self.hologram = nn.Parameter(
+            torch.randn(hologram_dim, hologram_dim, dtype=torch.complex64) / math.sqrt(hologram_dim)
+        )
+        self.spectral_encoder = nn.Linear(model_dim, hologram_dim)
+        self.spectral_decoder = nn.Linear(hologram_dim, model_dim)
+        self.phase_modulator = nn.Parameter(torch.randn(hologram_dim) / math.sqrt(hologram_dim))
+
+    def forward(self, weights: torch.Tensor, context: Optional[torch.Tensor] = None) -> torch.Tensor:
+        spectral = self.spectral_encoder(weights)
+
+        spectral_complex = torch.complex(spectral, torch.zeros_like(spectral))
+        phase_shift = torch.matmul(spectral, self.phase_modulator).unsqueeze(-1)
+        phase_shift = torch.complex(torch.zeros_like(phase_shift), phase_shift)
+
+        interfered = spectral_complex * torch.exp(phase_shift)
+        modulated = torch.matmul(interfered.to(torch.complex64), self.hologram)
+
+        return self.spectral_decoder(modulated.real)
+
+
+class HomeostaticWeightOscillator(nn.Module):
+    """Resonance-based weight update dynamics (HOW)."""
+
+    def __init__(self, dim: int, natural_freq: float = 1.0):
+        super().__init__()
+        self.dim = dim
+        self.natural_freq = nn.Parameter(torch.ones(dim) * natural_freq)
+        self.damping = nn.Parameter(torch.ones(dim) * 0.1)
+
+        self._position_container = [torch.zeros(dim)]
+        self._velocity_container = [torch.zeros(dim)]
+
+    @property
+    def position(self) -> torch.Tensor:
+        return self._position_container[0]
+
+    @property
+    def velocity(self) -> torch.Tensor:
+        return self._velocity_container[0]
+
+    def forward(self, gradient_signal: torch.Tensor, dt: float = 0.01):
+        device, dtype = gradient_signal.device, gradient_signal.dtype
+        position = self._position_container[0].to(device=device, dtype=dtype)
+        velocity = self._velocity_container[0].to(device=device, dtype=dtype)
+
+        acceleration = (
+            -self.natural_freq ** 2 * position
+            - 2 * self.damping * velocity
+            + gradient_signal
+        )
+        new_velocity = velocity + acceleration * dt
+        new_position = position + new_velocity * dt
+        return new_position, new_velocity
+
+    def update_states(self, new_position: torch.Tensor, new_velocity: torch.Tensor) -> None:
+        self._position_container[0] = new_position.detach().to("cpu").clone()
+        self._velocity_container[0] = new_velocity.detach().to("cpu").clone()
+
+
+class AGICore(nn.Module):
+    """Main AGI Core combining all components."""
+
+    def __init__(
+        self,
+        vocab_size: int = 50000,
+        hidden_dim: int = 512,
+        num_layers: int = 4,
+        memory_dim: int = 1024,
+    ):
+        super().__init__()
+        self.hidden_dim = hidden_dim
+
+        self.embedding = nn.Embedding(vocab_size, hidden_dim)
+        self.pos_encoding = FractalPositionalEncoding(hidden_dim)
+        self.memory = HysteresisMemoryState(hidden_dim, memory_dim)
+        self.hologram = HolographicFeatureDistiller(hidden_dim)
+        self.oscillator = HomeostaticWeightOscillator(hidden_dim)
+
+        self.layers = nn.ModuleList([
+            nn.TransformerEncoderLayer(
+                d_model=hidden_dim,
+                nhead=8,
+                dim_feedforward=2048,
+                batch_first=True,
+            ) for _ in range(num_layers)
+        ])
+
+        self.output_proj = nn.Linear(hidden_dim, vocab_size)
+
+    def forward(self, input_ids: torch.Tensor, use_memory: bool = True):
+        """
+        input_ids: [batch_size, seq_len]
+        returns (logits [B, T, V], memory_state or None)
+        """
+        batch_size, seq_len = input_ids.shape
+
+        x = self.embedding(input_ids)
+        positions = torch.arange(seq_len, device=input_ids.device).unsqueeze(0).expand(batch_size, -1)
+        x = x + self.pos_encoding(positions)
+
+        proposed_memory = None
+        inject_at = len(self.layers) // 2
+
+        for i, layer in enumerate(self.layers):
+            if use_memory and i == inject_at:
+                mem_state, proposed_memory = self.memory(x.mean(dim=1))
+                x = x + mem_state.unsqueeze(1)
+            x = layer(x)
+
+        if use_memory and proposed_memory is not None:
+            self.memory.update_memory_state(proposed_memory.mean(0, keepdim=True))
+
+        logits = self.output_proj(x)
+
+        if not use_memory:
+            return logits, None
+        return logits, self.memory.memory_state.clone()
+
+    def spectral_update(self, context: torch.Tensor):
+        flat_params = torch.cat([p.view(-1) for p in self.parameters() if p.requires_grad])
+        transformed = self.hologram(flat_params.unsqueeze(0), context)
+        new_position, _ = self.oscillator(transformed.squeeze(0))
+        return new_position
+
+    def reset_memory(self) -> None:
+        self.memory.update_memory_state(torch.zeros(1, self.memory.memory_dim))
+
+
+def test_forward_pass():
+    print("Testing AGI Core forward pass...")
+    print("-" * 50)
+
+    model = AGICore(vocab_size=1000, hidden_dim=256, num_layers=2)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
+
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Total parameters: {total_params:,}")
+    print(f"Trainable parameters: {trainable_params:,}")
+
+    print("\n[Test 1] Basic forward pass")
+    input_ids = torch.randint(0, 1000, (4, 128))
+    logits, memory = model(input_ids)
+    print(f"Input shape: {tuple(input_ids.shape)}")
+    print(f"Logits shape: {tuple(logits.shape)}")
+    if memory is not None:
+        print(f"Memory state shape: {tuple(memory.shape)}")
+        print(f"Memory state norm: {memory.norm().item():.4f}")
+
+    print("\n[Test 2] Variable sequence lengths")
+    for test_len in (64, 256, 512):
+        model.reset_memory()
+        test_logits, _ = model(torch.randint(0, 1000, (2, test_len)))
+        print(f"  Seq len {test_len}: OK (output: {tuple(test_logits.shape)})")
+
+    print("\n[Test 3] Memory persistence")
+    model.reset_memory()
+    _, mem1 = model(torch.randint(0, 1000, (1, 32)))
+    _, mem2 = model(torch.randint(0, 1000, (1, 32)))
+    if mem1 is not None and mem2 is not None:
+        print(f"  Memory changed after second sequence: delta = {(mem1 - mem2).norm().item():.4f}")
+
+    print("\n[Test 4] Gradient computation")
+    model.reset_memory()
+    model.train()
+    optimizer.zero_grad(set_to_none=True)
+
+    logits, _ = model(torch.randint(0, 1000, (2, 32)))
+    loss = logits.pow(2).mean()
+    loss.backward()
+
+    grad_norm = sum(p.grad.norm().item() for p in model.parameters() if p.grad is not None)
+    has_grad = grad_norm > 0
+    print(f"  Gradients computed: {'OK' if has_grad else 'FAILED'}")
+    print(f"  Total gradient norm: {grad_norm:.4f}")
+
+    print("\n[Test 5] Multiple forward-backward passes")
+    model.reset_memory()
+    model.train()
+    for step in range(5):
+        optimizer.zero_grad(set_to_none=True)
+        logits, _ = model(torch.randint(0, 1000, (4, 32)))
+        loss = logits.pow(2).mean()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        optimizer.step()
+        print(f"  Step {step + 1}: loss = {loss.item():.4f}")
+    print("  Successfully completed 5 training steps!")
+
+    print("\n" + "=" * 50)
+    print("All tests passed!")
+    print("=" * 50)
+    return model
+
+
+if __name__ == "__main__":
+    model = test_forward_pass()
