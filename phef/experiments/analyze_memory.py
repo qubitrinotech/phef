@@ -127,6 +127,7 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
     model.eval()
 
     bucket_correct = np.zeros(n_buckets)
+    bucket_slot_correct = np.zeros(n_buckets)
     bucket_total = np.zeros(n_buckets)
 
     correct = 0
@@ -181,6 +182,11 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
 
         slots = world.last_slots.to(device)
         query_slots = world.last_query_slots.to(device)
+
+        # Попадание аргмакса реальных скоров в слот запроса, поэпизодно.
+        # Агрегат этого же — oracle_bounds["score_top1"]; здесь он нужен
+        # поэпизодно, чтобы разложить его по дистанции до ответа.
+        slot_hit = slots[rows, picked].eq(query_slots)
 
         bounds = oracle_bound(
             event_keys,
@@ -265,6 +271,7 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
             selected = bucket.eq(b)
             bucket_total[b] += selected.sum().item()
             bucket_correct[b] += is_correct[selected].sum().item()
+            bucket_slot_correct[b] += slot_hit[selected].sum().item()
 
     accuracy_by_distance = [
         (bucket_correct[b] / bucket_total[b])
@@ -273,8 +280,21 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         for b in range(n_buckets)
     ]
 
+    slot_accuracy_by_distance = [
+        (bucket_slot_correct[b] / bucket_total[b])
+        if bucket_total[b] > 0
+        else float("nan")
+        for b in range(n_buckets)
+    ]
+
     filled = [
         accuracy_by_distance[b]
+        for b in range(n_buckets)
+        if bucket_total[b] > 0
+    ]
+
+    filled_slot = [
+        slot_accuracy_by_distance[b]
         for b in range(n_buckets)
         if bucket_total[b] > 0
     ]
@@ -298,6 +318,14 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         "acc_remote": filled[-1] if filled else None,
         "drop_recent_remote": (
             filled[0] - filled[-1] if len(filled) > 1 else None
+        ),
+        "slot_acc_by_distance": slot_accuracy_by_distance,
+        "slot_acc_recent": filled_slot[0] if filled_slot else None,
+        "slot_acc_remote": filled_slot[-1] if filled_slot else None,
+        "slot_drop_recent_remote": (
+            filled_slot[0] - filled_slot[-1]
+            if len(filled_slot) > 1
+            else None
         ),
     }
 
@@ -580,6 +608,13 @@ def main():
             f"({report['acc_recent']:.4f} -> {report['acc_remote']:.4f})"
         )
 
+    if report["slot_drop_recent_remote"] is not None:
+        print(
+            f"slot_drop      = {report['slot_drop_recent_remote']:.4f} "
+            f"({report['slot_acc_recent']:.4f} -> "
+            f"{report['slot_acc_remote']:.4f})"
+        )
+
     if args.use_best:
         print(
             f"best_sel_acc   = {best_acc[0]:.4f} "
@@ -594,14 +629,39 @@ def main():
         )
 
     print("\nacc by distance (recent -> remote):")
-    for b, (acc, count) in enumerate(
-        zip(report["acc_by_distance"], report["count_by_distance"])
+    print("  bucket   answer   slot_hit        n")
+    for b, (acc, slot_acc, count) in enumerate(
+        zip(
+            report["acc_by_distance"],
+            report["slot_acc_by_distance"],
+            report["count_by_distance"],
+        )
     ):
-        print(f"  bucket {b}: acc {acc:.4f} n {int(count)}")
+        print(
+            f"  {b:6d} {acc:8.4f} {slot_acc:10.4f} {int(count):8d}"
+        )
 
     out_dir = os.path.dirname(args.out)
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
+
+    # Веса теряли уже дважды: прогон на 600k эпох невоспроизводим,
+    # а любая геометрическая проверка требует state_dict. Сохраняем
+    # всегда, рядом с --out, с тем же именем и расширением .pt.
+    weights_path = os.path.splitext(args.out)[0] + ".pt"
+    torch.save(
+        {
+            "state_dict": model.state_dict(),
+            "config": vars(args),
+            "best_epoch": best_loss[1],
+            "best_acc": best_acc[0] if args.use_best else None,
+            "selection": report["selection"],
+            "escape_epoch": escape_epoch[0],
+        },
+        weights_path,
+    )
+    report["weights_path"] = weights_path
+    print(f"\nвеса сохранены: {weights_path}")
 
     with open(args.out, "w") as handle:
         json.dump(report, handle, indent=2)

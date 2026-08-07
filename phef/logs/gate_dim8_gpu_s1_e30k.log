@@ -1,0 +1,226 @@
+nohup: ignoring input
+device=cuda n_segments=256 key_dim=32 dim=8 freeze_recency=False use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.0200 best 0.0200 @ 250 escape None
+epoch   500 sel_acc 0.0195 best 0.0200 @ 250 escape None
+epoch   500 loss 4.1705 chance 4.1589
+epoch   750 sel_acc 0.0181 best 0.0200 @ 250 escape None
+epoch  1000 sel_acc 0.0186 best 0.0200 @ 250 escape None
+epoch  1000 loss 4.1630 chance 4.1589
+epoch  1250 sel_acc 0.0132 best 0.0200 @ 250 escape None
+epoch  1500 sel_acc 0.0146 best 0.0200 @ 250 escape None
+epoch  1500 loss 4.1551 chance 4.1589
+epoch  1750 sel_acc 0.0190 best 0.0200 @ 250 escape None
+epoch  2000 sel_acc 0.0171 best 0.0200 @ 250 escape None
+epoch  2000 loss 4.1630 chance 4.1589
+epoch  2250 sel_acc 0.0229 best 0.0229 @ 2250 escape None
+epoch  2500 sel_acc 0.0190 best 0.0229 @ 2250 escape None
+epoch  2500 loss 4.1547 chance 4.1589
+epoch  2750 sel_acc 0.0181 best 0.0229 @ 2250 escape None
+epoch  3000 sel_acc 0.0112 best 0.0229 @ 2250 escape None
+epoch  3000 loss 4.1556 chance 4.1589
+epoch  3250 sel_acc 0.0220 best 0.0229 @ 2250 escape None
+epoch  3500 sel_acc 0.0171 best 0.0229 @ 2250 escape None
+epoch  3500 loss 4.1578 chance 4.1589
+epoch  3750 sel_acc 0.0229 best 0.0229 @ 2250 escape None
+epoch  4000 sel_acc 0.0215 best 0.0229 @ 2250 escape None
+epoch  4000 loss 4.1509 chance 4.1589
+epoch  4250 sel_acc 0.0205 best 0.0229 @ 2250 escape None
+epoch  4500 sel_acc 0.0190 best 0.0229 @ 2250 escape None
+epoch  4500 loss 4.1438 chance 4.1589
+epoch  4750 sel_acc 0.0186 best 0.0229 @ 2250 escape None
+epoch  5000 sel_acc 0.0171 best 0.0229 @ 2250 escape None
+epoch  5000 loss 4.1496 chance 4.1589
+epoch  5250 sel_acc 0.0195 best 0.0229 @ 2250 escape None
+epoch  5500 sel_acc 0.0215 best 0.0229 @ 2250 escape None
+epoch  5500 loss 4.1531 chance 4.1589
+epoch  5750 sel_acc 0.0234 best 0.0234 @ 5750 escape None
+epoch  6000 sel_acc 0.0190 best 0.0234 @ 5750 escape None
+epoch  6000 loss 4.1586 chance 4.1589
+epoch  6250 sel_acc 0.0132 best 0.0234 @ 5750 escape None
+epoch  6500 sel_acc 0.0210 best 0.0234 @ 5750 escape None
+epoch  6500 loss 4.1392 chance 4.1589
+epoch  6750 sel_acc 0.0225 best 0.0234 @ 5750 escape None
+epoch  7000 sel_acc 0.0308 best 0.0308 @ 7000 escape None
+epoch  7000 loss 4.1239 chance 4.1589
+epoch  7250 sel_acc 0.0303 best 0.0308 @ 7000 escape None
+epoch  7500 sel_acc 0.0322 best 0.0322 @ 7500 escape 7500
+epoch  7500 loss 4.1031 chance 4.1589
+epoch  7750 sel_acc 0.0273 best 0.0322 @ 7500 escape 7500
+epoch  8000 sel_acc 0.0283 best 0.0322 @ 7500 escape 7500
+epoch  8000 loss 4.0972 chance 4.1589
+epoch  8250 sel_acc 0.0278 best 0.0322 @ 7500 escape 7500
+epoch  8500 sel_acc 0.0322 best 0.0322 @ 7500 escape 7500
+epoch  8500 loss 4.0913 chance 4.1589
+epoch  8750 sel_acc 0.0352 best 0.0352 @ 8750 escape 7500
+epoch  9000 sel_acc 0.0430 best 0.0430 @ 9000 escape 7500
+epoch  9000 loss 4.0555 chance 4.1589
+epoch  9250 sel_acc 0.0479 best 0.0479 @ 9250 escape 7500
+epoch  9500 sel_acc 0.0547 best 0.0547 @ 9500 escape 7500
+epoch  9500 loss 4.0634 chance 4.1589
+epoch  9750 sel_acc 0.0483 best 0.0547 @ 9500 escape 7500
+epoch 10000 sel_acc 0.0503 best 0.0547 @ 9500 escape 7500
+epoch 10000 loss 4.0253 chance 4.1589
+epoch 10250 sel_acc 0.0483 best 0.0547 @ 9500 escape 7500
+epoch 10500 sel_acc 0.0566 best 0.0566 @ 10500 escape 7500
+epoch 10500 loss 3.9882 chance 4.1589
+epoch 10750 sel_acc 0.0630 best 0.0630 @ 10750 escape 7500
+epoch 11000 sel_acc 0.0977 best 0.0977 @ 11000 escape 7500
+epoch 11000 loss 3.7679 chance 4.1589
+epoch 11250 sel_acc 0.1084 best 0.1084 @ 11250 escape 7500
+epoch 11500 sel_acc 0.1167 best 0.1167 @ 11500 escape 7500
+epoch 11500 loss 3.7534 chance 4.1589
+epoch 11750 sel_acc 0.1401 best 0.1401 @ 11750 escape 7500
+epoch 12000 sel_acc 0.1294 best 0.1401 @ 11750 escape 7500
+epoch 12000 loss 3.5559 chance 4.1589
+epoch 12250 sel_acc 0.1533 best 0.1533 @ 12250 escape 7500
+epoch 12500 sel_acc 0.1694 best 0.1694 @ 12500 escape 7500
+epoch 12500 loss 3.4562 chance 4.1589
+epoch 12750 sel_acc 0.1865 best 0.1865 @ 12750 escape 7500
+epoch 13000 sel_acc 0.1885 best 0.1885 @ 13000 escape 7500
+epoch 13000 loss 3.3171 chance 4.1589
+epoch 13250 sel_acc 0.2163 best 0.2163 @ 13250 escape 7500
+epoch 13500 sel_acc 0.2256 best 0.2256 @ 13500 escape 7500
+epoch 13500 loss 3.2347 chance 4.1589
+epoch 13750 sel_acc 0.2339 best 0.2339 @ 13750 escape 7500
+epoch 14000 sel_acc 0.2354 best 0.2354 @ 14000 escape 7500
+epoch 14000 loss 3.0841 chance 4.1589
+epoch 14250 sel_acc 0.2627 best 0.2627 @ 14250 escape 7500
+epoch 14500 sel_acc 0.2749 best 0.2749 @ 14500 escape 7500
+epoch 14500 loss 3.1326 chance 4.1589
+epoch 14750 sel_acc 0.2886 best 0.2886 @ 14750 escape 7500
+epoch 15000 sel_acc 0.3076 best 0.3076 @ 15000 escape 7500
+epoch 15000 loss 3.1662 chance 4.1589
+epoch 15250 sel_acc 0.3286 best 0.3286 @ 15250 escape 7500
+epoch 15500 sel_acc 0.3105 best 0.3286 @ 15250 escape 7500
+epoch 15500 loss 2.8180 chance 4.1589
+epoch 15750 sel_acc 0.3223 best 0.3286 @ 15250 escape 7500
+epoch 16000 sel_acc 0.3374 best 0.3374 @ 16000 escape 7500
+epoch 16000 loss 3.0217 chance 4.1589
+epoch 16250 sel_acc 0.3618 best 0.3618 @ 16250 escape 7500
+epoch 16500 sel_acc 0.3564 best 0.3618 @ 16250 escape 7500
+epoch 16500 loss 2.8394 chance 4.1589
+epoch 16750 sel_acc 0.3735 best 0.3735 @ 16750 escape 7500
+epoch 17000 sel_acc 0.3926 best 0.3926 @ 17000 escape 7500
+epoch 17000 loss 2.8154 chance 4.1589
+epoch 17250 sel_acc 0.3950 best 0.3950 @ 17250 escape 7500
+epoch 17500 sel_acc 0.4312 best 0.4312 @ 17500 escape 7500
+epoch 17500 loss 2.6856 chance 4.1589
+epoch 17750 sel_acc 0.4033 best 0.4312 @ 17500 escape 7500
+epoch 18000 sel_acc 0.4238 best 0.4312 @ 17500 escape 7500
+epoch 18000 loss 2.5735 chance 4.1589
+epoch 18250 sel_acc 0.4546 best 0.4546 @ 18250 escape 7500
+epoch 18500 sel_acc 0.4487 best 0.4546 @ 18250 escape 7500
+epoch 18500 loss 2.6311 chance 4.1589
+epoch 18750 sel_acc 0.4497 best 0.4546 @ 18250 escape 7500
+epoch 19000 sel_acc 0.4443 best 0.4546 @ 18250 escape 7500
+epoch 19000 loss 2.4828 chance 4.1589
+epoch 19250 sel_acc 0.4604 best 0.4604 @ 19250 escape 7500
+epoch 19500 sel_acc 0.4478 best 0.4604 @ 19250 escape 7500
+epoch 19500 loss 2.6879 chance 4.1589
+epoch 19750 sel_acc 0.4604 best 0.4604 @ 19250 escape 7500
+epoch 20000 sel_acc 0.4722 best 0.4722 @ 20000 escape 7500
+epoch 20000 loss 2.5439 chance 4.1589
+epoch 20250 sel_acc 0.4912 best 0.4912 @ 20250 escape 7500
+epoch 20500 sel_acc 0.4810 best 0.4912 @ 20250 escape 7500
+epoch 20500 loss 2.6649 chance 4.1589
+epoch 20750 sel_acc 0.5093 best 0.5093 @ 20750 escape 7500
+epoch 21000 sel_acc 0.5073 best 0.5093 @ 20750 escape 7500
+epoch 21000 loss 2.6954 chance 4.1589
+epoch 21250 sel_acc 0.5156 best 0.5156 @ 21250 escape 7500
+epoch 21500 sel_acc 0.5259 best 0.5259 @ 21500 escape 7500
+epoch 21500 loss 2.3188 chance 4.1589
+epoch 21750 sel_acc 0.5542 best 0.5542 @ 21750 escape 7500
+epoch 22000 sel_acc 0.5278 best 0.5542 @ 21750 escape 7500
+epoch 22000 loss 2.7101 chance 4.1589
+epoch 22250 sel_acc 0.5254 best 0.5542 @ 21750 escape 7500
+epoch 22500 sel_acc 0.5259 best 0.5542 @ 21750 escape 7500
+epoch 22500 loss 2.5329 chance 4.1589
+epoch 22750 sel_acc 0.5391 best 0.5542 @ 21750 escape 7500
+epoch 23000 sel_acc 0.5664 best 0.5664 @ 23000 escape 7500
+epoch 23000 loss 2.3403 chance 4.1589
+epoch 23250 sel_acc 0.5571 best 0.5664 @ 23000 escape 7500
+epoch 23500 sel_acc 0.5591 best 0.5664 @ 23000 escape 7500
+epoch 23500 loss 2.5364 chance 4.1589
+epoch 23750 sel_acc 0.5596 best 0.5664 @ 23000 escape 7500
+epoch 24000 sel_acc 0.5718 best 0.5718 @ 24000 escape 7500
+epoch 24000 loss 2.6759 chance 4.1589
+epoch 24250 sel_acc 0.5649 best 0.5718 @ 24000 escape 7500
+epoch 24500 sel_acc 0.5776 best 0.5776 @ 24500 escape 7500
+epoch 24500 loss 2.5571 chance 4.1589
+epoch 24750 sel_acc 0.5562 best 0.5776 @ 24500 escape 7500
+epoch 25000 sel_acc 0.5742 best 0.5776 @ 24500 escape 7500
+epoch 25000 loss 2.1861 chance 4.1589
+epoch 25250 sel_acc 0.5923 best 0.5923 @ 25250 escape 7500
+epoch 25500 sel_acc 0.5962 best 0.5962 @ 25500 escape 7500
+epoch 25500 loss 2.5770 chance 4.1589
+epoch 25750 sel_acc 0.6011 best 0.6011 @ 25750 escape 7500
+epoch 26000 sel_acc 0.5894 best 0.6011 @ 25750 escape 7500
+epoch 26000 loss 2.1877 chance 4.1589
+epoch 26250 sel_acc 0.5835 best 0.6011 @ 25750 escape 7500
+epoch 26500 sel_acc 0.5903 best 0.6011 @ 25750 escape 7500
+epoch 26500 loss 2.4444 chance 4.1589
+epoch 26750 sel_acc 0.6177 best 0.6177 @ 26750 escape 7500
+epoch 27000 sel_acc 0.6064 best 0.6177 @ 26750 escape 7500
+epoch 27000 loss 2.2340 chance 4.1589
+epoch 27250 sel_acc 0.5859 best 0.6177 @ 26750 escape 7500
+epoch 27500 sel_acc 0.6050 best 0.6177 @ 26750 escape 7500
+epoch 27500 loss 2.2505 chance 4.1589
+epoch 27750 sel_acc 0.6265 best 0.6265 @ 27750 escape 7500
+epoch 28000 sel_acc 0.5977 best 0.6265 @ 27750 escape 7500
+epoch 28000 loss 2.3503 chance 4.1589
+epoch 28250 sel_acc 0.6318 best 0.6318 @ 28250 escape 7500
+epoch 28500 sel_acc 0.6299 best 0.6318 @ 28250 escape 7500
+epoch 28500 loss 2.2241 chance 4.1589
+epoch 28750 sel_acc 0.6367 best 0.6367 @ 28750 escape 7500
+epoch 29000 sel_acc 0.6392 best 0.6392 @ 29000 escape 7500
+epoch 29000 loss 2.4440 chance 4.1589
+epoch 29250 sel_acc 0.6313 best 0.6392 @ 29000 escape 7500
+epoch 29500 sel_acc 0.6328 best 0.6392 @ 29000 escape 7500
+epoch 29500 loss 2.3238 chance 4.1589
+epoch 29750 sel_acc 0.6450 best 0.6450 @ 29750 escape 7500
+epoch 30000 sel_acc 0.6436 best 0.6450 @ 29750 escape 7500
+epoch 30000 loss 2.5144 chance 4.1589
+
+восстановлен best checkpoint: epoch 29750 sel_acc 0.6450
+
+=== ANALYSIS ===
+answer_acc     = 0.783496
+answer_soft    = 0.635938
+hard_soft_gap  = +0.147559
+retrieval_acc  = 0.780078
+retrieval_val  = 0.783594
+entropy_norm   = 0.156182
+oracle enc_m0.0   = 0.124316
+oracle enc_m0.02  = 0.003125
+oracle enc_m0.05  = 0.000879
+oracle enc_m0.1   = 0.000195
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.262012
+oracle mg_m0.02   = 0.250195
+oracle mg_m0.05   = 0.231348
+oracle mg_m0.1    = 0.200391
+oracle mg_top1    = 0.812207
+oracle raw_top1   = 1.000000
+oracle score_top1 = 0.780078
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 4.5947
+score_scale    = 18.1054
+memory_gate    = 7.0084
+escape_epoch   = 7500
+drop           = 0.4532 (0.9106 -> 0.4574)
+best_sel_acc   = 0.6450 @ epoch 29750
+
+acc by distance (recent -> remote):
+  bucket 0: acc 0.9106 n 2506
+  bucket 1: acc 0.8809 n 1973
+  bucket 2: acc 0.8246 n 1648
+  bucket 3: acc 0.7455 n 1320
+  bucket 4: acc 0.6792 n 1041
+  bucket 5: acc 0.5815 n 865
+  bucket 6: acc 0.5351 n 570
+  bucket 7: acc 0.4574 n 317
