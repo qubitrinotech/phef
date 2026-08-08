@@ -1,0 +1,1877 @@
+[
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg1024_s0_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 1024,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 0,
+      "out": "results/v5/segsweep_dim8_gpu_seg1024_s0_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100000,
+    "base_recency": 32.436702728271484,
+    "base_score": 39.398136138916016,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 4.374121189117432,
+      "own_count_max": 39.0,
+      "frac_own_count_1": 0.13212890923023224,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -16.462631225585938,
+        -9.266241073608398,
+        -1.2864232063293457,
+        -0.6222175359725952,
+        0.2912025451660156,
+        2.25304913520813,
+        45.1480712890625
+      ],
+      "frac_gap_pos": 0.6981445550918579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.3018554747104645,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 3.86396484375,
+          "frac_foreign_in_cand": 0.30185546875,
+          "frac_own_in_cand": 0.69814453125,
+          "frac_own_and_clean": 0.69814453125
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 3.86396484375,
+          "frac_foreign_in_cand": 0.30185546875,
+          "frac_own_in_cand": 0.69814453125,
+          "frac_own_and_clean": 0.69814453125
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 3.86396484375,
+          "frac_foreign_in_cand": 0.30185546875,
+          "frac_own_in_cand": 0.69814453125,
+          "frac_own_and_clean": 0.69814453125
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 3.86396484375,
+          "frac_foreign_in_cand": 0.30185546875,
+          "frac_own_in_cand": 0.69814453125,
+          "frac_own_and_clean": 0.69814453125
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 3.865625,
+          "frac_foreign_in_cand": 0.30185546875,
+          "frac_own_in_cand": 0.69833984375,
+          "frac_own_and_clean": 0.69814453125
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 3.87080078125,
+          "frac_foreign_in_cand": 0.30234375,
+          "frac_own_in_cand": 0.69892578125,
+          "frac_own_and_clean": 0.69765625
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 3.9140625,
+          "frac_foreign_in_cand": 0.3078125,
+          "frac_own_in_cand": 0.70498046875,
+          "frac_own_and_clean": 0.6921875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 4.426953125,
+          "frac_foreign_in_cand": 0.36748046875,
+          "frac_own_in_cand": 0.763671875,
+          "frac_own_and_clean": 0.63251953125
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg1024_s1_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 1024,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 1,
+      "out": "results/v5/segsweep_dim8_gpu_seg1024_s1_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100001,
+    "base_recency": 29.95125389099121,
+    "base_score": 44.70526885986328,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 4.365527629852295,
+      "own_count_max": 48.0,
+      "frac_own_count_1": 0.13056640326976776,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -15.616165161132812,
+        -5.074310302734375,
+        -1.027087926864624,
+        -0.5391747951507568,
+        0.25188255310058594,
+        1.9620976448059082,
+        42.879913330078125
+      ],
+      "frac_gap_pos": 0.695605456829071,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.30439454317092896,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 3.85,
+          "frac_foreign_in_cand": 0.30439453125,
+          "frac_own_in_cand": 0.69560546875,
+          "frac_own_and_clean": 0.69560546875
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 3.85,
+          "frac_foreign_in_cand": 0.30439453125,
+          "frac_own_in_cand": 0.69560546875,
+          "frac_own_and_clean": 0.69560546875
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 3.85,
+          "frac_foreign_in_cand": 0.30439453125,
+          "frac_own_in_cand": 0.69560546875,
+          "frac_own_and_clean": 0.69560546875
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 3.85,
+          "frac_foreign_in_cand": 0.30439453125,
+          "frac_own_in_cand": 0.69560546875,
+          "frac_own_and_clean": 0.69560546875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 3.8501953125,
+          "frac_foreign_in_cand": 0.3044921875,
+          "frac_own_in_cand": 0.69560546875,
+          "frac_own_and_clean": 0.6955078125
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 3.8552734375,
+          "frac_foreign_in_cand": 0.3052734375,
+          "frac_own_in_cand": 0.696484375,
+          "frac_own_and_clean": 0.6947265625
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 3.909375,
+          "frac_foreign_in_cand": 0.31328125,
+          "frac_own_in_cand": 0.703125,
+          "frac_own_and_clean": 0.68671875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 4.4677734375,
+          "frac_foreign_in_cand": 0.384375,
+          "frac_own_in_cand": 0.76357421875,
+          "frac_own_and_clean": 0.615625
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg1024_s2_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 1024,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 2,
+      "out": "results/v5/segsweep_dim8_gpu_seg1024_s2_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100002,
+    "base_recency": 32.73817443847656,
+    "base_score": 61.15253448486328,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 4.3505859375,
+      "own_count_max": 59.0,
+      "frac_own_count_1": 0.13144531846046448,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -5.237541198730469,
+        -2.299163341522217,
+        -0.41899359226226807,
+        -0.061896320432424545,
+        0.870203971862793,
+        3.7750747203826904,
+        28.824180603027344
+      ],
+      "frac_gap_pos": 0.9344726800918579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.06552734225988388,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 4.23798828125,
+          "frac_foreign_in_cand": 0.06552734375,
+          "frac_own_in_cand": 0.93447265625,
+          "frac_own_and_clean": 0.93447265625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 4.23798828125,
+          "frac_foreign_in_cand": 0.06552734375,
+          "frac_own_in_cand": 0.93447265625,
+          "frac_own_and_clean": 0.93447265625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 4.23798828125,
+          "frac_foreign_in_cand": 0.06552734375,
+          "frac_own_in_cand": 0.93447265625,
+          "frac_own_and_clean": 0.93447265625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 4.23798828125,
+          "frac_foreign_in_cand": 0.06552734375,
+          "frac_own_in_cand": 0.93447265625,
+          "frac_own_and_clean": 0.93447265625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 4.23857421875,
+          "frac_foreign_in_cand": 0.06552734375,
+          "frac_own_in_cand": 0.9345703125,
+          "frac_own_and_clean": 0.93447265625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 4.2427734375,
+          "frac_foreign_in_cand": 0.06611328125,
+          "frac_own_in_cand": 0.93505859375,
+          "frac_own_and_clean": 0.93388671875
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 4.25693359375,
+          "frac_foreign_in_cand": 0.06865234375,
+          "frac_own_in_cand": 0.9373046875,
+          "frac_own_and_clean": 0.93134765625
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 4.43623046875,
+          "frac_foreign_in_cand": 0.09794921875,
+          "frac_own_in_cand": 0.958203125,
+          "frac_own_and_clean": 0.90205078125
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg128_s0_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 128,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 0,
+      "out": "results/v5/segsweep_dim8_gpu_seg128_s0_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100000,
+    "base_recency": 29.24463653564453,
+    "base_score": 57.901893615722656,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.525585889816284,
+      "own_count_max": 37.0,
+      "frac_own_count_1": 0.45625001192092896,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -4.436206817626953,
+        -1.042700171470642,
+        -0.20881108939647675,
+        0.13866834342479706,
+        1.5843017101287842,
+        6.529737949371338,
+        32.83087921142578
+      ],
+      "frac_gap_pos": 0.972460925579071,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.02753906324505806,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.5015625,
+          "frac_foreign_in_cand": 0.0275390625,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.9724609375
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.5015625,
+          "frac_foreign_in_cand": 0.0275390625,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.9724609375
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.5015625,
+          "frac_foreign_in_cand": 0.0275390625,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.9724609375
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.5015625,
+          "frac_foreign_in_cand": 0.0275390625,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.9724609375
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.5015625,
+          "frac_foreign_in_cand": 0.0275390625,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.9724609375
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.50166015625,
+          "frac_foreign_in_cand": 0.02763671875,
+          "frac_own_in_cand": 0.9724609375,
+          "frac_own_and_clean": 0.97236328125
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.50830078125,
+          "frac_foreign_in_cand": 0.02919921875,
+          "frac_own_in_cand": 0.973828125,
+          "frac_own_and_clean": 0.97080078125
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.5560546875,
+          "frac_foreign_in_cand": 0.04306640625,
+          "frac_own_in_cand": 0.983203125,
+          "frac_own_and_clean": 0.95693359375
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg128_s1_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 128,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 1,
+      "out": "results/v5/segsweep_dim8_gpu_seg128_s1_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100001,
+    "base_recency": 31.5932559967041,
+    "base_score": 60.73210525512695,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.5137696266174316,
+      "own_count_max": 34.0,
+      "frac_own_count_1": 0.4473632872104645,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -4.050283432006836,
+        -1.051247239112854,
+        -0.18967339396476746,
+        0.14916452765464783,
+        1.6697335243225098,
+        6.866281032562256,
+        34.0462760925293
+      ],
+      "frac_gap_pos": 0.974316418170929,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.02568359486758709,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.48984375,
+          "frac_foreign_in_cand": 0.02568359375,
+          "frac_own_in_cand": 0.97431640625,
+          "frac_own_and_clean": 0.97431640625
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.4974609375,
+          "frac_foreign_in_cand": 0.02705078125,
+          "frac_own_in_cand": 0.97548828125,
+          "frac_own_and_clean": 0.97294921875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.53896484375,
+          "frac_foreign_in_cand": 0.04072265625,
+          "frac_own_in_cand": 0.98359375,
+          "frac_own_and_clean": 0.95927734375
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg128_s2_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 128,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 2,
+      "out": "results/v5/segsweep_dim8_gpu_seg128_s2_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100002,
+    "base_recency": 29.32344627380371,
+    "base_score": 56.924625396728516,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.4642579555511475,
+      "own_count_max": 24.0,
+      "frac_own_count_1": 0.4613281190395355,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -2.292102813720703,
+        -0.49815937876701355,
+        -0.06103861704468727,
+        0.18778029084205627,
+        1.573451280593872,
+        6.595300197601318,
+        36.26472473144531
+      ],
+      "frac_gap_pos": 0.9837890863418579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.01621093787252903,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.45,
+          "frac_foreign_in_cand": 0.0162109375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.9837890625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.45,
+          "frac_foreign_in_cand": 0.0162109375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.9837890625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.45,
+          "frac_foreign_in_cand": 0.0162109375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.9837890625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.45,
+          "frac_foreign_in_cand": 0.0162109375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.9837890625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.45,
+          "frac_foreign_in_cand": 0.0162109375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.9837890625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.45009765625,
+          "frac_foreign_in_cand": 0.01630859375,
+          "frac_own_in_cand": 0.9837890625,
+          "frac_own_and_clean": 0.98369140625
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.45458984375,
+          "frac_foreign_in_cand": 0.0173828125,
+          "frac_own_in_cand": 0.98466796875,
+          "frac_own_and_clean": 0.9826171875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.49228515625,
+          "frac_foreign_in_cand": 0.03134765625,
+          "frac_own_in_cand": 0.99150390625,
+          "frac_own_and_clean": 0.96865234375
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg256_s0_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 256,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 0,
+      "out": "results/v5/segsweep_dim8_gpu_seg256_s0_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100000,
+    "base_recency": 25.870567321777344,
+    "base_score": 43.87825012207031,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.8291993141174316,
+      "own_count_max": 32.0,
+      "frac_own_count_1": 0.37480470538139343,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -14.771881103515625,
+        -5.189394474029541,
+        -0.9585694074630737,
+        -0.45233839750289917,
+        0.7318000793457031,
+        5.143996238708496,
+        67.04951477050781
+      ],
+      "frac_gap_pos": 0.828417956829071,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.17158202826976776,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.63818359375,
+          "frac_foreign_in_cand": 0.17158203125,
+          "frac_own_in_cand": 0.82841796875,
+          "frac_own_and_clean": 0.82841796875
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.63818359375,
+          "frac_foreign_in_cand": 0.17158203125,
+          "frac_own_in_cand": 0.82841796875,
+          "frac_own_and_clean": 0.82841796875
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.63818359375,
+          "frac_foreign_in_cand": 0.17158203125,
+          "frac_own_in_cand": 0.82841796875,
+          "frac_own_and_clean": 0.82841796875
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.63818359375,
+          "frac_foreign_in_cand": 0.17158203125,
+          "frac_own_in_cand": 0.82841796875,
+          "frac_own_and_clean": 0.82841796875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.63818359375,
+          "frac_foreign_in_cand": 0.17158203125,
+          "frac_own_in_cand": 0.82841796875,
+          "frac_own_and_clean": 0.82841796875
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.6392578125,
+          "frac_foreign_in_cand": 0.1716796875,
+          "frac_own_in_cand": 0.82861328125,
+          "frac_own_and_clean": 0.8283203125
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.6544921875,
+          "frac_foreign_in_cand": 0.17587890625,
+          "frac_own_in_cand": 0.832421875,
+          "frac_own_and_clean": 0.82412109375
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.818359375,
+          "frac_foreign_in_cand": 0.2087890625,
+          "frac_own_in_cand": 0.86474609375,
+          "frac_own_and_clean": 0.7912109375
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg256_s1_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 256,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 1,
+      "out": "results/v5/segsweep_dim8_gpu_seg256_s1_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100001,
+    "base_recency": 25.3577938079834,
+    "base_score": 59.45586395263672,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.7828125953674316,
+      "own_count_max": 29.0,
+      "frac_own_count_1": 0.3857421875,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -13.126998901367188,
+        -5.640414714813232,
+        -0.6989485025405884,
+        -0.2935792803764343,
+        0.5460095405578613,
+        3.809377431869507,
+        32.44720458984375
+      ],
+      "frac_gap_pos": 0.8353515863418579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.16464844346046448,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.58681640625,
+          "frac_foreign_in_cand": 0.1646484375,
+          "frac_own_in_cand": 0.8353515625,
+          "frac_own_and_clean": 0.8353515625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.58681640625,
+          "frac_foreign_in_cand": 0.1646484375,
+          "frac_own_in_cand": 0.8353515625,
+          "frac_own_and_clean": 0.8353515625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.58681640625,
+          "frac_foreign_in_cand": 0.1646484375,
+          "frac_own_in_cand": 0.8353515625,
+          "frac_own_and_clean": 0.8353515625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.58681640625,
+          "frac_foreign_in_cand": 0.1646484375,
+          "frac_own_in_cand": 0.8353515625,
+          "frac_own_and_clean": 0.8353515625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.58681640625,
+          "frac_foreign_in_cand": 0.1646484375,
+          "frac_own_in_cand": 0.8353515625,
+          "frac_own_and_clean": 0.8353515625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.5912109375,
+          "frac_foreign_in_cand": 0.165625,
+          "frac_own_in_cand": 0.83623046875,
+          "frac_own_and_clean": 0.834375
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.612890625,
+          "frac_foreign_in_cand": 0.16962890625,
+          "frac_own_in_cand": 0.84150390625,
+          "frac_own_and_clean": 0.83037109375
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.85537109375,
+          "frac_foreign_in_cand": 0.2224609375,
+          "frac_own_in_cand": 0.88681640625,
+          "frac_own_and_clean": 0.7775390625
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg256_s2_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 256,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 2,
+      "out": "results/v5/segsweep_dim8_gpu_seg256_s2_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100002,
+    "base_recency": 30.186981201171875,
+    "base_score": 64.10633850097656,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.7754883766174316,
+      "own_count_max": 29.0,
+      "frac_own_count_1": 0.3890624940395355,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -2.508014678955078,
+        -0.9035403728485107,
+        -0.1719771772623062,
+        0.10485335439443588,
+        1.2780585289001465,
+        5.354055404663086,
+        35.65174102783203
+      ],
+      "frac_gap_pos": 0.9725586175918579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.02744140662252903,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.748828125,
+          "frac_foreign_in_cand": 0.02744140625,
+          "frac_own_in_cand": 0.97255859375,
+          "frac_own_and_clean": 0.97255859375
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.748828125,
+          "frac_foreign_in_cand": 0.02744140625,
+          "frac_own_in_cand": 0.97255859375,
+          "frac_own_and_clean": 0.97255859375
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.748828125,
+          "frac_foreign_in_cand": 0.02744140625,
+          "frac_own_in_cand": 0.97255859375,
+          "frac_own_and_clean": 0.97255859375
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.748828125,
+          "frac_foreign_in_cand": 0.02744140625,
+          "frac_own_in_cand": 0.97255859375,
+          "frac_own_and_clean": 0.97255859375
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.74912109375,
+          "frac_foreign_in_cand": 0.02744140625,
+          "frac_own_in_cand": 0.97265625,
+          "frac_own_and_clean": 0.97255859375
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.75009765625,
+          "frac_foreign_in_cand": 0.0279296875,
+          "frac_own_in_cand": 0.97275390625,
+          "frac_own_and_clean": 0.9720703125
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.7576171875,
+          "frac_foreign_in_cand": 0.02939453125,
+          "frac_own_in_cand": 0.97451171875,
+          "frac_own_and_clean": 0.97060546875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.81962890625,
+          "frac_foreign_in_cand": 0.04873046875,
+          "frac_own_in_cand": 0.9845703125,
+          "frac_own_and_clean": 0.95126953125
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg512_s0_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 512,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 0,
+      "out": "results/v5/segsweep_dim8_gpu_seg512_s0_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100000,
+    "base_recency": 26.35059928894043,
+    "base_score": 55.34222412109375,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 3.3130860328674316,
+      "own_count_max": 37.0,
+      "frac_own_count_1": 0.26250001788139343,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -24.41888427734375,
+        -7.876289367675781,
+        -0.8780151009559631,
+        -0.3937702476978302,
+        0.34935569763183594,
+        2.5216665267944336,
+        36.50910949707031
+      ],
+      "frac_gap_pos": 0.775097668170929,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.22490234673023224,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 3.02646484375,
+          "frac_foreign_in_cand": 0.22490234375,
+          "frac_own_in_cand": 0.77509765625,
+          "frac_own_and_clean": 0.77509765625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 3.02646484375,
+          "frac_foreign_in_cand": 0.22490234375,
+          "frac_own_in_cand": 0.77509765625,
+          "frac_own_and_clean": 0.77509765625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 3.02646484375,
+          "frac_foreign_in_cand": 0.22490234375,
+          "frac_own_in_cand": 0.77509765625,
+          "frac_own_and_clean": 0.77509765625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 3.02646484375,
+          "frac_foreign_in_cand": 0.22490234375,
+          "frac_own_in_cand": 0.77509765625,
+          "frac_own_and_clean": 0.77509765625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 3.0265625,
+          "frac_foreign_in_cand": 0.22490234375,
+          "frac_own_in_cand": 0.7751953125,
+          "frac_own_and_clean": 0.77509765625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 3.0294921875,
+          "frac_foreign_in_cand": 0.22548828125,
+          "frac_own_in_cand": 0.77578125,
+          "frac_own_and_clean": 0.77451171875
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 3.06396484375,
+          "frac_foreign_in_cand": 0.23232421875,
+          "frac_own_in_cand": 0.78056640625,
+          "frac_own_and_clean": 0.76767578125
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 3.434375,
+          "frac_foreign_in_cand": 0.2984375,
+          "frac_own_in_cand": 0.8392578125,
+          "frac_own_and_clean": 0.7015625
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg512_s1_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 512,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 1,
+      "out": "results/v5/segsweep_dim8_gpu_seg512_s1_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100001,
+    "base_recency": 20.087255477905273,
+    "base_score": 60.63182067871094,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 3.3389649391174316,
+      "own_count_max": 37.0,
+      "frac_own_count_1": 0.2669921815395355,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -6.52923583984375,
+        -2.582803964614868,
+        -0.5291891098022461,
+        -0.233891099691391,
+        0.24349379539489746,
+        1.8613709211349487,
+        49.91358947753906
+      ],
+      "frac_gap_pos": 0.787109375,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.212890625,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 3.02421875,
+          "frac_foreign_in_cand": 0.212890625,
+          "frac_own_in_cand": 0.787109375,
+          "frac_own_and_clean": 0.787109375
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 3.02421875,
+          "frac_foreign_in_cand": 0.212890625,
+          "frac_own_in_cand": 0.787109375,
+          "frac_own_and_clean": 0.787109375
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 3.02421875,
+          "frac_foreign_in_cand": 0.212890625,
+          "frac_own_in_cand": 0.787109375,
+          "frac_own_and_clean": 0.787109375
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 3.0244140625,
+          "frac_foreign_in_cand": 0.21298828125,
+          "frac_own_in_cand": 0.787109375,
+          "frac_own_and_clean": 0.78701171875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 3.0248046875,
+          "frac_foreign_in_cand": 0.21318359375,
+          "frac_own_in_cand": 0.78720703125,
+          "frac_own_and_clean": 0.78681640625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 3.02890625,
+          "frac_foreign_in_cand": 0.2138671875,
+          "frac_own_in_cand": 0.78779296875,
+          "frac_own_and_clean": 0.7861328125
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 3.0796875,
+          "frac_foreign_in_cand": 0.22216796875,
+          "frac_own_in_cand": 0.79794921875,
+          "frac_own_and_clean": 0.77783203125
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 3.681640625,
+          "frac_foreign_in_cand": 0.33232421875,
+          "frac_own_in_cand": 0.87958984375,
+          "frac_own_and_clean": 0.66767578125
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg512_s2_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 512,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 2,
+      "out": "results/v5/segsweep_dim8_gpu_seg512_s2_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100002,
+    "base_recency": 21.33812713623047,
+    "base_score": 37.64870834350586,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 3.3355469703674316,
+      "own_count_max": 36.0,
+      "frac_own_count_1": 0.2715820372104645,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -18.008407592773438,
+        -3.827751398086548,
+        -0.748933732509613,
+        -0.4089496433734894,
+        0.34976768493652344,
+        2.4361541271209717,
+        41.295867919921875
+      ],
+      "frac_gap_pos": 0.7640625238418579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.23593750596046448,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 3.01953125,
+          "frac_foreign_in_cand": 0.2359375,
+          "frac_own_in_cand": 0.7640625,
+          "frac_own_and_clean": 0.7640625
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 3.01953125,
+          "frac_foreign_in_cand": 0.2359375,
+          "frac_own_in_cand": 0.7640625,
+          "frac_own_and_clean": 0.7640625
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 3.01953125,
+          "frac_foreign_in_cand": 0.2359375,
+          "frac_own_in_cand": 0.7640625,
+          "frac_own_and_clean": 0.7640625
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 3.01953125,
+          "frac_foreign_in_cand": 0.2359375,
+          "frac_own_in_cand": 0.7640625,
+          "frac_own_and_clean": 0.7640625
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 3.01962890625,
+          "frac_foreign_in_cand": 0.2359375,
+          "frac_own_in_cand": 0.76416015625,
+          "frac_own_and_clean": 0.7640625
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 3.024609375,
+          "frac_foreign_in_cand": 0.23671875,
+          "frac_own_in_cand": 0.76494140625,
+          "frac_own_and_clean": 0.76328125
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 3.0595703125,
+          "frac_foreign_in_cand": 0.24228515625,
+          "frac_own_in_cand": 0.7720703125,
+          "frac_own_and_clean": 0.75771484375
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 3.4431640625,
+          "frac_foreign_in_cand": 0.30888671875,
+          "frac_own_in_cand": 0.8267578125,
+          "frac_own_and_clean": 0.69111328125
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg64_s0_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 64,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 0,
+      "out": "results/v5/segsweep_dim8_gpu_seg64_s0_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100000,
+    "base_recency": 35.16223907470703,
+    "base_score": 65.75535583496094,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.329394578933716,
+      "own_count_max": 23.0,
+      "frac_own_count_1": 0.49482423067092896,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -9.101036071777344,
+        -0.8338833451271057,
+        -0.05869895592331886,
+        0.2601410448551178,
+        2.0660665035247803,
+        8.583292961120605,
+        33.051849365234375
+      ],
+      "frac_gap_pos": 0.9854492545127869,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.014550781808793545,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.3185546875,
+          "frac_foreign_in_cand": 0.01455078125,
+          "frac_own_in_cand": 0.98544921875,
+          "frac_own_and_clean": 0.98544921875
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.3185546875,
+          "frac_foreign_in_cand": 0.01455078125,
+          "frac_own_in_cand": 0.98544921875,
+          "frac_own_and_clean": 0.98544921875
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.3185546875,
+          "frac_foreign_in_cand": 0.01455078125,
+          "frac_own_in_cand": 0.98544921875,
+          "frac_own_and_clean": 0.98544921875
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.3185546875,
+          "frac_foreign_in_cand": 0.01455078125,
+          "frac_own_in_cand": 0.98544921875,
+          "frac_own_and_clean": 0.98544921875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.3185546875,
+          "frac_foreign_in_cand": 0.01455078125,
+          "frac_own_in_cand": 0.98544921875,
+          "frac_own_and_clean": 0.98544921875
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.319140625,
+          "frac_foreign_in_cand": 0.0146484375,
+          "frac_own_in_cand": 0.985546875,
+          "frac_own_and_clean": 0.9853515625
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.321484375,
+          "frac_foreign_in_cand": 0.0154296875,
+          "frac_own_in_cand": 0.986328125,
+          "frac_own_and_clean": 0.9845703125
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.35244140625,
+          "frac_foreign_in_cand": 0.02646484375,
+          "frac_own_in_cand": 0.99228515625,
+          "frac_own_and_clean": 0.97353515625
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg64_s1_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 64,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 1,
+      "out": "results/v5/segsweep_dim8_gpu_seg64_s1_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100001,
+    "base_recency": 39.50693893432617,
+    "base_score": 70.3502197265625,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.326464891433716,
+      "own_count_max": 24.0,
+      "frac_own_count_1": 0.49951171875,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -3.0015316009521484,
+        -0.9470625519752502,
+        -0.08181684464216232,
+        0.27760574221611023,
+        2.233553409576416,
+        9.160202026367188,
+        37.96190643310547
+      ],
+      "frac_gap_pos": 0.9857422113418579,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.01425781287252903,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.31298828125,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.9857421875,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.31298828125,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.9857421875,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.31298828125,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.9857421875,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.31298828125,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.9857421875,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.31298828125,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.9857421875,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.31357421875,
+          "frac_foreign_in_cand": 0.0142578125,
+          "frac_own_in_cand": 0.98583984375,
+          "frac_own_and_clean": 0.9857421875
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.3150390625,
+          "frac_foreign_in_cand": 0.01494140625,
+          "frac_own_in_cand": 0.98623046875,
+          "frac_own_and_clean": 0.98505859375
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.34462890625,
+          "frac_foreign_in_cand": 0.02470703125,
+          "frac_own_in_cand": 0.99111328125,
+          "frac_own_and_clean": 0.97529296875
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  },
+  {
+    "path": "results/v5/segsweep_dim8_gpu_seg64_s2_e200k.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "n_segments": 64,
+      "overwrite_p": 0.3,
+      "key_dim": 32,
+      "dim": 8,
+      "epochs": 200000,
+      "batch_size": 256,
+      "eval_batch_size": 512,
+      "eval_batches": 20,
+      "lr": 0.001,
+      "freeze_recency": false,
+      "use_best": true,
+      "acc_every": 250,
+      "acc_n": 2048,
+      "select_metric": "soft",
+      "escape_factor": 2.0,
+      "lr_decay": false,
+      "seed": 2,
+      "out": "results/v5/segsweep_dim8_gpu_seg64_s2_e200k.json",
+      "world": "gpu"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100002,
+    "base_recency": 37.391883850097656,
+    "base_score": 58.23976516723633,
+    "stats": {
+      "n_episodes": 10240,
+      "own_count_mean": 2.2660157680511475,
+      "own_count_max": 19.0,
+      "frac_own_count_1": 0.4991210997104645,
+      "spread_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frac_spread_exact_zero": 1.0,
+      "gap_q": [
+        -2.904193878173828,
+        -0.5472956895828247,
+        -0.11953189969062805,
+        0.307312548160553,
+        2.4556808471679688,
+        9.624591827392578,
+        60.288795471191406
+      ],
+      "frac_gap_pos": 0.982421875,
+      "frac_gap_zero": 0.0,
+      "frac_gap_neg": 0.017578125,
+      "per_tau": [
+        {
+          "tau": 0.0,
+          "mean_cand": 2.2486328125,
+          "frac_foreign_in_cand": 0.017578125,
+          "frac_own_in_cand": 0.982421875,
+          "frac_own_and_clean": 0.982421875
+        },
+        {
+          "tau": 1e-07,
+          "mean_cand": 2.2486328125,
+          "frac_foreign_in_cand": 0.017578125,
+          "frac_own_in_cand": 0.982421875,
+          "frac_own_and_clean": 0.982421875
+        },
+        {
+          "tau": 1e-06,
+          "mean_cand": 2.2486328125,
+          "frac_foreign_in_cand": 0.017578125,
+          "frac_own_in_cand": 0.982421875,
+          "frac_own_and_clean": 0.982421875
+        },
+        {
+          "tau": 1e-05,
+          "mean_cand": 2.2486328125,
+          "frac_foreign_in_cand": 0.017578125,
+          "frac_own_in_cand": 0.982421875,
+          "frac_own_and_clean": 0.982421875
+        },
+        {
+          "tau": 0.0001,
+          "mean_cand": 2.2486328125,
+          "frac_foreign_in_cand": 0.017578125,
+          "frac_own_in_cand": 0.982421875,
+          "frac_own_and_clean": 0.982421875
+        },
+        {
+          "tau": 0.001,
+          "mean_cand": 2.24892578125,
+          "frac_foreign_in_cand": 0.01767578125,
+          "frac_own_in_cand": 0.9826171875,
+          "frac_own_and_clean": 0.98232421875
+        },
+        {
+          "tau": 0.01,
+          "mean_cand": 2.253125,
+          "frac_foreign_in_cand": 0.01845703125,
+          "frac_own_in_cand": 0.9833984375,
+          "frac_own_and_clean": 0.98154296875
+        },
+        {
+          "tau": 0.1,
+          "mean_cand": 2.276171875,
+          "frac_foreign_in_cand": 0.02646484375,
+          "frac_own_in_cand": 0.98876953125,
+          "frac_own_and_clean": 0.97353515625
+        }
+      ],
+      "quantile_probs": [
+        0.0,
+        0.0010000000474974513,
+        0.009999999776482582,
+        0.05000000074505806,
+        0.5,
+        0.949999988079071,
+        1.0
+      ]
+    }
+  }
+]
