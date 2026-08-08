@@ -347,6 +347,16 @@ def main():
     parser.add_argument("--lr", type=float, default=1e-3)
 
     parser.add_argument("--freeze-recency", action="store_true")
+    parser.add_argument(
+        "--recency-value",
+        type=float,
+        default=None,
+        help=(
+            "зафиксировать recency_scale на данном значении и исключить "
+            "его из оптимизации. Отличается от --freeze-recency, который "
+            "жёстко обнуляет скаляр. Взаимно исключается с ним"
+        ),
+    )
     parser.add_argument("--use-best", action="store_true")
     parser.add_argument("--acc-every", type=int, default=250)
     parser.add_argument("--acc-n", type=int, default=2048)
@@ -380,6 +390,12 @@ def main():
     )
 
     args = parser.parse_args()
+
+    if args.freeze_recency and args.recency_value is not None:
+        parser.error(
+            "--freeze-recency и --recency-value взаимно исключаются: "
+            "первый обнуляет recency_scale, второй задаёт значение"
+        )
 
     random.seed(args.seed)
     np.random.seed(args.seed)
@@ -427,6 +443,11 @@ def main():
             model.recency_scale.zero_()
         model.recency_scale.requires_grad_(False)
 
+    if args.recency_value is not None:
+        with torch.no_grad():
+            model.recency_scale.fill_(args.recency_value)
+        model.recency_scale.requires_grad_(False)
+
     optimizer = torch.optim.AdamW(
         [p for p in model.parameters() if p.requires_grad],
         lr=args.lr,
@@ -452,6 +473,7 @@ def main():
         f"device={device} n_segments={args.n_segments} "
         f"key_dim={args.key_dim} dim={args.dim} "
         f"freeze_recency={args.freeze_recency} "
+        f"recency_value={args.recency_value} "
         f"use_best={args.use_best} "
         f"select_metric={args.select_metric} world={args.world}"
     )
