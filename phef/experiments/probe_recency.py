@@ -166,6 +166,15 @@ def main():
         default=None,
         help="по умолчанию берётся из конфига чекпойнта",
     )
+    parser.add_argument(
+        "--eval-seed-offset",
+        type=int,
+        default=100_000,
+        help="смещение сида оценочного мира относительно cfg['seed']; "
+        "100000 воспроизводит eval_world из analyze_memory.py, любое "
+        "другое значение даёт независимый набор эпизодов, и сверка "
+        "с json тогда не выполняется",
+    )
     parser.add_argument("--n-buckets", type=int, default=8)
     parser.add_argument("--out", type=str, default="")
 
@@ -182,7 +191,12 @@ def main():
         torch.backends.cuda.matmul.allow_tf32 = True
 
     print(f"устройство: {device}, чекпойнтов: {len(paths)}")
-    print(f"множители recency_scale: {args.multipliers}\n")
+    print(f"множители recency_scale: {args.multipliers}")
+    print(
+        f"смещение сида оценочного мира: {args.eval_seed_offset}"
+        + ("" if args.eval_seed_offset == 100_000 else " (независимый набор)")
+        + "\n"
+    )
 
     everything = []
 
@@ -231,9 +245,10 @@ def main():
             if args.eval_batches is not None
             else cfg["eval_batches"]
         )
+        eval_seed = cfg["seed"] + args.eval_seed_offset
         print(
             f"  оценка: {eval_nb} батчей по {eval_bs} "
-            f"= {eval_nb * eval_bs} эпизодов"
+            f"= {eval_nb * eval_bs} эпизодов, сид мира {eval_seed}"
         )
 
         results = {}
@@ -241,7 +256,7 @@ def main():
             with torch.no_grad():
                 model.recency_scale.fill_(base_recency * mult)
 
-            world = make_world(cfg, cfg["seed"] + 100_000, device)
+            world = make_world(cfg, eval_seed, device)
             results[mult] = profile(
                 model,
                 world,
@@ -255,7 +270,12 @@ def main():
             model.recency_scale.fill_(base_recency)
 
         base = results[args.multipliers[0]]
-        if reported is not None and args.multipliers[0] == 1.0:
+        if args.eval_seed_offset != 100_000:
+            print(
+                f"  воспроизведение: не проверяется, оценочный мир смещён "
+                f"(offset={args.eval_seed_offset}), это независимый набор"
+            )
+        elif reported is not None and args.multipliers[0] == 1.0:
             delta = abs(base["answer_acc"] - reported)
             verdict = "совпало" if delta < 1e-9 else f"РАСХОЖДЕНИЕ {delta:.2e}"
             print(
@@ -293,6 +313,8 @@ def main():
             {
                 "path": path,
                 "config": cfg,
+                "eval_seed_offset": args.eval_seed_offset,
+                "eval_seed": eval_seed,
                 "base_recency": base_recency,
                 "base_score": base_score,
                 "reported_answer_acc": reported,
