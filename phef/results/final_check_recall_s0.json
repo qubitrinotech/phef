@@ -1,0 +1,81 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 0.0,
+  "emergent_mode": true,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 0.00390625,
+  "answer_acc": 0.96484375,
+  "retrieval_acc": 0.99921875,
+  "shuffled_answer_acc": 0.016796875,
+  "masked_answer_acc": 0.0173828125,
+  "control_status": "PASS",
+  "best_acc": 0.966796875,
+  "best_epoch": 2000,
+  "escape_epoch": 750,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "recency_scale": 2.141352653503418,
+  "score_scale": 2.340207099914551,
+  "memory_gate": 1.0788906812667847,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.01904296875
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.02587890625
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.88134765625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.92138671875
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.93408203125
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.94140625
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.947265625
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.966796875
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 256,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": false,
+    "dim": 128,
+    "epochs": 2000,
+    "batch_size": 256,
+    "eval_batch_size": 512,
+    "eval_batches": 10,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 0.0,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 2048,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 0,
+    "cpu": false,
+    "out": "results/final_check_recall_s0.json"
+  }
+}
