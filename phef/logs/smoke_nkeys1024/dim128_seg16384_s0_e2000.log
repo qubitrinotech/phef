@@ -1,0 +1,75 @@
+nohup: ввод игнорируется
+device=cuda n_segments=16384 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   100 sel_acc 0.0156 best 0.0156 @ 100 escape None
+epoch   200 sel_acc 0.0215 best 0.0215 @ 200 escape None
+epoch   300 sel_acc 0.0215 best 0.0215 @ 200 escape None
+epoch   400 sel_acc 0.0176 best 0.0215 @ 200 escape None
+epoch   500 sel_acc 0.0078 best 0.0215 @ 200 escape None
+epoch   500 loss 4.1797 chance 4.1589
+epoch   600 sel_acc 0.0293 best 0.0293 @ 600 escape None
+epoch   700 sel_acc 0.0195 best 0.0293 @ 600 escape None
+epoch   800 sel_acc 0.0254 best 0.0293 @ 600 escape None
+epoch   900 sel_acc 0.0176 best 0.0293 @ 600 escape None
+epoch  1000 sel_acc 0.0117 best 0.0293 @ 600 escape None
+epoch  1000 loss 4.1743 chance 4.1589
+epoch  1100 sel_acc 0.0176 best 0.0293 @ 600 escape None
+epoch  1200 sel_acc 0.0176 best 0.0293 @ 600 escape None
+epoch  1300 sel_acc 0.0234 best 0.0293 @ 600 escape None
+epoch  1400 sel_acc 0.0215 best 0.0293 @ 600 escape None
+epoch  1500 sel_acc 0.0156 best 0.0293 @ 600 escape None
+epoch  1500 loss 4.1545 chance 4.1589
+epoch  1600 sel_acc 0.0078 best 0.0293 @ 600 escape None
+epoch  1700 sel_acc 0.0195 best 0.0293 @ 600 escape None
+epoch  1800 sel_acc 0.0117 best 0.0293 @ 600 escape None
+epoch  1900 sel_acc 0.0176 best 0.0293 @ 600 escape None
+epoch  2000 sel_acc 0.0156 best 0.0293 @ 600 escape None
+epoch  2000 loss 4.1631 chance 4.1589
+
+восстановлен best checkpoint: epoch 600 sel_acc 0.0293
+
+=== ANALYSIS ===
+answer_acc     = 0.009375
+answer_soft    = 0.012500
+hard_soft_gap  = -0.003125
+retrieval_acc  = 0.000000
+retrieval_val  = 0.025000
+entropy_norm   = 0.999679
+oracle enc_m0.0   = 0.000000
+oracle enc_m0.02  = 0.000000
+oracle enc_m0.05  = 0.000000
+oracle enc_m0.1   = 0.000000
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.000000
+oracle mg_m0.02   = 0.000000
+oracle mg_m0.05   = 0.000000
+oracle mg_m0.1    = 0.000000
+oracle mg_top1    = 0.000000
+oracle raw_top1   = 1.000000
+oracle score_top1 = 0.000000
+tie_rate       = 0.015625
+tie_rate_mean  = 0.015625
+recency_scale  = 0.0027
+score_scale    = 1.0190
+memory_gate    = 0.1053
+escape_epoch   = None
+drop           = 0.0106 (0.0106 -> 0.0000)
+slot_drop      = 0.0000 (0.0000 -> 0.0000)
+best_sel_acc   = 0.0293 @ epoch 600
+WARNING: модель не покинула chance-плато (val acc не превысила 0.0312). Увеличь --epochs, прежде чем делать вывод.
+
+acc by distance (recent -> remote):
+  bucket   answer   slot_hit        n
+       0   0.0106     0.0000      566
+       1   0.0000     0.0000       57
+       2   0.0000     0.0000       16
+       3   0.0000     0.0000        1
+       4      nan        nan        0
+       5      nan        nan        0
+       6      nan        nan        0
+       7      nan        nan        0
+
+веса сохранены: results/smoke_nkeys1024/dim128_seg16384_s0_e2000.pt

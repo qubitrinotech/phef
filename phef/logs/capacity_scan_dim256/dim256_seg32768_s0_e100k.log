@@ -1,0 +1,17 @@
+device=cuda n_segments=32768 key_dim=32 dim=256 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+[W810 08:04:38.163434228 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2147483648 bytes (free: 691470336, total: 25252724736).
+[W810 08:04:38.190626837 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2147483648 bytes (free: 1765212160, total: 25252724736).
+Traceback (most recent call last):
+  File "/home/linux/qubitrino-projects/agi/phef/experiments/analyze_memory.py", line 693, in <module>
+    main()
+  File "/home/linux/qubitrino-projects/agi/phef/experiments/analyze_memory.py", line 519, in main
+    loss.backward()
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 979, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 23.52 GiB of which 1.64 GiB is free. Process 2493337 has 7.95 GiB memory in use. Process 2493338 has 8.95 GiB memory in use. Including non-PyTorch memory, this process has 5.95 GiB memory in use. Of the allocated memory 4.46 GiB is allocated by PyTorch, and 1.02 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

@@ -1,0 +1,264 @@
+{
+  "answer_acc": 0.009375,
+  "answer_acc_soft": 0.0125,
+  "hard_soft_gap": -0.003125,
+  "retrieval_acc": 0.0,
+  "retrieval_value_acc": 0.025,
+  "tie_rate_mean": 0.015625,
+  "entropy_norm": 0.9996787071228027,
+  "oracle_bounds": {
+    "enc_m0.0": 0.0,
+    "enc_m0.02": 0.0,
+    "enc_m0.05": 0.0,
+    "enc_m0.1": 0.0,
+    "mg_m0.0": 0.0,
+    "mg_m0.02": 0.0,
+    "mg_m0.05": 0.0,
+    "mg_m0.1": 0.0,
+    "m0.0": 1.0,
+    "m0.02": 1.0,
+    "m0.05": 1.0,
+    "m0.1": 1.0,
+    "raw_top1": 1.0,
+    "mg_top1": 0.0,
+    "score_top1": 0.0
+  },
+  "oracle_bound": 1.0,
+  "acc_by_distance": [
+    0.01060070671378092,
+    0.0,
+    0.0,
+    0.0,
+    NaN,
+    NaN,
+    NaN,
+    NaN
+  ],
+  "count_by_distance": [
+    566.0,
+    57.0,
+    16.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "acc_recent": 0.01060070671378092,
+  "acc_remote": 0.0,
+  "drop_recent_remote": 0.01060070671378092,
+  "slot_acc_by_distance": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    NaN,
+    NaN,
+    NaN,
+    NaN
+  ],
+  "slot_acc_recent": 0.0,
+  "slot_acc_remote": 0.0,
+  "slot_drop_recent_remote": 0.0,
+  "tie_rate": 0.015625,
+  "best_acc": 0.029296875,
+  "best_loss": 4.212158203125,
+  "best_epoch": 600,
+  "escape_epoch": null,
+  "escape_criterion": "val_accuracy",
+  "escape_threshold": 0.03125,
+  "select_metric": "soft",
+  "chance": 0.015625,
+  "chance_loss": 4.1588830833596715,
+  "recency_scale": 0.0026899229269474745,
+  "score_scale": 1.0190411806106567,
+  "memory_gate": 0.10534872859716415,
+  "selection": "val_accuracy",
+  "history": [
+    {
+      "epoch": 100,
+      "sel_acc": 0.015625,
+      "loss": 4.18994140625,
+      "score_scale": 1.0137571096420288,
+      "recency_scale": 0.002374628558754921,
+      "memory_gate": 0.03361203148961067
+    },
+    {
+      "epoch": 200,
+      "sel_acc": 0.021484375,
+      "loss": 4.147216796875,
+      "score_scale": 1.0029296875,
+      "recency_scale": 0.001581417047418654,
+      "memory_gate": 0.05012728273868561
+    },
+    {
+      "epoch": 300,
+      "sel_acc": 0.021484375,
+      "loss": 4.16015625,
+      "score_scale": 1.0245978832244873,
+      "recency_scale": -0.0024621544871479273,
+      "memory_gate": 0.06724657863378525
+    },
+    {
+      "epoch": 400,
+      "sel_acc": 0.017578125,
+      "loss": 4.196533203125,
+      "score_scale": 1.0330901145935059,
+      "recency_scale": -0.0013721130089834332,
+      "memory_gate": 0.0847029760479927
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.0078125,
+      "loss": 4.1796875,
+      "score_scale": 1.0287604331970215,
+      "recency_scale": -0.005805326160043478,
+      "memory_gate": 0.0957709476351738
+    },
+    {
+      "epoch": 600,
+      "sel_acc": 0.029296875,
+      "loss": 4.212158203125,
+      "score_scale": 1.0190411806106567,
+      "recency_scale": 0.0026899229269474745,
+      "memory_gate": 0.10534872859716415
+    },
+    {
+      "epoch": 700,
+      "sel_acc": 0.01953125,
+      "loss": 4.14306640625,
+      "score_scale": 1.0067329406738281,
+      "recency_scale": 0.002708249259740114,
+      "memory_gate": 0.10956709086894989
+    },
+    {
+      "epoch": 800,
+      "sel_acc": 0.025390625,
+      "loss": 4.20751953125,
+      "score_scale": 0.9968987703323364,
+      "recency_scale": -0.00264310697093606,
+      "memory_gate": 0.12353044003248215
+    },
+    {
+      "epoch": 900,
+      "sel_acc": 0.017578125,
+      "loss": 4.186767578125,
+      "score_scale": 0.9820908904075623,
+      "recency_scale": -0.0015458442503586411,
+      "memory_gate": 0.12857745587825775
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.01171875,
+      "loss": 4.17431640625,
+      "score_scale": 0.9864107370376587,
+      "recency_scale": 0.004935564938932657,
+      "memory_gate": 0.13562743365764618
+    },
+    {
+      "epoch": 1100,
+      "sel_acc": 0.017578125,
+      "loss": 4.193115234375,
+      "score_scale": 1.0092693567276,
+      "recency_scale": 0.0019324531313031912,
+      "memory_gate": 0.1411331295967102
+    },
+    {
+      "epoch": 1200,
+      "sel_acc": 0.017578125,
+      "loss": 4.177490234375,
+      "score_scale": 1.0317884683609009,
+      "recency_scale": 0.003731698263436556,
+      "memory_gate": 0.14924141764640808
+    },
+    {
+      "epoch": 1300,
+      "sel_acc": 0.0234375,
+      "loss": 4.17822265625,
+      "score_scale": 1.0513519048690796,
+      "recency_scale": 0.012815963476896286,
+      "memory_gate": 0.1547383964061737
+    },
+    {
+      "epoch": 1400,
+      "sel_acc": 0.021484375,
+      "loss": 4.171142578125,
+      "score_scale": 1.0314126014709473,
+      "recency_scale": 0.01846901886165142,
+      "memory_gate": 0.16332869231700897
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.015625,
+      "loss": 4.154541015625,
+      "score_scale": 1.0343818664550781,
+      "recency_scale": 0.020156672224402428,
+      "memory_gate": 0.17324919998645782
+    },
+    {
+      "epoch": 1600,
+      "sel_acc": 0.0078125,
+      "loss": 4.178466796875,
+      "score_scale": 1.0213143825531006,
+      "recency_scale": 0.015372306108474731,
+      "memory_gate": 0.17816726863384247
+    },
+    {
+      "epoch": 1700,
+      "sel_acc": 0.01953125,
+      "loss": 4.174560546875,
+      "score_scale": 1.0151667594909668,
+      "recency_scale": 0.01684914343059063,
+      "memory_gate": 0.17760275304317474
+    },
+    {
+      "epoch": 1800,
+      "sel_acc": 0.01171875,
+      "loss": 4.1845703125,
+      "score_scale": 1.0047749280929565,
+      "recency_scale": 0.0010890698758885264,
+      "memory_gate": 0.18778114020824432
+    },
+    {
+      "epoch": 1900,
+      "sel_acc": 0.017578125,
+      "loss": 4.17529296875,
+      "score_scale": 0.9891515374183655,
+      "recency_scale": -0.004161904100328684,
+      "memory_gate": 0.1884961724281311
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.015625,
+      "loss": 4.1630859375,
+      "score_scale": 0.9845934510231018,
+      "recency_scale": -0.013436296954751015,
+      "memory_gate": 0.19517885148525238
+    }
+  ],
+  "config": {
+    "n_keys": 1024,
+    "n_values": 64,
+    "n_segments": 16384,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "epochs": 2000,
+    "batch_size": 64,
+    "eval_batch_size": 128,
+    "eval_batches": 5,
+    "lr": 0.001,
+    "freeze_recency": false,
+    "recency_value": null,
+    "use_best": true,
+    "acc_every": 100,
+    "acc_n": 512,
+    "select_metric": "soft",
+    "escape_factor": 2.0,
+    "lr_decay": false,
+    "seed": 0,
+    "out": "results/smoke_nkeys1024/dim128_seg16384_s0_e2000.json",
+    "world": "gpu"
+  },
+  "weights_path": "results/smoke_nkeys1024/dim128_seg16384_s0_e2000.pt"
+}

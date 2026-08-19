@@ -1,0 +1,23 @@
+device=cuda n_segments=65536 key_dim=32 dim=256 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+[W810 08:07:02.384328783 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2147483648 bytes (free: 1530331136, total: 25252724736).
+[W810 08:07:02.384399398 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 2147483648 bytes (free: 1530331136, total: 25252724736).
+Traceback (most recent call last):
+  File "/home/linux/qubitrino-projects/agi/phef/experiments/analyze_memory.py", line 693, in <module>
+    main()
+  File "/home/linux/qubitrino-projects/agi/phef/experiments/analyze_memory.py", line 510, in main
+    logits = model(
+             ^^^^^^
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linux/qubitrino-projects/agi/phef/phef/model.py", line 109, in forward
+    memory_state = torch.einsum(
+                   ^^^^^^^^^^^^^
+  File "/home/linux/qubitrino-projects/agi/venv/lib/python3.12/site-packages/torch/functional.py", line 372, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 23.52 GiB of which 1.43 GiB is free. Process 2496202 has 7.37 GiB memory in use. Process 2496203 has 3.31 GiB memory in use. Including non-PyTorch memory, this process has 11.38 GiB memory in use. Of the allocated memory 10.92 GiB is allocated by PyTorch, and 12.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

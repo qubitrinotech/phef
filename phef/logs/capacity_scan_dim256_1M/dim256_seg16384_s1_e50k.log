@@ -1,0 +1,4 @@
+nohup: ввод игнорируется
+device=cuda n_segments=16384 key_dim=32 dim=256 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.0186 best 0.0186 @ 250 escape None

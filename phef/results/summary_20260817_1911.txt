@@ -1,0 +1,69 @@
+dir                             dim  n_segments  seed  epochs  key_dim  n_keys  n_values  answer_acc  retrieval_acc  best_sel_acc  escape_epoch
+------------------------------  ---  ----------  ----  ------  -------  ------  --------  ----------  -------------  ------------  ------------
+capacity_scan_dim32             32   1024        0     30000   32       512     64        0.9983      0.9982         MISSING       5000        
+capacity_scan_dim32             32   1024        1     30000   32       512     64        0.9987      0.9985         MISSING       4750        
+capacity_scan_dim32             32   1024        2     30000   32       512     64        0.9985      0.9984         MISSING       4250        
+capacity_scan_dim32             32   2048        0     30000   32       512     64        0.9990      0.9990         MISSING       7250        
+capacity_scan_dim32             32   2048        1     30000   32       512     64        0.9984      0.9984         MISSING       7000        
+capacity_scan_dim32             32   2048        2     30000   32       512     64        0.9984      0.9984         MISSING       6750        
+capacity_scan_dim32             32   4096        0     30000   32       512     64        0.9987      0.9987         MISSING       10500       
+capacity_scan_dim32             32   4096        1     30000   32       512     64        0.9979      0.9979         MISSING       9750        
+capacity_scan_dim32             32   4096        2     30000   32       512     64        0.9987      0.9987         MISSING       10000       
+capacity_scan_dim32             32   8192        0     30000   32       512     64        0.9976      0.9975         MISSING       17000       
+capacity_scan_dim32             32   8192        1     30000   32       512     64        0.9986      0.9986         MISSING       14250       
+capacity_scan_dim32             32   8192        2     30000   32       512     64        0.9983      0.9983         MISSING       15250       
+capacity_scan_dim32             32   16384       0     50000   32       512     64        0.0164      0.0008         MISSING       MISSING     
+capacity_scan_dim32             32   16384       1     50000   32       512     64        0.0145      0.0016         MISSING       MISSING     
+capacity_scan_dim32             32   16384       2     50000   32       512     64        0.0109      0.0039         MISSING       MISSING     
+capacity_scan                   64   256         0     50000   32       512     64        0.9997      0.9997         MISSING       1000        
+capacity_scan                   64   256         1     50000   32       512     64        0.9998      0.9998         MISSING       1000        
+capacity_scan                   64   256         2     50000   32       512     64        0.9996      0.9996         MISSING       1000        
+capacity_scan                   64   512         0     50000   32       512     64        0.9999      0.9999         MISSING       1750        
+capacity_scan                   64   512         1     50000   32       512     64        0.9999      0.9999         MISSING       1750        
+capacity_scan                   64   512         2     50000   32       512     64        0.9998      0.9997         MISSING       1750        
+capacity_scan                   64   1024        0     50000   32       512     64        0.9996      0.9996         MISSING       2750        
+capacity_scan                   64   1024        1     50000   32       512     64        1.0000      1.0000         MISSING       2750        
+capacity_scan                   64   1024        2     50000   32       512     64        0.9999      0.9999         MISSING       2750        
+capacity_scan                   64   2048        0     50000   32       512     64        0.9995      0.9995         MISSING       4500        
+capacity_scan                   64   2048        1     50000   32       512     64        0.9999      0.9999         MISSING       4750        
+capacity_scan                   64   2048        2     50000   32       512     64        0.9999      0.9999         MISSING       4250        
+capacity_scan_dim64_extended    64   4096        0     50000   32       512     64        0.9998      0.9997         MISSING       7000        
+capacity_scan_dim64_extended    64   4096        1     50000   32       512     64        0.9997      0.9997         MISSING       7250        
+capacity_scan_dim64_extended    64   4096        2     50000   32       512     64        0.9996      0.9996         MISSING       6500        
+capacity_scan_dim64_extended    64   8192        0     50000   32       512     64        0.9994      0.9994         MISSING       11500       
+capacity_scan_dim64_extended    64   8192        1     50000   32       512     64        0.9998      0.9998         MISSING       12000       
+capacity_scan_dim64_extended    64   8192        2     50000   32       512     64        0.9998      0.9998         MISSING       11250       
+capacity_scan_dim64_extended    64   16384       0     50000   32       512     64        0.0172      0.0020         MISSING       MISSING     
+capacity_scan_dim64_extended    64   16384       1     50000   32       512     64        0.0113      0.0023         MISSING       MISSING     
+capacity_scan_dim64_extended    64   16384       2     50000   32       512     64        0.0129      0.0004         MISSING       MISSING     
+capacity_scan_dim128            128  2048        0     50000   32       512     64        0.9999      0.9999         MISSING       3000        
+capacity_scan_dim128            128  2048        1     50000   32       512     64        0.9997      0.9997         MISSING       3250        
+capacity_scan_dim128            128  2048        2     50000   32       512     64        0.9999      0.9999         MISSING       2750        
+capacity_scan_dim128            128  4096        0     50000   32       512     64        1.0000      1.0000         MISSING       5250        
+capacity_scan_dim128            128  4096        1     50000   32       512     64        1.0000      1.0000         MISSING       6000        
+capacity_scan_dim128            128  4096        2     50000   32       512     64        0.9998      0.9998         MISSING       4750        
+capacity_scan_dim128            128  8192        0     50000   32       512     64        0.9997      0.9997         MISSING       9250        
+capacity_scan_dim128            128  8192        2     50000   32       512     64        0.9999      0.9999         MISSING       9250        
+capacity_scan_dim128_extended   128  16384       0     100000  32       512     64        0.0133      0.0035         MISSING       MISSING     
+capacity_scan_dim128_keydim64   128  16384       0     100000  64       512     64        0.0176      0.0027         MISSING       MISSING     
+capacity_scan_dim128_nkeys1024  128  16384       0     100000  32       1024    64        0.0125      0.0004         MISSING       MISSING     
+capacity_scan_dim128_extended   128  16384       1     100000  32       512     64        0.0148      0.0000         MISSING       MISSING     
+capacity_scan_dim128_keydim64   128  16384       1     100000  64       512     64        0.0180      0.0023         MISSING       MISSING     
+capacity_scan_dim128_nkeys1024  128  16384       1     100000  32       1024    64        0.0160      0.0012         MISSING       MISSING     
+capacity_scan_dim128_extended   128  16384       2     100000  32       512     64        0.0168      0.0027         MISSING       MISSING     
+capacity_scan_dim128_keydim64   128  16384       2     100000  64       512     64        0.0156      0.0016         MISSING       MISSING     
+capacity_scan_dim128_nkeys1024  128  16384       2     100000  32       1024    64        0.0129      0.0016         MISSING       MISSING     
+capacity_scan_dim256            256  4096        0     50000   32       512     64        0.9996      0.9996         MISSING       31000       
+capacity_scan_dim256            256  4096        1     50000   32       512     64        1.0000      1.0000         MISSING       15250       
+capacity_scan_dim256            256  4096        2     50000   32       512     64        0.0203      0.0023         MISSING       MISSING     
+capacity_scan_dim256            256  8192        0     50000   32       512     64        0.0145      0.0016         MISSING       MISSING     
+capacity_scan_dim256            256  8192        1     50000   32       512     64        0.0137      0.0027         MISSING       MISSING     
+capacity_scan_dim256            256  8192        2     50000   32       512     64        0.0180      0.0016         MISSING       MISSING     
+capacity_scan_dim256            256  16384       1     100000  32       512     64        0.0070      0.0023         MISSING       MISSING     
+capacity_scan_dim256            256  16384       2     100000  32       512     64        0.0152      0.0020         MISSING       MISSING     
+
+TOTAL ROWS: 61
+KEYS SEEN IN JSON: acc_every, acc_n, acc_recent, acc_remote, answer_acc, answer_acc_soft, batch_size, best_acc, best_epoch, best_loss, chance, chance_loss, config.acc_every, config.acc_n, config.batch_size, config.dim, config.epochs, config.escape_factor, config.eval_batch_size, config.eval_batches, config.freeze_recency, config.key_dim, config.lr, config.lr_decay, config.n_keys, config.n_segments, config.n_values, config.out, config.overwrite_p, config.recency_value, config.seed, config.select_metric, config.use_best, config.world, dim, drop_recent_remote, enc_m0.0, enc_m0.02, enc_m0.05, enc_m0.1, entropy_norm, epochs, escape_criterion, escape_epoch, escape_factor, escape_threshold, eval_batch_size, eval_batches, freeze_recency, hard_soft_gap, key_dim, lr, lr_decay, m0.0, m0.02, m0.05, m0.1, memory_gate, mg_m0.0, mg_m0.02, mg_m0.05, mg_m0.1, mg_top1, n_keys, n_segments, n_values, oracle_bound, oracle_bounds.enc_m0.0, oracle_bounds.enc_m0.02, oracle_bounds.enc_m0.05, oracle_bounds.enc_m0.1, oracle_bounds.m0.0, oracle_bounds.m0.02, oracle_bounds.m0.05, oracle_bounds.m0.1, oracle_bounds.mg_m0.0, oracle_bounds.mg_m0.02, oracle_bounds.mg_m0.05, oracle_bounds.mg_m0.1, oracle_bounds.mg_top1, oracle_bounds.raw_top1, oracle_bounds.score_top1, out, overwrite_p, raw_top1, recency_scale, recency_value, retrieval_acc, retrieval_value_acc, score_scale, score_top1, seed, select_metric, selection, slot_acc_recent, slot_acc_remote, slot_drop_recent_remote, tie_rate, tie_rate_mean, use_best, weights_path, world
+
+PROBLEMS: none
+FIELDS WITH MISSING VALUES: best_sel_acc, escape_epoch
