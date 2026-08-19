@@ -380,6 +380,7 @@ def main():
     parser.add_argument("--lr-decay", action="store_true")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--out", type=str, default="results/analysis.json")
+    parser.add_argument("--init-weights", type=str, default=None)
     parser.add_argument(
         "--world",
         type=str,
@@ -437,6 +438,14 @@ def main():
         top_k=1,
         use_memory=True,
     ).to(device)
+
+    if args.init_weights is not None:
+        ckpt = torch.load(args.init_weights, map_location=device)
+        sd = ckpt["state_dict"] if "state_dict" in ckpt else ckpt
+        model.load_state_dict(sd, strict=True)
+        print(f"init_weights loaded from {args.init_weights} "
+              f"src n_segments={ckpt.get('config',{}).get('n_segments')} "
+              f"src escape={ckpt.get('escape_epoch')}", flush=True)
 
     if args.freeze_recency:
         with torch.no_grad():
