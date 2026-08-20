@@ -91,7 +91,7 @@ class PHEF(nn.Module):
             scores = self.score_scale * semantic
             scores = scores + self.recency_scale * recency
 
-            memory_values = self.value_emb(values)
+            memory_values = self.value_emb.weight.to(query_state.dtype)[values]
 
             if hard:
                 max_scores = scores.max(dim=1, keepdim=True).values
