@@ -1,4 +1,5 @@
 import argparse
+import io
 import json
 import math
 import os
@@ -330,6 +331,32 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
     }
 
 
+def save_ckpt(path, model, config, best_acc, best_epoch,
+              escape_epoch, selection, epoch=None, state=None):
+    payload = {
+        "state_dict": (
+            state if state is not None else model.state_dict()
+        ),
+        "config": config,
+        "best_acc": best_acc,
+        "best_epoch": best_epoch,
+        "escape_epoch": escape_epoch,
+        "selection": selection,
+    }
+    if epoch is not None:
+        payload["epoch"] = epoch
+    tmp = str(path) + ".tmp"
+    torch.save(payload, tmp)
+    os.replace(tmp, path)
+
+
+def dump_history(path, history):
+    tmp = str(path) + ".tmp"
+    with io.open(tmp, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, path)
+
+
 def main():
     parser = argparse.ArgumentParser()
 
@@ -360,6 +387,12 @@ def main():
     parser.add_argument("--use-best", action="store_true")
     parser.add_argument("--acc-every", type=int, default=250)
     parser.add_argument("--acc-n", type=int, default=2048)
+    parser.add_argument(
+        "--ckpt-every",
+        type=int,
+        default=10,
+        help="chekpoint kazhdye N zamerov acc-every; 0 - vyklyuchit",
+    )
     parser.add_argument(
         "--select-metric",
         type=str,
@@ -574,6 +607,29 @@ def main():
                 f"best {best_acc[0]:.4f} @ {best_loss[1]} "
                 f"escape {escape_epoch[0]}"
             )
+
+            if (
+                args.ckpt_every > 0
+                and (epoch // args.acc_every) % args.ckpt_every == 0
+            ):
+                base = os.path.splitext(args.out)[0]
+                save_ckpt(
+                    base + "_last.pt", model, vars(args),
+                    best_acc[0], best_loss[1], escape_epoch[0],
+                    args.select_metric, epoch=epoch,
+                )
+                if best_state[0] is not None:
+                    save_ckpt(
+                        base + "_best.pt", model, vars(args),
+                        best_acc[0], best_loss[1], escape_epoch[0],
+                        args.select_metric, epoch=best_loss[1],
+                        state=best_state[0],
+                    )
+                dump_history(base + "_history.json", history)
+                print(
+                    f"  ckpt @ {epoch}: last + best "
+                    f"(best epoch {best_loss[1]})"
+                )
 
         if epoch % 500 == 0:
             print(
