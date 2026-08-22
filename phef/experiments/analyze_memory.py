@@ -394,6 +394,13 @@ def main():
         help="chekpoint kazhdye N zamerov acc-every; 0 - vyklyuchit",
     )
     parser.add_argument(
+        "--accum-steps",
+        type=int,
+        default=1,
+        help="gradient accumulation: effektivnyy batch = "
+             "batch_size * accum_steps; 1 - vyklyucheno",
+    )
+    parser.add_argument(
         "--select-metric",
         type=str,
         choices=("soft", "hard"),
@@ -544,28 +551,44 @@ def main():
 
         optimizer.zero_grad(set_to_none=True)
 
-        with torch.autocast(
-            device_type=device.type,
-            dtype=torch.bfloat16,
-            enabled=device.type == "cuda",
-        ):
-            logits = model(
-                event_keys,
-                values,
-                timestamps,
-                query_keys,
-            )
+        accum = max(1, args.accum_steps)
+        loss_sum = 0.0
 
-            loss = F.cross_entropy(logits, answers)
+        for micro in range(accum):
+            if micro > 0:
+                (
+                    event_keys,
+                    values,
+                    timestamps,
+                    query_keys,
+                    answers,
+                    _,
+                ) = move(train_world.batch(args.batch_size), device)
 
-        loss.backward()
+            with torch.autocast(
+                device_type=device.type,
+                dtype=torch.bfloat16,
+                enabled=device.type == "cuda",
+            ):
+                logits = model(
+                    event_keys,
+                    values,
+                    timestamps,
+                    query_keys,
+                )
+
+                loss = F.cross_entropy(logits, answers) / accum
+
+            loss.backward()
+            loss_sum += loss.item() * accum
+
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
 
         if scheduler is not None:
             scheduler.step()
 
-        current = loss.item()
+        current = loss_sum / accum
 
         if args.use_best and epoch % args.acc_every == 0:
             probe = quick_acc(
