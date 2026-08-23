@@ -1,0 +1,55 @@
+nohup: ввод игнорируется
+init_weights loaded from results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt src n_segments=32768 src escape=250
+device=cuda n_segments=131072 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch     5 sel_acc 0.8770 best 0.8770 @ 5 escape 5
+epoch    10 sel_acc 0.9062 best 0.9062 @ 10 escape 5
+epoch    15 sel_acc 0.8906 best 0.9062 @ 10 escape 5
+epoch    20 sel_acc 0.8828 best 0.9062 @ 10 escape 5
+epoch    25 sel_acc 0.9062 best 0.9062 @ 10 escape 5
+
+восстановлен best checkpoint: epoch 10 sel_acc 0.9062
+[W823 22:26:18.876568652 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 2162688, total: 25252724736).
+
+=== ANALYSIS ===
+answer_acc     = 1.000000
+answer_soft    = 0.896680
+hard_soft_gap  = +0.103320
+retrieval_acc  = 1.000000
+retrieval_val  = 1.000000
+entropy_norm   = 0.167016
+oracle enc_m0.0   = 0.993164
+oracle enc_m0.02  = 0.966797
+oracle enc_m0.05  = 0.806641
+oracle enc_m0.1   = 0.235156
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.028125
+oracle mg_m0.02   = 0.027930
+oracle mg_m0.05   = 0.027930
+oracle mg_m0.1    = 0.027930
+oracle mg_top1    = 1.000000
+oracle raw_top1   = 1.000000
+oracle score_top1 = 1.000000
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 99.1589
+score_scale    = 5.5952
+memory_gate    = 16.6358
+escape_epoch   = 5
+best_sel_acc   = 0.9062 @ epoch 10
+
+acc by distance (recent -> remote):
+  bucket   answer   slot_hit        n
+       0   1.0000     1.0000     5120
+       1      nan        nan        0
+       2      nan        nan        0
+       3      nan        nan        0
+       4      nan        nan        0
+       5      nan        nan        0
+       6      nan        nan        0
+       7      nan        nan        0
+
+веса сохранены: results/timing_probe/seg131072_b64_accum4_e25.pt
