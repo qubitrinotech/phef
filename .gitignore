@@ -51,6 +51,5 @@ Thumbs.db
 !phef/logs/**
 
 # веса всё равно не версионируем, они большие
-phef/results/**/*.pt
 phef/results/**/*.ckpt
 phef/results/**/*.safetensors
