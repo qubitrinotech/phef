@@ -1,0 +1,51 @@
+nohup: ввод игнорируется
+init_weights loaded from results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt src n_segments=32768 src escape=250
+device=cuda n_segments=131072 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.8931 best 0.8931 @ 250 escape 250
+
+восстановлен best checkpoint: epoch 250 sel_acc 0.8931
+[W823 18:31:11.079731353 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 2162688, total: 25252724736).
+
+=== ANALYSIS ===
+answer_acc     = 1.000000
+answer_soft    = 0.903711
+hard_soft_gap  = +0.096289
+retrieval_acc  = 1.000000
+retrieval_val  = 1.000000
+entropy_norm   = 0.166825
+oracle enc_m0.0   = 0.995313
+oracle enc_m0.02  = 0.977539
+oracle enc_m0.05  = 0.874609
+oracle enc_m0.1   = 0.363281
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.106836
+oracle mg_m0.02   = 0.106836
+oracle mg_m0.05   = 0.106445
+oracle mg_m0.1    = 0.106445
+oracle mg_top1    = 1.000000
+oracle raw_top1   = 1.000000
+oracle score_top1 = 1.000000
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 99.3903
+score_scale    = 5.5804
+memory_gate    = 16.6230
+escape_epoch   = 250
+best_sel_acc   = 0.8931 @ epoch 250
+
+acc by distance (recent -> remote):
+  bucket   answer   slot_hit        n
+       0   1.0000     1.0000     5120
+       1      nan        nan        0
+       2      nan        nan        0
+       3      nan        nan        0
+       4      nan        nan        0
+       5      nan        nan        0
+       6      nan        nan        0
+       7      nan        nan        0
+
+веса сохранены: results/probe_accum131072/seg131072_b64_accum4_e250.pt

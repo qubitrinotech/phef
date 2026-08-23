@@ -1,0 +1,52 @@
+nohup: ввод игнорируется
+init_weights loaded from results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt src n_segments=32768 src escape=250
+device=cuda n_segments=131072 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.8857 best 0.8857 @ 250 escape 250
+
+восстановлен best checkpoint: epoch 250 sel_acc 0.8857
+[W822 19:15:52.786068681 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 2162688, total: 25252724736).
+[W822 19:15:59.280925888 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 2162688, total: 25252724736).
+
+=== ANALYSIS ===
+answer_acc     = 0.998437
+answer_soft    = 0.894727
+hard_soft_gap  = +0.103711
+retrieval_acc  = 0.998437
+retrieval_val  = 0.998437
+entropy_norm   = 0.166878
+oracle enc_m0.0   = 0.989258
+oracle enc_m0.02  = 0.948438
+oracle enc_m0.05  = 0.728516
+oracle enc_m0.1   = 0.165820
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.015820
+oracle mg_m0.02   = 0.015820
+oracle mg_m0.05   = 0.015820
+oracle mg_m0.1    = 0.015820
+oracle mg_top1    = 0.998242
+oracle raw_top1   = 1.000000
+oracle score_top1 = 0.998437
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 99.3848
+score_scale    = 5.5857
+memory_gate    = 16.5926
+escape_epoch   = 250
+best_sel_acc   = 0.8857 @ epoch 250
+
+acc by distance (recent -> remote):
+  bucket   answer   slot_hit        n
+       0   0.9984     0.9984     5120
+       1      nan        nan        0
+       2      nan        nan        0
+       3      nan        nan        0
+       4      nan        nan        0
+       5      nan        nan        0
+       6      nan        nan        0
+       7      nan        nan        0
+
+веса сохранены: /tmp/probe_b96.pt
