@@ -1,0 +1,10 @@
+nohup: ввод игнорируется
+call 0: 3497.2 ms  peak 1260.0 MiB  alloc_after 1216.0 MiB
+  shapes [(64, 131072, 32), (64, 131072), (64, 131072), (64, 32), (64,), (64,)]
+  dtypes ['torch.float32', 'torch.int64', 'torch.int64', 'torch.float32', 'torch.int64', 'torch.int64']
+call 1: 3475.7 ms  peak 1260.0 MiB  alloc_after 1216.0 MiB
+  shapes [(64, 131072, 32), (64, 131072), (64, 131072), (64, 32), (64,), (64,)]
+  dtypes ['torch.float32', 'torch.int64', 'torch.int64', 'torch.float32', 'torch.int64', 'torch.int64']
+call 2: 3382.9 ms  peak 1260.0 MiB  alloc_after 1216.0 MiB
+  shapes [(64, 131072, 32), (64, 131072), (64, 131072), (64, 32), (64,), (64,)]
+  dtypes ['torch.float32', 'torch.int64', 'torch.int64', 'torch.float32', 'torch.int64', 'torch.int64']
