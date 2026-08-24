@@ -1,0 +1,5 @@
+nohup: ввод игнорируется
+init_weights loaded from results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt src n_segments=32768 src escape=250
+device=cuda n_segments=131072 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.8931 best 0.8931 @ 250 escape 250

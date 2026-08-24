@@ -1,0 +1,75 @@
+nohup: ввод игнорируется
+init_weights loaded from results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt src n_segments=32768 src escape=250
+device=cuda n_segments=131072 key_dim=32 dim=128 freeze_recency=False recency_value=None use_best=True select_metric=soft world=gpu
+chance=0.015625 chance_loss=4.1589 escape_threshold_acc=0.031250
+epoch   250 sel_acc 0.8931 best 0.8931 @ 250 escape 250
+  ckpt @ 250: last + best (best epoch 250)
+epoch   500 sel_acc 0.9072 best 0.9072 @ 500 escape 250
+  ckpt @ 500: last + best (best epoch 500)
+epoch   500 loss 0.4484 chance 4.1589
+epoch   750 sel_acc 0.8940 best 0.9072 @ 500 escape 250
+  ckpt @ 750: last + best (best epoch 500)
+epoch  1000 sel_acc 0.8945 best 0.9072 @ 500 escape 250
+  ckpt @ 1000: last + best (best epoch 500)
+epoch  1000 loss 0.3765 chance 4.1589
+epoch  1250 sel_acc 0.8979 best 0.9072 @ 500 escape 250
+  ckpt @ 1250: last + best (best epoch 500)
+epoch  1500 sel_acc 0.8950 best 0.9072 @ 500 escape 250
+  ckpt @ 1500: last + best (best epoch 500)
+epoch  1500 loss 0.3456 chance 4.1589
+epoch  1750 sel_acc 0.9067 best 0.9072 @ 500 escape 250
+  ckpt @ 1750: last + best (best epoch 500)
+epoch  2000 sel_acc 0.8979 best 0.9072 @ 500 escape 250
+  ckpt @ 2000: last + best (best epoch 500)
+epoch  2000 loss 0.4206 chance 4.1589
+epoch  2250 sel_acc 0.9126 best 0.9126 @ 2250 escape 250
+  ckpt @ 2250: last + best (best epoch 2250)
+epoch  2500 sel_acc 0.9067 best 0.9126 @ 2250 escape 250
+  ckpt @ 2500: last + best (best epoch 2250)
+epoch  2500 loss 0.3157 chance 4.1589
+
+восстановлен best checkpoint: epoch 2250 sel_acc 0.9126
+[W824 10:18:23.758193829 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 2162688, total: 25252724736).
+
+=== ANALYSIS ===
+answer_acc     = 0.999609
+answer_soft    = 0.906055
+hard_soft_gap  = +0.093555
+retrieval_acc  = 0.999609
+retrieval_val  = 0.999609
+entropy_norm   = 0.165290
+oracle enc_m0.0   = 0.996875
+oracle enc_m0.02  = 0.979883
+oracle enc_m0.05  = 0.881445
+oracle enc_m0.1   = 0.436523
+oracle m0.0       = 1.000000
+oracle m0.02      = 1.000000
+oracle m0.05      = 1.000000
+oracle m0.1       = 1.000000
+oracle mg_m0.0    = 0.273828
+oracle mg_m0.02   = 0.273828
+oracle mg_m0.05   = 0.273633
+oracle mg_m0.1    = 0.273242
+oracle mg_top1    = 0.999609
+oracle raw_top1   = 1.000000
+oracle score_top1 = 0.999609
+tie_rate       = 0.000000
+tie_rate_mean  = 0.000000
+recency_scale  = 101.2817
+score_scale    = 5.5824
+memory_gate    = 16.5485
+escape_epoch   = 250
+best_sel_acc   = 0.9126 @ epoch 2250
+
+acc by distance (recent -> remote):
+  bucket   answer   slot_hit        n
+       0   0.9996     0.9996     5120
+       1      nan        nan        0
+       2      nan        nan        0
+       3      nan        nan        0
+       4      nan        nan        0
+       5      nan        nan        0
+       6      nan        nan        0
+       7      nan        nan        0
+
+веса сохранены: results/traj131072/seg131072_e2500_ckpt1.pt
