@@ -44,7 +44,8 @@ class PHEF(nn.Module):
 
     def forward(
         self,
-        event_keys,
+        slots,
+        codebook,
         values,
         timestamps,
         query_keys,
@@ -71,17 +72,22 @@ class PHEF(nn.Module):
                     batch_size,
                     device=values.device,
                 )
-                event_keys = event_keys[permutation]
+                slots = slots[permutation]
+                codebook = codebook[permutation]
                 values = values[permutation]
                 timestamps = timestamps[permutation]
 
-            memory_keys = self.key_encoder(event_keys)
+            memory_keys = self.key_encoder(codebook)
 
-            semantic = torch.einsum(
-                "bd,bsd->bs",
-                query_state,
-                memory_keys,
-            ) / math.sqrt(self.dim)
+            semantic = torch.gather(
+                torch.einsum(
+                    "bd,bkd->bk",
+                    query_state,
+                    memory_keys,
+                ) / math.sqrt(self.dim),
+                1,
+                slots,
+            )
 
             recency = timestamps.float() / max(
                 1,

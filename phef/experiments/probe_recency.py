@@ -61,7 +61,8 @@ def profile(model, world, device, batch_size, n_batches, n_buckets):
     for _ in range(n_batches):
         batch = world.batch(batch_size)
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -70,7 +71,8 @@ def profile(model, world, device, batch_size, n_batches, n_buckets):
         ) = tuple(t.to(device, non_blocking=True) for t in batch)
 
         logits, scores = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,

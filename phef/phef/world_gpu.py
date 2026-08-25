@@ -1,11 +1,17 @@
 """
 GPU-резидентный генератор BranchingWorld.
 
-Мотивация: в отчёте от 5 августа узкое место прогона — генерация мира
-на CPU (20.8 эпох/сек). Основная стоимость — codebook формы
-(bs, n_keys, key_dim) со нормировкой: при bs=256, n_keys=512, kd=32 это
-4.2M нормальных чисел на каждый шаг, то есть десятки миллисекунд CPU
-плюс host->device копирование.
+Мотивация. Первое узкое место — Python-цикл в _sample_slots: 26.6 мкс
+launch overhead на итерацию, при n_segments=131072 это 3487 мс на вызов
+batch(), то есть 96.2% времени эпохи. Цикл перенесён на numpy: замерено
+563 мс против 3425 мс на batch(8). Передача host->device — int16 pinned
+с кастом в int64 на устройстве, 0.79 мс, буфер кэшируется между вызовами.
+
+Второе узкое место — развёрнутый event_keys формы (bs, n_segments,
+key_dim): 1024 MiB в batch() при bs=64, s=131072, kd=32, и 9216 MiB на
+forward-пути key_encoder. batch() возвращает (slots, codebook), gather
+выполняется после key_encoder. Замерено: 9216 MiB -> 48.1 MiB,
+50.9 мс -> 0.5 мс, расхождение двух путей на GPU ровно нулевое.
 
 Семантика полностью совпадает с phef/world.py:
   * slots: случайные, с вероятностью overwrite_p переписывающие
@@ -20,8 +26,9 @@ GPU-резидентный генератор BranchingWorld.
 Совместимость проверяется распределённо: experiments/parity_check.py.
 """
 
-import torch
 import numpy as np
+import torch
+
 
 class BranchingWorldGPU:
     def __init__(
@@ -35,6 +42,12 @@ class BranchingWorldGPU:
         symbolic=False,
         device="cuda",
     ):
+        if n_keys > 32767:
+            raise ValueError(
+                f"n_keys={n_keys} не влезает в int16; "
+                "передача слотов host->device рассчитана на int16"
+            )
+
         self.n_keys = n_keys
         self.n_values = n_values
         self.n_segments = n_segments
@@ -45,14 +58,10 @@ class BranchingWorldGPU:
 
         self.gen = torch.Generator(device=self.device)
         self.gen.manual_seed(int(seed))
-        if self.n_keys > 32767:
-            raise ValueError(
-                f"n_keys={self.n_keys} не влезает в int16; "
-                "передача слотов host->device рассчитана на int16"
-            )
 
         self.np_rng = np.random.default_rng(int(seed))
         self._slot_pin = None
+
         self.last_slots = None
         self.last_query_slots = None
         self.last_answer_positions = None
@@ -120,13 +129,10 @@ class BranchingWorldGPU:
         self.last_answer_positions = answer_positions
 
         if self.symbolic:
-            return (
-                slots,
-                values,
-                timestamps,
-                query_slots,
-                answers,
-                answer_positions,
+            raise NotImplementedError(
+                "symbolic-режим не поддерживает контракт "
+                "(slots, codebook, values, timestamps, "
+                "query_keys, answers, positions)"
             )
 
         codebook = torch.randn(
@@ -136,15 +142,11 @@ class BranchingWorldGPU:
         )
         codebook = codebook / codebook.norm(dim=-1, keepdim=True)
 
-        event_keys = torch.gather(
-            codebook,
-            1,
-            slots.unsqueeze(-1).expand(bs, s, self.key_dim),
-        )
         query_keys = codebook[rows, query_slots]
 
         return (
-            event_keys,
+            slots,
+            codebook,
             values,
             timestamps,
             query_keys,

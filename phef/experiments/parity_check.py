@@ -10,6 +10,9 @@
 
 Плюс: сколько батчей в секунду даёт каждый бэкенд.
 
+batch() возвращает (slots, codebook), поэтому норма проверяется прямо
+на codebook, а similarity получается gather'ом einsum по n_keys.
+
     LC_ALL=C PYTHONPATH=. python -u experiments/parity_check.py \
         --n-segments 256 --n-keys 512 --key-dim 32 --batch-size 256
 """
@@ -32,8 +35,8 @@ def stats(world, bs, n_batches, device):
     norm_err = 0.0
 
     for _ in range(n_batches):
-        ek, val, ts, qk, ans, pos = world.batch(bs)
-        ek = ek.to(device).float()
+        _, cb, val, ts, qk, ans, pos = world.batch(bs)
+        cb = cb.to(device).float()
         qk = qk.to(device).float()
         slots = world.last_slots.to(device)
         qslots = world.last_query_slots.to(device)
@@ -47,10 +50,10 @@ def stats(world, bs, n_batches, device):
         )
         last_frac += (pos == world.n_segments - 1).float().mean().item()
 
-        norm_err = max(norm_err, (ek.norm(dim=-1) - 1).abs().max().item())
+        norm_err = max(norm_err, (cb.norm(dim=-1) - 1).abs().max().item())
 
         rows = torch.arange(slots.shape[0], device=device)
-        raw = torch.einsum("bd,bsd->bs", qk, ek)
+        raw = torch.gather(torch.einsum("bd,bkd->bk", qk, cb), 1, slots)
         orc += (slots[rows, raw.argmax(1)] == qslots).float().mean().item()
         total += 1
 

@@ -136,7 +136,8 @@ def run(model, world, device, batch_size, n_batches, n_buckets, tau,
     for _ in range(n_batches):
         batch = world.batch(batch_size)
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -155,7 +156,8 @@ def run(model, world, device, batch_size, n_batches, n_buckets, tau,
         bucket = (distance * n_buckets).long().clamp(0, n_buckets - 1)
 
         logits_fwd, scores_fwd = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -188,7 +190,8 @@ def run(model, world, device, batch_size, n_batches, n_buckets, tau,
             model.score_scale.fill_(1.0)
             model.recency_scale.fill_(0.0)
         _, sem = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,

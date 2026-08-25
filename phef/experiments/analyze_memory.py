@@ -19,10 +19,10 @@ def move(batch, device):
 
 @torch.inference_mode()
 def oracle_bound(
-    event_keys,
+    slots,
+    codebook,
     query_keys,
     answer_positions,
-    slots=None,
     query_slots=None,
     scale=1.0,
 ):
@@ -32,18 +32,22 @@ def oracle_bound(
     scale: делитель similarity. Для сырых unit-ключей 1.0 (косинус).
     Для геометрии модели — sqrt(dim), как в model.forward.
     """
-    similarity = torch.einsum(
-        "bd,bsd->bs",
-        query_keys,
-        event_keys,
-    ) / scale
+    similarity = torch.gather(
+        torch.einsum(
+            "bd,bkd->bk",
+            query_keys,
+            codebook,
+        ) / scale,
+        1,
+        slots,
+    )
 
     batch_size, n_events = similarity.shape
     rows = torch.arange(batch_size, device=similarity.device)
 
     target_similarity = similarity[rows, answer_positions]
 
-    if slots is not None and query_slots is not None:
+    if query_slots is not None:
         same_slot = slots.eq(query_slots.unsqueeze(1))
     else:
         same_slot = similarity.ge(
@@ -99,7 +103,8 @@ def quick_acc(model, world, device, n=2048, batch_size=512, hard=False):
 
     while total < n:
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -108,7 +113,8 @@ def quick_acc(model, world, device, n=2048, batch_size=512, hard=False):
         ) = move(world.batch(batch_size), device)
 
         logits = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -142,7 +148,8 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
 
     for _ in range(n_batches):
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -151,7 +158,8 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         ) = move(world.batch(batch_size), device)
 
         logits, scores = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -162,7 +170,8 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         tie_sum += getattr(model, "last_tie_rate", 0.0)
 
         logits_soft = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -190,15 +199,15 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         slot_hit = slots[rows, picked].eq(query_slots)
 
         bounds = oracle_bound(
-            event_keys,
+            slots,
+            codebook,
             query_keys,
             answer_positions,
-            slots,
             query_slots,
         )
 
-        encoded_events = torch.nn.functional.normalize(
-            model.key_encoder(event_keys), dim=-1
+        encoded_codebook = torch.nn.functional.normalize(
+            model.key_encoder(codebook), dim=-1
         )
 
         encoded_query = torch.nn.functional.normalize(
@@ -206,23 +215,23 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
         )
 
         encoded_bounds = oracle_bound(
-            encoded_events,
+            slots,
+            encoded_codebook,
             encoded_query,
             answer_positions,
-            slots,
             query_slots,
         )
 
         # То же самое, но в геометрии, которой пользуется model.forward:
         # dot / sqrt(dim), без нормировки выходов энкодеров.
-        raw_events = model.key_encoder(event_keys)
+        raw_codebook = model.key_encoder(codebook)
         raw_query = model.query_encoder(query_keys)
 
         model_bounds = oracle_bound(
-            raw_events,
+            slots,
+            raw_codebook,
             raw_query,
             answer_positions,
-            slots,
             query_slots,
             scale=math.sqrt(model.dim),
         )
@@ -239,11 +248,15 @@ def analyze(model, world, device, batch_size, n_batches, n_buckets=8):
             oracle_sums[name] = oracle_sums.get(name, 0.0) + value
 
         # soft-oracle: top-1 slot recall в трёх геометриях
-        raw_similarity = torch.einsum(
-            "bd,bsd->bs", query_keys, event_keys
+        raw_similarity = torch.gather(
+            torch.einsum("bd,bkd->bk", query_keys, codebook),
+            1,
+            slots,
         )
-        model_similarity = torch.einsum(
-            "bd,bsd->bs", raw_query, raw_events
+        model_similarity = torch.gather(
+            torch.einsum("bd,bkd->bk", raw_query, raw_codebook),
+            1,
+            slots,
         ) / math.sqrt(model.dim)
 
         for key, value in (
@@ -541,7 +554,8 @@ def main():
         model.train()
 
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -557,7 +571,8 @@ def main():
         for micro in range(accum):
             if micro > 0:
                 (
-                    event_keys,
+                    slots_b,
+                    codebook,
                     values,
                     timestamps,
                     query_keys,
@@ -571,7 +586,8 @@ def main():
                 enabled=device.type == "cuda",
             ):
                 logits = model(
-                    event_keys,
+                    slots_b,
+                    codebook,
                     values,
                     timestamps,
                     query_keys,

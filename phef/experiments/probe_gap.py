@@ -70,7 +70,8 @@ def measure(model, world, device, batch_size, n_batches, taus):
     for _ in range(n_batches):
         batch = world.batch(batch_size)
         (
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -79,7 +80,8 @@ def measure(model, world, device, batch_size, n_batches, taus):
         ) = tuple(t.to(device, non_blocking=True) for t in batch)
 
         _, sem = model(
-            event_keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,

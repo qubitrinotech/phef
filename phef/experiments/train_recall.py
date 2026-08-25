@@ -44,7 +44,8 @@ def evaluate(
 
     for _ in range(n_batches):
         (
-            keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -53,7 +54,8 @@ def evaluate(
         ) = move_batch(world.batch(batch_size), device)
 
         logits, retrieval_scores = model(
-            keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -97,7 +99,8 @@ def quick_acc(model, world, device, n=2048, batch_size=1024):
 
     while total < n:
         (
-            keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -105,7 +108,9 @@ def quick_acc(model, world, device, n=2048, batch_size=1024):
             _,
         ) = move_batch(world.batch(batch_size), device)
 
-        logits = model(keys, values, timestamps, query_keys)
+        logits = model(
+            slots_b, codebook, values, timestamps, query_keys
+        )
         correct += logits.argmax(dim=-1).eq(answers).sum().item()
         total += answers.numel()
 
@@ -233,7 +238,8 @@ def main():
         model.train()
 
         (
-            keys,
+            slots_b,
+            codebook,
             values,
             timestamps,
             query_keys,
@@ -252,7 +258,8 @@ def main():
             enabled=use_amp,
         ):
             logits, retrieval_scores = model(
-                keys,
+                slots_b,
+                codebook,
                 values,
                 timestamps,
                 query_keys,

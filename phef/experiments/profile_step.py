@@ -107,14 +107,24 @@ def main():
 
     def train_step():
         model.train()
-        event_keys, values, timestamps, query_keys, answers, _ = batch_gpu
+        (
+            slots_b,
+            codebook,
+            values,
+            timestamps,
+            query_keys,
+            answers,
+            _,
+        ) = batch_gpu
         optimizer.zero_grad(set_to_none=True)
         with torch.autocast(
             device_type=device.type,
             dtype=torch.bfloat16,
             enabled=device.type == "cuda",
         ):
-            logits = model(event_keys, values, timestamps, query_keys)
+            logits = model(
+                slots_b, codebook, values, timestamps, query_keys
+            )
             loss = F.cross_entropy(logits, answers)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -122,7 +132,15 @@ def main():
 
     def full_epoch():
         model.train()
-        event_keys, values, timestamps, query_keys, answers, _ = tuple(
+        (
+            slots_b,
+            codebook,
+            values,
+            timestamps,
+            query_keys,
+            answers,
+            _,
+        ) = tuple(
             t.to(device, non_blocking=True) for t in world.batch(args.batch_size)
         )
         optimizer.zero_grad(set_to_none=True)
@@ -131,7 +149,9 @@ def main():
             dtype=torch.bfloat16,
             enabled=device.type == "cuda",
         ):
-            logits = model(event_keys, values, timestamps, query_keys)
+            logits = model(
+                slots_b, codebook, values, timestamps, query_keys
+            )
             loss = F.cross_entropy(logits, answers)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)

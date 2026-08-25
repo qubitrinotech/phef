@@ -9,6 +9,10 @@ class BranchingWorld:
     Генерация векторизована по батчу: цикл идёт только по сегментам,
     а не по эпизодам. Ключи сэмплируются заново каждый батч,
     поэтому lookup-таблица структурно невозможна.
+
+    batch() возвращает (slots, codebook), а не развёрнутый event_keys:
+    при bs=64, n_segments=131072, key_dim=32 развёртка стоит 1024 MiB,
+    а gather после key_encoder эквивалентен gather до него.
     """
 
     def __init__(
@@ -28,6 +32,10 @@ class BranchingWorld:
         self.key_dim = key_dim
         self.symbolic = symbolic
         self.rng = np.random.default_rng(seed)
+
+        self.last_slots = None
+        self.last_query_slots = None
+        self.last_answer_positions = None
 
     def _sample_slots(self, bs):
         slots = self.rng.integers(
@@ -81,6 +89,8 @@ class BranchingWorld:
         )
         answers = values[rows, answer_positions]
 
+        slots_t = torch.from_numpy(slots.astype(np.int64))
+        query_slots_t = torch.from_numpy(query_slots.astype(np.int64))
         values_t = torch.from_numpy(values.astype(np.int64))
         timestamps_t = torch.from_numpy(timestamps.astype(np.int64))
         answers_t = torch.from_numpy(answers.astype(np.int64))
@@ -88,14 +98,15 @@ class BranchingWorld:
             answer_positions.astype(np.int64)
         )
 
+        self.last_slots = slots_t
+        self.last_query_slots = query_slots_t
+        self.last_answer_positions = positions_t
+
         if self.symbolic:
-            return (
-                torch.from_numpy(slots.astype(np.int64)),
-                values_t,
-                timestamps_t,
-                torch.from_numpy(query_slots.astype(np.int64)),
-                answers_t,
-                positions_t,
+            raise NotImplementedError(
+                "symbolic-режим не поддерживает контракт "
+                "(slots, codebook, values, timestamps, "
+                "query_keys, answers, positions)"
             )
 
         codebook = self.rng.standard_normal(
@@ -108,20 +119,11 @@ class BranchingWorld:
             keepdims=True,
         )
 
-        event_keys = np.take_along_axis(
-            codebook,
-            slots[:, :, None],
-            axis=1,
-        )
         query_keys = codebook[rows, query_slots]
 
-        self.last_slots = torch.from_numpy(slots.astype(np.int64))
-        self.last_query_slots = torch.from_numpy(
-            query_slots.astype(np.int64)
-        )
-
         return (
-            torch.from_numpy(event_keys),
+            slots_t,
+            torch.from_numpy(codebook),
             values_t,
             timestamps_t,
             torch.from_numpy(query_keys),
