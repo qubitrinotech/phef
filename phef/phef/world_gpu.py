@@ -83,16 +83,26 @@ class BranchingWorldGPU:
     def _sample_slots(self, bs):
         s = self.n_segments
 
-        slots = self.np_rng.integers(0, self.n_keys, size=(bs, s))
+        base = self.np_rng.integers(0, self.n_keys, size=(bs, s))
         reuse = self.np_rng.random((bs, s)) < self.overwrite_p
         reuse[:, 0] = False
         back = self.np_rng.random((bs, s))
-        rows = np.arange(bs)
 
-        for ts in range(1, s):
-            source = np.clip((back[:, ts] * ts).astype(np.int64), 0, ts - 1)
-            candidate = slots[rows, source]
-            slots[:, ts] = np.where(reuse[:, ts], candidate, slots[:, ts])
+        # slots[ts] = base[root(ts)], где root - корень цепочки reuse.
+        # Корни ищутся удвоением указателей parent = parent[parent]:
+        # 5-6 итераций вместо s последовательных шагов. Порядок
+        # обращений к RNG не изменён, результат побитово тот же.
+        ts = np.arange(s)
+        source = np.clip((back * ts).astype(np.int64), 0, np.maximum(ts - 1, 0))
+        parent = np.where(reuse, source, ts[None, :])
+
+        while True:
+            nxt = np.take_along_axis(parent, parent, axis=1)
+            if np.array_equal(nxt, parent):
+                break
+            parent = nxt
+
+        slots = np.take_along_axis(base, parent, axis=1)
 
         if self._slot_pin is None or self._slot_pin.shape != (bs, s):
             self._slot_pin = torch.empty(
