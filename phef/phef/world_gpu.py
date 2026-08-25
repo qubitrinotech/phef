@@ -21,7 +21,7 @@ GPU-резидентный генератор BranchingWorld.
 """
 
 import torch
-
+import numpy as np
 
 class BranchingWorldGPU:
     def __init__(
@@ -45,7 +45,14 @@ class BranchingWorldGPU:
 
         self.gen = torch.Generator(device=self.device)
         self.gen.manual_seed(int(seed))
+        if self.n_keys > 32767:
+            raise ValueError(
+                f"n_keys={self.n_keys} не влезает в int16; "
+                "передача слотов host->device рассчитана на int16"
+            )
 
+        self.np_rng = np.random.default_rng(int(seed))
+        self._slot_pin = None
         self.last_slots = None
         self.last_query_slots = None
         self.last_answer_positions = None
@@ -66,19 +73,26 @@ class BranchingWorldGPU:
 
     def _sample_slots(self, bs):
         s = self.n_segments
-        slots = self._randint(self.n_keys, (bs, s))
 
-        reuse = self._rand(bs, s) < self.overwrite_p
+        slots = self.np_rng.integers(0, self.n_keys, size=(bs, s))
+        reuse = self.np_rng.random((bs, s)) < self.overwrite_p
         reuse[:, 0] = False
-
-        back = self._rand(bs, s)
+        back = self.np_rng.random((bs, s))
+        rows = np.arange(bs)
 
         for ts in range(1, s):
-            source = (back[:, ts] * ts).long().clamp_(0, ts - 1)
-            candidate = slots.gather(1, source.unsqueeze(1)).squeeze(1)
-            slots[:, ts] = torch.where(reuse[:, ts], candidate, slots[:, ts])
+            source = np.clip((back[:, ts] * ts).astype(np.int64), 0, ts - 1)
+            candidate = slots[rows, source]
+            slots[:, ts] = np.where(reuse[:, ts], candidate, slots[:, ts])
 
-        return slots
+        if self._slot_pin is None or self._slot_pin.shape != (bs, s):
+            self._slot_pin = torch.empty(
+                (bs, s), dtype=torch.int16, pin_memory=True
+            )
+
+        self._slot_pin.copy_(torch.from_numpy(slots.astype(np.int16)))
+
+        return self._slot_pin.to(self.device, non_blocking=True).long()
 
     # ------------------------------------------------------------------ #
 
