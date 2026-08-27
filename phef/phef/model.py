@@ -68,9 +68,15 @@ class PHEF(nn.Module):
             )
         else:
             if shuffle:
-                permutation = torch.randperm(
+                shift = torch.randint(
+                    1,
                     batch_size,
+                    (),
                     device=values.device,
+                )
+                permutation = torch.roll(
+                    torch.arange(batch_size, device=values.device),
+                    shifts=int(shift.item()),
                 )
                 slots = slots[permutation]
                 codebook = codebook[permutation]

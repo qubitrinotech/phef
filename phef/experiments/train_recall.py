@@ -109,7 +109,12 @@ def quick_acc(model, world, device, n=2048, batch_size=1024):
         ) = move_batch(world.batch(batch_size), device)
 
         logits = model(
-            slots_b, codebook, values, timestamps, query_keys
+            slots_b,
+            codebook,
+            values,
+            timestamps,
+            query_keys,
+            hard=HARD_EVAL,
         )
         correct += logits.argmax(dim=-1).eq(answers).sum().item()
         total += answers.numel()
@@ -144,6 +149,12 @@ def main():
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--weight-decay", type=float, default=1e-4)
     parser.add_argument("--retrieval-weight", type=float, default=1.0)
+    parser.add_argument(
+        "--aux-value-weight",
+        type=float,
+        default=0.0,
+        help="вес auxiliary loss для декодирования value_emb",
+    )
 
     parser.add_argument("--use-best", action="store_true")
     parser.add_argument("--acc-every", type=int, default=250)
@@ -163,6 +174,12 @@ def main():
         type=str,
         default=None,
         help="путь к JSON-отчёту; без него результат только в stdout",
+    )
+    parser.add_argument(
+        "--best-out",
+        type=str,
+        default=None,
+        help="путь к .pt лучшего checkpoint по sel_acc; без него checkpoint не сохраняется",
     )
 
     args = parser.parse_args()
@@ -276,9 +293,15 @@ def main():
                     answer_positions,
                 )
 
+            aux_value_loss = F.cross_entropy(
+                model.head(model.norm(model.value_emb.weight)),
+                torch.arange(args.n_values, device=device),
+            )
+
             loss = (
                 answer_loss
                 + args.retrieval_weight * retrieval_loss
+                + args.aux_value_weight * aux_value_loss
             )
 
         loss.backward()
@@ -308,6 +331,14 @@ def main():
                     k: v.detach().clone()
                     for k, v in model.state_dict().items()
                 }
+                if args.best_out:
+                    best_dir = os.path.dirname(args.best_out)
+                    if best_dir:
+                        os.makedirs(best_dir, exist_ok=True)
+                    torch.save(
+                        {"epoch": best_epoch, "sel_acc": best_acc, "state_dict": best_state},
+                        args.best_out,
+                    )
 
             history.append({"epoch": epoch, "sel_acc": probe})
 
@@ -323,7 +354,7 @@ def main():
                 eval_world,
                 args.eval_batch_size,
                 device,
-                n_batches=2,
+                n_batches=8,
                 use_memory=use_memory,
             )
 
@@ -370,6 +401,7 @@ def main():
         "escape_threshold": escape_threshold,
         "escape_criterion": "val_accuracy",
         "selection": "val_accuracy" if args.use_best else "final",
+        "best_checkpoint": args.best_out,
         "recency_scale": model.recency_scale.item(),
         "score_scale": model.score_scale.item(),
         "memory_gate": model.memory_gate.item(),
