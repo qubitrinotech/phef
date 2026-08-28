@@ -1,0 +1,36 @@
+{
+  "checkpoint": "results/cap_k512_s131072_aux001_seed6.pt",
+  "checkpoint_epoch": 10000,
+  "checkpoint_sel_acc": 0.97265625,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "real": {
+    "answer_acc": 0.95849609375,
+    "retrieval_acc": 0.96026611328125,
+    "episodes": 16384
+  },
+  "shuffled": {
+    "answer_acc": 0.01544189453125,
+    "retrieval_acc": 0.0006103515625,
+    "episodes": 16384
+  },
+  "masked": {
+    "answer_acc": 0.015380859375,
+    "retrieval_acc": null,
+    "episodes": 16384
+  },
+  "config": {
+    "checkpoint": "results/cap_k512_s131072_aux001_seed6.pt",
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 131072,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 16,
+    "eval_batches": 1024,
+    "seed": 6,
+    "cpu": false,
+    "out": "results/cap_k512_s131072_aux001_seed6_eval16384.json"
+  }
+}

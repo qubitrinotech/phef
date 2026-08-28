@@ -1,0 +1,244 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 7.62939453125e-06,
+  "answer_acc": 0.9775390625,
+  "retrieval_acc": 0.98828125,
+  "shuffled_answer_acc": 0.0146484375,
+  "masked_answer_acc": 0.0126953125,
+  "control_status": "PASS",
+  "best_acc": 0.98046875,
+  "best_epoch": 9750,
+  "escape_epoch": 1000,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/cap_k512_s131072_aux001_seed5.pt",
+  "recency_scale": 2.2423934936523438,
+  "score_scale": 3.6713457107543945,
+  "memory_gate": 0.9312869906425476,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.017578125
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.021484375
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.015625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.044921875
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.134765625
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.197265625
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.228515625
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.3203125
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.435546875
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.484375
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.59765625
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.736328125
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.849609375
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.873046875
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.86328125
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.748046875
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.689453125
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 0.6640625
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 0.63671875
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.615234375
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 0.74609375
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 0.611328125
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 0.419921875
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.48046875
+    },
+    {
+      "epoch": 6250,
+      "sel_acc": 0.333984375
+    },
+    {
+      "epoch": 6500,
+      "sel_acc": 0.294921875
+    },
+    {
+      "epoch": 6750,
+      "sel_acc": 0.388671875
+    },
+    {
+      "epoch": 7000,
+      "sel_acc": 0.4375
+    },
+    {
+      "epoch": 7250,
+      "sel_acc": 0.396484375
+    },
+    {
+      "epoch": 7500,
+      "sel_acc": 0.609375
+    },
+    {
+      "epoch": 7750,
+      "sel_acc": 0.458984375
+    },
+    {
+      "epoch": 8000,
+      "sel_acc": 0.328125
+    },
+    {
+      "epoch": 8250,
+      "sel_acc": 0.62109375
+    },
+    {
+      "epoch": 8500,
+      "sel_acc": 0.517578125
+    },
+    {
+      "epoch": 8750,
+      "sel_acc": 0.6484375
+    },
+    {
+      "epoch": 9000,
+      "sel_acc": 0.630859375
+    },
+    {
+      "epoch": 9250,
+      "sel_acc": 0.556640625
+    },
+    {
+      "epoch": 9500,
+      "sel_acc": 0.673828125
+    },
+    {
+      "epoch": 9750,
+      "sel_acc": 0.98046875
+    },
+    {
+      "epoch": 10000,
+      "sel_acc": 0.892578125
+    },
+    {
+      "epoch": 10250,
+      "sel_acc": 0.78125
+    },
+    {
+      "epoch": 10500,
+      "sel_acc": 0.62109375
+    },
+    {
+      "epoch": 10750,
+      "sel_acc": 0.44140625
+    },
+    {
+      "epoch": 11000,
+      "sel_acc": 0.154296875
+    },
+    {
+      "epoch": 11250,
+      "sel_acc": 0.123046875
+    },
+    {
+      "epoch": 11500,
+      "sel_acc": 0.044921875
+    },
+    {
+      "epoch": 11750,
+      "sel_acc": 0.03515625
+    },
+    {
+      "epoch": 12000,
+      "sel_acc": 0.0234375
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 131072,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 12000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 5,
+    "cpu": false,
+    "out": "results/cap_k512_s131072_aux001_seed5.json",
+    "best_out": "results/cap_k512_s131072_aux001_seed5.pt"
+  }
+}
