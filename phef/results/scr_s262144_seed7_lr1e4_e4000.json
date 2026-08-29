@@ -1,0 +1,116 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 3.814697265625e-06,
+  "answer_acc": 0.1796875,
+  "retrieval_acc": 0.4638671875,
+  "shuffled_answer_acc": 0.0185546875,
+  "masked_answer_acc": 0.0107421875,
+  "control_status": "FAIL",
+  "best_acc": 0.197265625,
+  "best_epoch": 4000,
+  "escape_epoch": 500,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/scr_s262144_seed7_lr1e4_e4000.pt",
+  "recency_scale": 0.39746904373168945,
+  "score_scale": 1.5895521640777588,
+  "memory_gate": 0.08685453981161118,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.046875
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.05078125
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.05859375
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.064453125
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.080078125
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.04296875
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.029296875
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.03125
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.068359375
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.080078125
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.107421875
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.15234375
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.16796875
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.197265625
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 262144,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 4000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/scr_s262144_seed7_lr1e4_e4000.json",
+    "best_out": "results/scr_s262144_seed7_lr1e4_e4000.pt"
+  }
+}
