@@ -1,0 +1,244 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 0.25,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 3.814697265625e-06,
+  "answer_acc": 1.0,
+  "retrieval_acc": 1.0,
+  "shuffled_answer_acc": 0.0185546875,
+  "masked_answer_acc": 0.009765625,
+  "control_status": "PASS",
+  "best_acc": 1.0,
+  "best_epoch": 4750,
+  "escape_epoch": 500,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/cap_k512_s262144_rw025_seed9.pt",
+  "recency_scale": 1.4278630018234253,
+  "score_scale": 2.222076892852783,
+  "memory_gate": 0.45276686549186707,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.029296875
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.04296875
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.12890625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.091796875
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.185546875
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.369140625
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.47265625
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.685546875
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.755859375
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.814453125
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.830078125
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.876953125
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.919921875
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.958984375
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.966796875
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.9765625
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.9765625
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 0.984375
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.99609375
+    },
+    {
+      "epoch": 6250,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 6500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 6750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 7000,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 7250,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 7500,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 7750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 8000,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 8250,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 8500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 8750,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 9000,
+      "sel_acc": 0.99609375
+    },
+    {
+      "epoch": 9250,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 9500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 9750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 10000,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 10250,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 10500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 10750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 11000,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 11250,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 11500,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 11750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 12000,
+      "sel_acc": 1.0
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 262144,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 12000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 0.25,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 9,
+    "cpu": false,
+    "out": "results/cap_k512_s262144_rw025_seed9.json",
+    "best_out": "results/cap_k512_s262144_rw025_seed9.pt"
+  }
+}
