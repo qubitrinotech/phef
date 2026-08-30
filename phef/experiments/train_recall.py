@@ -182,6 +182,13 @@ def main():
         help="путь к .pt лучшего checkpoint по sel_acc; без него checkpoint не сохраняется",
     )
 
+    parser.add_argument(
+        "--init-checkpoint",
+        type=str,
+        default=None,
+        help="путь к .pt для инициализации весов перед обучением (curriculum)",
+    )
+
     args = parser.parse_args()
 
     global HARD_EVAL
@@ -221,6 +228,29 @@ def main():
         top_k=1,
         use_memory=use_memory,
     ).to(device)
+
+    if args.init_checkpoint is not None:
+        init_state = torch.load(args.init_checkpoint, map_location=device)
+        if isinstance(init_state, dict):
+            for wrap in ("state_dict", "model"):
+                if wrap in init_state:
+                    init_state = init_state[wrap]
+                    break
+        own = model.state_dict()
+        loaded, skipped = [], []
+        for k, v in init_state.items():
+            if k in own and own[k].shape == v.shape:
+                own[k] = v
+                loaded.append(k)
+            else:
+                skipped.append(k)
+        model.load_state_dict(own)
+        print(
+            f"init-checkpoint={args.init_checkpoint} loaded={len(loaded)} skipped={len(skipped)}",
+            flush=True,
+        )
+        if skipped:
+            print("skipped keys: " + ", ".join(skipped), flush=True)
 
     optimizer = torch.optim.AdamW(
         model.parameters(),
