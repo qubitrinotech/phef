@@ -1,0 +1,36 @@
+{
+  "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+  "checkpoint_epoch": 4250,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "real": {
+    "answer_acc": 0.994140625,
+    "retrieval_acc": 0.994140625,
+    "episodes": 2048
+  },
+  "shuffled": {
+    "answer_acc": 0.01904296875,
+    "retrieval_acc": 0.0,
+    "episodes": 2048
+  },
+  "masked": {
+    "answer_acc": 0.017578125,
+    "retrieval_acc": null,
+    "episodes": 2048
+  },
+  "config": {
+    "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 2097152,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 256,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/zeroshot_s524288ckpt_on_s2097152_eval2048.json"
+  }
+}
