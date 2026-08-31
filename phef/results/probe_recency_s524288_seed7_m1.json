@@ -1,0 +1,63 @@
+[
+  {
+    "path": "results/probeshim_scr_s524288_seed7_rw0125.pt",
+    "config": {
+      "n_keys": 512,
+      "n_values": 64,
+      "key_dim": 32,
+      "dim": 128,
+      "n_segments": 524288,
+      "overwrite_p": 0.3,
+      "seed": 7,
+      "epochs": 6000,
+      "eval_batch_size": 8,
+      "eval_batches": 256,
+      "world": "numpy"
+    },
+    "eval_seed_offset": 100000,
+    "eval_seed": 100007,
+    "base_recency": 1.2874810695648193,
+    "base_score": 2.2905571460723877,
+    "reported_answer_acc": null,
+    "results": {
+      "1.0": {
+        "answer_acc": 0.99853515625,
+        "slot_acc": 0.99853515625,
+        "last_acc": 0.99853515625,
+        "tie_rate": 0.0,
+        "ans_prof": [
+          0.99853515625,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN
+        ],
+        "slot_prof": [
+          0.99853515625,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN
+        ],
+        "counts": [
+          2048.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ans_drop": NaN,
+        "slot_drop": NaN
+      }
+    }
+  }
+]

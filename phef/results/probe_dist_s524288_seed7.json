@@ -1,0 +1,113 @@
+{
+  "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+  "checkpoint_epoch": 4250,
+  "n_segments": 524288,
+  "episodes": 2048,
+  "overall_answer_acc": 0.99853515625,
+  "overall_slot_acc": 0.99853515625,
+  "overall_last_acc": 0.99853515625,
+  "score_scale": 2.2905571460723877,
+  "recency_scale": 1.2874810695648193,
+  "dist_percentiles": {
+    "p0": 1.0,
+    "p10": 61.0,
+    "p25": 159.0,
+    "p50": 363.5,
+    "p75": 721.25,
+    "p90": 1207.3,
+    "p99": 2221.6499999999996,
+    "p100": 4435.0
+  },
+  "dist_mean": 515.14892578125,
+  "expected_dist_uniform": 1024.0,
+  "buckets": [
+    {
+      "bucket": 0,
+      "dist_lo": 1.0,
+      "dist_hi": 76.0,
+      "n": 252,
+      "answer_acc": 0.996031746031746,
+      "slot_acc": 0.996031746031746,
+      "last_acc": 0.996031746031746
+    },
+    {
+      "bucket": 1,
+      "dist_lo": 76.0,
+      "dist_hi": 159.0,
+      "n": 259,
+      "answer_acc": 0.9961389961389961,
+      "slot_acc": 0.9961389961389961,
+      "last_acc": 0.9961389961389961
+    },
+    {
+      "bucket": 2,
+      "dist_lo": 159.0,
+      "dist_hi": 247.625,
+      "n": 257,
+      "answer_acc": 1.0,
+      "slot_acc": 1.0,
+      "last_acc": 1.0
+    },
+    {
+      "bucket": 3,
+      "dist_lo": 247.625,
+      "dist_hi": 363.5,
+      "n": 256,
+      "answer_acc": 1.0,
+      "slot_acc": 1.0,
+      "last_acc": 1.0
+    },
+    {
+      "bucket": 4,
+      "dist_lo": 363.5,
+      "dist_hi": 510.0,
+      "n": 253,
+      "answer_acc": 0.9960474308300395,
+      "slot_acc": 0.9960474308300395,
+      "last_acc": 0.9960474308300395
+    },
+    {
+      "bucket": 5,
+      "dist_lo": 510.0,
+      "dist_hi": 721.25,
+      "n": 259,
+      "answer_acc": 1.0,
+      "slot_acc": 1.0,
+      "last_acc": 1.0
+    },
+    {
+      "bucket": 6,
+      "dist_lo": 721.25,
+      "dist_hi": 1079.625,
+      "n": 256,
+      "answer_acc": 1.0,
+      "slot_acc": 1.0,
+      "last_acc": 1.0
+    },
+    {
+      "bucket": 7,
+      "dist_lo": 1079.625,
+      "dist_hi": 4435.0,
+      "n": 256,
+      "answer_acc": 1.0,
+      "slot_acc": 1.0,
+      "last_acc": 1.0
+    }
+  ],
+  "config": {
+    "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 524288,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 256,
+    "eval_seed_offset": 100000,
+    "n_buckets": 8,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/probe_dist_s524288_seed7.json"
+  }
+}
