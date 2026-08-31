@@ -1,0 +1,149 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 0.125,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 1.52587890625e-05,
+  "answer_acc": 0.998046875,
+  "retrieval_acc": 0.998046875,
+  "shuffled_answer_acc": 0.01953125,
+  "masked_answer_acc": 0.0126953125,
+  "control_status": "PASS",
+  "best_acc": 1.0,
+  "best_epoch": 4750,
+  "escape_epoch": 750,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/rwtest_s65536_seed3_rw0125_e6000_best.pt",
+  "recency_scale": 1.5907621383666992,
+  "score_scale": 2.4374945163726807,
+  "memory_gate": 0.9044792652130127,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.01953125
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.0625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.078125
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.07421875
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.126953125
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.25
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.564453125
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.71875
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.916015625
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.96875
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.98828125
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.99609375
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.994140625
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 0.998046875
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 1.0
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.998046875
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 6000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 0.125,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 3,
+    "cpu": false,
+    "out": "results/rwtest_s65536_seed3_rw0125_e6000.json",
+    "best_out": "results/rwtest_s65536_seed3_rw0125_e6000_best.pt",
+    "init_checkpoint": null
+  }
+}

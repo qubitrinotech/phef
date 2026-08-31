@@ -1,0 +1,77 @@
+{
+  "checkpoint": "results/rwtest_s65536_seed3_rw0125_e6000_best.pt",
+  "checkpoint_epoch": 4750,
+  "n_segments": 65536,
+  "episodes": 1024,
+  "overall_answer_acc": 0.984375,
+  "overall_slot_acc": 0.9833984375,
+  "overall_last_acc": 0.9833984375,
+  "score_scale": 2.4374945163726807,
+  "recency_scale": 1.5907621383666992,
+  "dist_percentiles": {
+    "p0": 0.0,
+    "p10": 433.90000000000003,
+    "p25": 1027.0,
+    "p50": 2478.0,
+    "p75": 5473.5,
+    "p90": 8931.600000000002,
+    "p99": 18783.85,
+    "p100": 35284.0
+  },
+  "dist_mean": 3849.166015625,
+  "expected_dist_uniform": 16.0,
+  "buckets": [
+    {
+      "bucket": 0,
+      "dist_lo": 0.0,
+      "dist_hi": 1027.0,
+      "n": 256,
+      "answer_acc": 0.984375,
+      "slot_acc": 0.984375,
+      "last_acc": 0.984375
+    },
+    {
+      "bucket": 1,
+      "dist_lo": 1027.0,
+      "dist_hi": 2478.0,
+      "n": 256,
+      "answer_acc": 0.9765625,
+      "slot_acc": 0.9765625,
+      "last_acc": 0.9765625
+    },
+    {
+      "bucket": 2,
+      "dist_lo": 2478.0,
+      "dist_hi": 5473.5,
+      "n": 256,
+      "answer_acc": 0.9921875,
+      "slot_acc": 0.98828125,
+      "last_acc": 0.98828125
+    },
+    {
+      "bucket": 3,
+      "dist_lo": 5473.5,
+      "dist_hi": 35284.0,
+      "n": 256,
+      "answer_acc": 0.984375,
+      "slot_acc": 0.984375,
+      "last_acc": 0.984375
+    }
+  ],
+  "config": {
+    "checkpoint": "results/rwtest_s65536_seed3_rw0125_e6000_best.pt",
+    "n_keys": 4096,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 128,
+    "eval_seed_offset": 100000,
+    "n_buckets": 4,
+    "seed": 3,
+    "cpu": false,
+    "out": "results/probe_dist_rwtest_rw0125_keys4096.json"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+  "checkpoint_epoch": 4250,
+  "n_segments": 2097152,
+  "episodes": 512,
+  "overall_answer_acc": 0.97265625,
+  "overall_slot_acc": 0.97265625,
+  "overall_last_acc": 0.97265625,
+  "score_scale": 2.2905571460723877,
+  "recency_scale": 1.2874810695648193,
+  "dist_percentiles": {
+    "p0": 2.0,
+    "p10": 407.6,
+    "p25": 1096.5,
+    "p50": 2893.0,
+    "p75": 5312.25,
+    "p90": 9027.100000000004,
+    "p99": 19675.439999999988,
+    "p100": 29757.0
+  },
+  "dist_mean": 4013.216796875,
+  "expected_dist_uniform": 512.0,
+  "buckets": [
+    {
+      "bucket": 0,
+      "dist_lo": 2.0,
+      "dist_hi": 1096.5,
+      "n": 128,
+      "answer_acc": 0.984375,
+      "slot_acc": 0.984375,
+      "last_acc": 0.984375
+    },
+    {
+      "bucket": 1,
+      "dist_lo": 1096.5,
+      "dist_hi": 2893.0,
+      "n": 128,
+      "answer_acc": 0.953125,
+      "slot_acc": 0.953125,
+      "last_acc": 0.953125
+    },
+    {
+      "bucket": 2,
+      "dist_lo": 2893.0,
+      "dist_hi": 5312.25,
+      "n": 128,
+      "answer_acc": 0.9609375,
+      "slot_acc": 0.9609375,
+      "last_acc": 0.9609375
+    },
+    {
+      "bucket": 3,
+      "dist_lo": 5312.25,
+      "dist_hi": 29757.0,
+      "n": 128,
+      "answer_acc": 0.9921875,
+      "slot_acc": 0.9921875,
+      "last_acc": 0.9921875
+    }
+  ],
+  "config": {
+    "checkpoint": "results/scr_s524288_seed7_rw0125_e6000.pt",
+    "n_keys": 4096,
+    "n_values": 64,
+    "n_segments": 2097152,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 64,
+    "eval_seed_offset": 100000,
+    "n_buckets": 4,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/probe_dist_s2097152_seed7_keys4096.json"
+  }
+}

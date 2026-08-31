@@ -150,6 +150,18 @@ def main():
     parser.add_argument("--weight-decay", type=float, default=1e-4)
     parser.add_argument("--retrieval-weight", type=float, default=1.0)
     parser.add_argument(
+        "--retrieval-weight-late",
+        type=float,
+        default=-1.0,
+        help="вес retrieval после переключения; -1.0 значит выключено",
+    )
+    parser.add_argument(
+        "--retrieval-weight-switch-epoch",
+        type=int,
+        default=0,
+        help="эпоха переключения веса retrieval; 0 значит выключено",
+    )
+    parser.add_argument(
         "--aux-value-weight",
         type=float,
         default=0.0,
@@ -190,6 +202,12 @@ def main():
     )
 
     args = parser.parse_args()
+
+    if args.retrieval_weight_switch_epoch > 0 and args.retrieval_weight_late < 0.0:
+        parser.error(
+            "--retrieval-weight-switch-epoch задан, "
+            "а --retrieval-weight-late не задан"
+        )
 
     global HARD_EVAL
     HARD_EVAL = args.hard_eval
@@ -315,7 +333,16 @@ def main():
 
             answer_loss = F.cross_entropy(logits, answers)
 
-            if not use_memory or args.retrieval_weight == 0.0:
+            rw_now = (
+                args.retrieval_weight_late
+                if (
+                    args.retrieval_weight_switch_epoch > 0
+                    and epoch > args.retrieval_weight_switch_epoch
+                )
+                else args.retrieval_weight
+            )
+
+            if not use_memory or rw_now == 0.0:
                 retrieval_loss = logits.new_zeros(())
             else:
                 retrieval_loss = F.cross_entropy(
@@ -330,7 +357,7 @@ def main():
 
             loss = (
                 answer_loss
-                + args.retrieval_weight * retrieval_loss
+                + rw_now * retrieval_loss
                 + args.aux_value_weight * aux_value_loss
             )
 
@@ -417,6 +444,8 @@ def main():
         "task": "segmented_kv_recall",
         "use_memory": use_memory,
         "retrieval_weight": args.retrieval_weight,
+        "retrieval_weight_late": args.retrieval_weight_late,
+        "retrieval_weight_switch_epoch": args.retrieval_weight_switch_epoch,
         "emergent_mode": emergent,
         "answer_chance": chance,
         "retrieval_chance": retrieval_chance,

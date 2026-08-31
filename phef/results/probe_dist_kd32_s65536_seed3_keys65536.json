@@ -1,0 +1,77 @@
+{
+  "checkpoint": "results/cap_k512_s65536_aux001_seed3.pt",
+  "checkpoint_epoch": 4750,
+  "n_segments": 65536,
+  "episodes": 1024,
+  "overall_answer_acc": 0.9873046875,
+  "overall_slot_acc": 0.9873046875,
+  "overall_last_acc": 0.9873046875,
+  "score_scale": 2.0182125568389893,
+  "recency_scale": 1.433078646659851,
+  "dist_percentiles": {
+    "p0": 72.0,
+    "p10": 2206.9000000000005,
+    "p25": 6884.5,
+    "p50": 17201.0,
+    "p75": 30070.0,
+    "p90": 42802.3,
+    "p99": 61488.64,
+    "p100": 65091.0
+  },
+  "dist_mean": 20132.4365234375,
+  "expected_dist_uniform": 1.0,
+  "buckets": [
+    {
+      "bucket": 0,
+      "dist_lo": 72.0,
+      "dist_hi": 6884.5,
+      "n": 256,
+      "answer_acc": 0.9921875,
+      "slot_acc": 0.9921875,
+      "last_acc": 0.9921875
+    },
+    {
+      "bucket": 1,
+      "dist_lo": 6884.5,
+      "dist_hi": 17201.0,
+      "n": 256,
+      "answer_acc": 0.99609375,
+      "slot_acc": 0.99609375,
+      "last_acc": 0.99609375
+    },
+    {
+      "bucket": 2,
+      "dist_lo": 17201.0,
+      "dist_hi": 30070.0,
+      "n": 256,
+      "answer_acc": 0.98046875,
+      "slot_acc": 0.98046875,
+      "last_acc": 0.98046875
+    },
+    {
+      "bucket": 3,
+      "dist_lo": 30070.0,
+      "dist_hi": 65091.0,
+      "n": 256,
+      "answer_acc": 0.98046875,
+      "slot_acc": 0.98046875,
+      "last_acc": 0.98046875
+    }
+  ],
+  "config": {
+    "checkpoint": "results/cap_k512_s65536_aux001_seed3.pt",
+    "n_keys": 65536,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 128,
+    "eval_seed_offset": 100000,
+    "n_buckets": 4,
+    "seed": 3,
+    "cpu": false,
+    "out": "results/probe_dist_kd32_s65536_seed3_keys65536.json"
+  }
+}
