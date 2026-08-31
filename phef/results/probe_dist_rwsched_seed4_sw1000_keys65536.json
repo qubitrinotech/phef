@@ -1,0 +1,77 @@
+{
+  "checkpoint": "results/rwsched_s65536_seed4_0125to10_sw1000_e6000_best.pt",
+  "checkpoint_epoch": 4000,
+  "n_segments": 65536,
+  "episodes": 1024,
+  "overall_answer_acc": 0.9951171875,
+  "overall_slot_acc": 0.9951171875,
+  "overall_last_acc": 0.9951171875,
+  "score_scale": 2.107386827468872,
+  "recency_scale": 1.4443329572677612,
+  "dist_percentiles": {
+    "p0": 10.0,
+    "p10": 2401.000000000001,
+    "p25": 6382.25,
+    "p50": 14855.0,
+    "p75": 28208.75,
+    "p90": 42413.100000000006,
+    "p99": 58502.60999999999,
+    "p100": 65008.0
+  },
+  "dist_mean": 19021.09375,
+  "expected_dist_uniform": 1.0,
+  "buckets": [
+    {
+      "bucket": 0,
+      "dist_lo": 10.0,
+      "dist_hi": 6382.25,
+      "n": 256,
+      "answer_acc": 0.99609375,
+      "slot_acc": 0.99609375,
+      "last_acc": 0.99609375
+    },
+    {
+      "bucket": 1,
+      "dist_lo": 6382.25,
+      "dist_hi": 14855.0,
+      "n": 256,
+      "answer_acc": 0.9921875,
+      "slot_acc": 0.9921875,
+      "last_acc": 0.9921875
+    },
+    {
+      "bucket": 2,
+      "dist_lo": 14855.0,
+      "dist_hi": 28208.75,
+      "n": 256,
+      "answer_acc": 0.99609375,
+      "slot_acc": 0.99609375,
+      "last_acc": 0.99609375
+    },
+    {
+      "bucket": 3,
+      "dist_lo": 28208.75,
+      "dist_hi": 65008.0,
+      "n": 256,
+      "answer_acc": 0.99609375,
+      "slot_acc": 0.99609375,
+      "last_acc": 0.99609375
+    }
+  ],
+  "config": {
+    "checkpoint": "results/rwsched_s65536_seed4_0125to10_sw1000_e6000_best.pt",
+    "n_keys": 65536,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 128,
+    "eval_seed_offset": 100000,
+    "n_buckets": 4,
+    "seed": 4,
+    "cpu": false,
+    "out": "results/probe_dist_rwsched_seed4_sw1000_keys65536.json"
+  }
+}
