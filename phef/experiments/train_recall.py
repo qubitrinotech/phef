@@ -200,8 +200,38 @@ def main():
         default=None,
         help="путь к .pt для инициализации весов перед обучением (curriculum)",
     )
+    parser.add_argument(
+        "--snapshot-epochs",
+        type=str,
+        default=None,
+        help="epochs через запятую для сохранения checkpoint snapshots",
+    )
+    parser.add_argument(
+        "--snapshot-dir",
+        type=str,
+        default=None,
+        help="директория для checkpoint snapshots",
+    )
 
     args = parser.parse_args()
+
+    if (args.snapshot_epochs is None) != (args.snapshot_dir is None):
+        parser.error(
+            "--snapshot-epochs и --snapshot-dir должны задаваться вместе"
+        )
+
+    snapshot_epochs = set()
+    if args.snapshot_epochs:
+        try:
+            snapshot_epochs = {
+                int(epoch.strip())
+                for epoch in args.snapshot_epochs.split(",")
+                if epoch.strip()
+            }
+        except ValueError:
+            parser.error("--snapshot-epochs: ожидаются целые epochs через запятую")
+        if any(epoch < 1 for epoch in snapshot_epochs):
+            parser.error("--snapshot-epochs: epochs должны быть >= 1")
 
     if args.retrieval_weight_switch_epoch > 0 and args.retrieval_weight_late < 0.0:
         parser.error(
@@ -298,6 +328,7 @@ def main():
     best_state = None
     escape_epoch = None
     history = []
+    snapshot_manifest = []
 
     for epoch in range(1, args.epochs + 1):
         model.train()
@@ -369,6 +400,7 @@ def main():
 
         optimizer.step()
 
+        probe = None
         if args.use_best and epoch % args.acc_every == 0:
             probe = quick_acc(
                 model,
@@ -404,6 +436,36 @@ def main():
                 f"best {best_acc:.4f} @ {best_epoch} "
                 f"escape {escape_epoch}"
             )
+
+        if epoch in snapshot_epochs:
+            os.makedirs(args.snapshot_dir, exist_ok=True)
+            snapshot_path = os.path.join(
+                args.snapshot_dir,
+                f"epoch_{epoch:06d}.pt",
+            )
+            snapshot_state = {
+                k: v.detach().clone()
+                for k, v in model.state_dict().items()
+            }
+            torch.save(
+                {
+                    "epoch": epoch,
+                    "sel_acc": probe,
+                    "selection_probed": probe is not None,
+                    "state_dict": snapshot_state,
+                    "config": vars(args),
+                },
+                snapshot_path,
+            )
+            snapshot_manifest.append(
+                {
+                    "epoch": epoch,
+                    "sel_acc": probe,
+                    "selection_probed": probe is not None,
+                    "path": snapshot_path,
+                }
+            )
+            print(f"snapshot saved: {snapshot_path}", flush=True)
 
         if epoch == 1 or epoch % 100 == 0:
             metrics = evaluate(
@@ -466,6 +528,7 @@ def main():
         "memory_gate": model.memory_gate.item(),
         "tie_rate": getattr(model, "last_tie_rate", 0.0),
         "history": history,
+        "snapshots": snapshot_manifest,
         "config": vars(args),
     }
 
