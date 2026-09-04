@@ -1,0 +1,36 @@
+{
+  "checkpoint": "results/early_s65536_seed7_rw10_e6000_best.pt",
+  "checkpoint_epoch": 4500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "real": {
+    "answer_acc": 0.97918701171875,
+    "retrieval_acc": 0.97900390625,
+    "episodes": 16384
+  },
+  "shuffled": {
+    "answer_acc": 0.0159912109375,
+    "retrieval_acc": 0.0,
+    "episodes": 16384
+  },
+  "masked": {
+    "answer_acc": 0.016357421875,
+    "retrieval_acc": null,
+    "episodes": 16384
+  },
+  "config": {
+    "checkpoint": "results/early_s65536_seed7_rw10_e6000_best.pt",
+    "n_keys": 524288,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 16,
+    "eval_batches": 1024,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/early_s65536_seed7_rw10_keys524288_eval16384.json"
+  }
+}
