@@ -1,0 +1,36 @@
+{
+  "checkpoint": "results/phaseB_replay_s524288_rw0125_lr1e4_seed7/epoch_001500.pt",
+  "checkpoint_epoch": 1500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "real": {
+    "answer_acc": 0.868896484375,
+    "retrieval_acc": 0.86737060546875,
+    "episodes": 16384
+  },
+  "shuffled": {
+    "answer_acc": 0.01580810546875,
+    "retrieval_acc": 0.0,
+    "episodes": 16384
+  },
+  "masked": {
+    "answer_acc": 0.0164794921875,
+    "retrieval_acc": null,
+    "episodes": 16384
+  },
+  "config": {
+    "checkpoint": "results/phaseB_replay_s524288_rw0125_lr1e4_seed7/epoch_001500.pt",
+    "n_keys": 131072,
+    "n_values": 64,
+    "n_segments": 524288,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 2048,
+    "seed": 7,
+    "cpu": false,
+    "out": "results/phaseB_replay_s524288_rw0125_lr1e4_seed7/eval_keys131072_epoch001500_b8_eval16384.json"
+  }
+}
