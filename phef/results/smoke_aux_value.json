@@ -1,0 +1,59 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 0.015625,
+  "answer_acc": 0.0,
+  "retrieval_acc": 0.15625,
+  "shuffled_answer_acc": 0.0,
+  "masked_answer_acc": 0.03125,
+  "control_status": "FAIL",
+  "best_acc": 0.0625,
+  "best_epoch": 10,
+  "escape_epoch": 10,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/smoke_aux_value.pt",
+  "recency_scale": 0.010020287707448006,
+  "score_scale": 1.0060577392578125,
+  "memory_gate": 0.002862173831090331,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 5,
+      "sel_acc": 0.03125
+    },
+    {
+      "epoch": 10,
+      "sel_acc": 0.0625
+    }
+  ],
+  "config": {
+    "n_keys": 32,
+    "n_values": 64,
+    "n_segments": 64,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 10,
+    "batch_size": 16,
+    "eval_batch_size": 16,
+    "eval_batches": 2,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "use_best": true,
+    "acc_every": 5,
+    "acc_n": 32,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 0,
+    "cpu": false,
+    "out": "results/smoke_aux_value.json",
+    "best_out": "results/smoke_aux_value.pt"
+  }
+}

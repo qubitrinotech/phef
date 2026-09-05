@@ -1,0 +1,81 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "retrieval_weight_late": -1.0,
+  "retrieval_weight_switch_epoch": 0,
+  "emergent_mode": false,
+  "answer_chance": 0.125,
+  "retrieval_chance": 0.0625,
+  "answer_acc": 0.125,
+  "retrieval_acc": 0.25,
+  "shuffled_answer_acc": 0.125,
+  "masked_answer_acc": 0.0,
+  "control_status": "FAIL",
+  "best_acc": 0.375,
+  "best_epoch": 2,
+  "escape_epoch": 2,
+  "escape_threshold": 0.25,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "results/smoke_snapshot_epochs/best.pt",
+  "recency_scale": 0.001816276926547289,
+  "score_scale": 0.998076856136322,
+  "memory_gate": -0.0012274461332708597,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 2,
+      "sel_acc": 0.375
+    },
+    {
+      "epoch": 4,
+      "sel_acc": 0.125
+    }
+  ],
+  "snapshots": [
+    {
+      "epoch": 2,
+      "sel_acc": 0.375,
+      "selection_probed": true,
+      "path": "results/smoke_snapshot_epochs/epoch_000002.pt"
+    },
+    {
+      "epoch": 4,
+      "sel_acc": 0.125,
+      "selection_probed": true,
+      "path": "results/smoke_snapshot_epochs/epoch_000004.pt"
+    }
+  ],
+  "config": {
+    "n_keys": 8,
+    "n_values": 8,
+    "n_segments": 16,
+    "overwrite_p": 0.3,
+    "key_dim": 4,
+    "hard_eval": true,
+    "dim": 16,
+    "epochs": 4,
+    "batch_size": 4,
+    "eval_batch_size": 4,
+    "eval_batches": 2,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "retrieval_weight_late": -1.0,
+    "retrieval_weight_switch_epoch": 0,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 2,
+    "acc_n": 8,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 123,
+    "cpu": true,
+    "out": "results/smoke_snapshot_epochs/report.json",
+    "best_out": "results/smoke_snapshot_epochs/best.pt",
+    "init_checkpoint": null,
+    "snapshot_epochs": "2,4",
+    "snapshot_dir": "results/smoke_snapshot_epochs"
+  }
+}

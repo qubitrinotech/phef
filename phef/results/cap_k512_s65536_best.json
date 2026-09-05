@@ -1,0 +1,113 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 1.52587890625e-05,
+  "answer_acc": 0.177734375,
+  "retrieval_acc": 0.9951171875,
+  "shuffled_answer_acc": 0.021484375,
+  "masked_answer_acc": 0.01953125,
+  "control_status": "FAIL",
+  "best_acc": 0.025390625,
+  "best_epoch": 1000,
+  "escape_epoch": null,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "recency_scale": 1.037258505821228,
+  "score_scale": 1.942677617073059,
+  "memory_gate": 0.2729063928127289,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.013671875
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.005859375
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.015625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.021484375
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.013671875
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.01953125
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.0078125
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.017578125
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.009765625
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.015625
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.021484375
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.015625
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.005859375
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.009765625
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 4000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 0,
+    "cpu": false,
+    "out": "results/cap_k512_s65536_best.json"
+  }
+}

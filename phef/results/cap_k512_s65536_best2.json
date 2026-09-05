@@ -1,0 +1,241 @@
+{
+  "task": "segmented_kv_recall",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 1.52587890625e-05,
+  "answer_acc": 0.509765625,
+  "retrieval_acc": 1.0,
+  "shuffled_answer_acc": 0.0546875,
+  "masked_answer_acc": 0.0205078125,
+  "control_status": "FAIL",
+  "best_acc": 0.509765625,
+  "best_epoch": 4750,
+  "escape_epoch": 1750,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "recency_scale": 1.430435299873352,
+  "score_scale": 2.047328472137451,
+  "memory_gate": 0.4088987112045288,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.01171875
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.01953125
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.013671875
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.0234375
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.025390625
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.02734375
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.05859375
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.0390625
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.064453125
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.095703125
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.11328125
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.140625
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.1796875
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.203125
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.2578125
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.322265625
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.380859375
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 0.431640625
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 0.509765625
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.392578125
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 0.40234375
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 0.49609375
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 0.369140625
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.287109375
+    },
+    {
+      "epoch": 6250,
+      "sel_acc": 0.38671875
+    },
+    {
+      "epoch": 6500,
+      "sel_acc": 0.275390625
+    },
+    {
+      "epoch": 6750,
+      "sel_acc": 0.501953125
+    },
+    {
+      "epoch": 7000,
+      "sel_acc": 0.294921875
+    },
+    {
+      "epoch": 7250,
+      "sel_acc": 0.349609375
+    },
+    {
+      "epoch": 7500,
+      "sel_acc": 0.451171875
+    },
+    {
+      "epoch": 7750,
+      "sel_acc": 0.453125
+    },
+    {
+      "epoch": 8000,
+      "sel_acc": 0.359375
+    },
+    {
+      "epoch": 8250,
+      "sel_acc": 0.333984375
+    },
+    {
+      "epoch": 8500,
+      "sel_acc": 0.478515625
+    },
+    {
+      "epoch": 8750,
+      "sel_acc": 0.193359375
+    },
+    {
+      "epoch": 9000,
+      "sel_acc": 0.228515625
+    },
+    {
+      "epoch": 9250,
+      "sel_acc": 0.232421875
+    },
+    {
+      "epoch": 9500,
+      "sel_acc": 0.318359375
+    },
+    {
+      "epoch": 9750,
+      "sel_acc": 0.080078125
+    },
+    {
+      "epoch": 10000,
+      "sel_acc": 0.201171875
+    },
+    {
+      "epoch": 10250,
+      "sel_acc": 0.16015625
+    },
+    {
+      "epoch": 10500,
+      "sel_acc": 0.1796875
+    },
+    {
+      "epoch": 10750,
+      "sel_acc": 0.12890625
+    },
+    {
+      "epoch": 11000,
+      "sel_acc": 0.130859375
+    },
+    {
+      "epoch": 11250,
+      "sel_acc": 0.125
+    },
+    {
+      "epoch": 11500,
+      "sel_acc": 0.17578125
+    },
+    {
+      "epoch": 11750,
+      "sel_acc": 0.16796875
+    },
+    {
+      "epoch": 12000,
+      "sel_acc": 0.072265625
+    }
+  ],
+  "config": {
+    "n_keys": 512,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 12000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "no_memory": false,
+    "seed": 0,
+    "cpu": false,
+    "out": "results/cap_k512_s65536_best2.json"
+  }
+}
