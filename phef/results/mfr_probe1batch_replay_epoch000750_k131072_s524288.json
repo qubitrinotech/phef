@@ -1,0 +1,421 @@
+{
+  "answer_chance": 0.015625,
+  "checkpoint": "results/phaseB_replay_s524288_rw0125_lr1e4_seed7/epoch_000750.pt",
+  "checkpoint_epoch": 750,
+  "checkpoint_sel_acc": 1.0,
+  "config": {
+    "batch_size": 8,
+    "batches": 1,
+    "checkpoint": "results/phaseB_replay_s524288_rw0125_lr1e4_seed7/epoch_000750.pt",
+    "conditions": "real",
+    "cpu": false,
+    "dim": 128,
+    "key_dim": 32,
+    "n_keys": 131072,
+    "n_segments": 524288,
+    "n_values": 64,
+    "out": "results/mfr_probe1batch_replay_epoch000750_k131072_s524288.json",
+    "overwrite_p": 0.3,
+    "seed": 7,
+    "tail_buckets": 12
+  },
+  "format_version": 2,
+  "hard_eval": true,
+  "results": {
+    "real": {
+      "answer_acc": 1.0,
+      "condition": "real",
+      "episodes": 8,
+      "error_decomposition": {
+        "same_key_recency_error": 0,
+        "same_key_recency_rate": 0.0,
+        "wrong_key_semantic_error": 0,
+        "wrong_key_semantic_rate": 0.0
+      },
+      "histograms": {
+        "delta_sem": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0,
+            4.0,
+            1.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.125,
+            0.25,
+            0.5,
+            0.125,
+            0.0
+          ],
+          "total": 8.0
+        },
+        "dup_count": {
+          "counts": [
+            0.0,
+            1.0,
+            5.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.5,
+            2.5,
+            4.5,
+            8.5,
+            16.5,
+            64.5,
+            256.5,
+            1024.5
+          ],
+          "fraction": [
+            0.0,
+            0.125,
+            0.625,
+            0.125,
+            0.0,
+            0.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 8.0
+        },
+        "margin": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            5.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.25,
+            0.625,
+            0.125,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 8.0
+        },
+        "recency_budget": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            4.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.0,
+            10.0,
+            100.0,
+            1000.0,
+            10000.0,
+            100000.0,
+            1000000.0,
+            10000000.0,
+            1000000000.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.5,
+            0.5,
+            0.0,
+            0.0
+          ],
+          "total": 8.0
+        },
+        "recency_budget_norm": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            3.0,
+            4.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            10.0,
+            100.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.125,
+            0.375,
+            0.5,
+            0.0,
+            0.0
+          ],
+          "total": 8.0
+        }
+      },
+      "margin_nonpositive_rate": 0.0,
+      "retrieval_acc": 1.0,
+      "running": {
+        "delta_sem": {
+          "max": 2.3645105361938477,
+          "mean": 1.3816286027431488,
+          "min": 0.36574840545654297,
+          "n": 8,
+          "std": 0.6201292559184018
+        },
+        "delta_sem_positive": {
+          "max": 2.3645105361938477,
+          "mean": 1.3816286027431488,
+          "min": 0.36574840545654297,
+          "n": 8,
+          "std": 0.6201292559184018
+        },
+        "dup_count": {
+          "max": 37.0,
+          "mean": 8.0,
+          "min": 2.0,
+          "n": 8,
+          "std": 11.01135777277262
+        },
+        "entropy": {
+          "max": 5.7473344802856445,
+          "mean": 3.435118153691292,
+          "min": 1.6564375162124634,
+          "n": 8,
+          "std": 1.3121537673026338
+        },
+        "margin": {
+          "max": 0.7895793914794922,
+          "mean": 0.3015438914299011,
+          "min": 0.03848075866699219,
+          "n": 8,
+          "std": 0.23514139057552394
+        },
+        "recency_budget": {
+          "max": 1795990.75,
+          "mean": 1049431.68359375,
+          "min": 277808.34375,
+          "n": 8,
+          "std": 471026.2128230035
+        },
+        "recency_budget_norm": {
+          "max": 3.4255869388580322,
+          "mean": 2.001635864377022,
+          "min": 0.5298783779144287,
+          "n": 8,
+          "std": 0.8984128911123277
+        },
+        "recency_term_true": {
+          "max": 1.316718578338623,
+          "mean": 1.1600984260439873,
+          "min": 0.7517369985580444,
+          "n": 8,
+          "std": 0.1839914345489964
+        },
+        "semantic_true": {
+          "max": -2.3674209117889404,
+          "mean": -9.119715183973312,
+          "min": -15.485377311706543,
+          "n": 8,
+          "std": 3.7891287675275263
+        },
+        "tail_distance": {
+          "max": 249612.0,
+          "mean": 100402.0,
+          "min": 43175.0,
+          "n": 8,
+          "std": 67228.10098091423
+        },
+        "true_rank": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "n": 8,
+          "std": 0.0
+        }
+      },
+      "semantic_health": {
+        "delta_sem_evaluated": 8,
+        "semantic_inversion": 0,
+        "semantic_inversion_rate": 0.0,
+        "semantic_lead_rate": 1.0
+      },
+      "tail_buckets": {
+        "answer_acc": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "count": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          1
+        ],
+        "margin_mean": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0.40981388092041016,
+          0.2982877890268962,
+          0.21281051635742188
+        ],
+        "n_buckets": 12,
+        "retrieval_acc": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "same_key_recency_rate": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "wrong_key_semantic_rate": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "tie_at_max_rate": 0.0
+    }
+  },
+  "retrieval_chance": 1.9073486328125e-06,
+  "scalars": {
+    "alpha_over_abs_beta": 1.4487509568689105,
+    "delta_sem_threshold_full_episode": 0.6902497598077407,
+    "last_tie_rate": 0.0,
+    "memory_gate_raw": 0.8135724663734436,
+    "memory_gate_sigmoid": 0.6928702592849731,
+    "recency_scale": 1.4348809719085693,
+    "score_scale": 2.0787851810455322
+  },
+  "tool": "memory_flight_recorder"
+}

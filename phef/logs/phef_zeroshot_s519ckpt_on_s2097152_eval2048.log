@@ -1,0 +1,7 @@
+device=cuda checkpoint=results/scr_s524288_seed7_rw0125_e6000.pt checkpoint_epoch=4250 checkpoint_sel_acc=1.000000 episodes=2048
+real answer      = 0.994141
+real retrieval   = 0.994141
+shuffled answer  = 0.019043
+shuffled retrieval= 0.000000
+masked answer    = 0.017578
+saved: results/zeroshot_s524288ckpt_on_s2097152_eval2048.json

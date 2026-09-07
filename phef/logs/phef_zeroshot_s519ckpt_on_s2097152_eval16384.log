@@ -1,0 +1,1 @@
+device=cuda checkpoint=results/scr_s524288_seed7_rw0125_e6000.pt checkpoint_epoch=4250 checkpoint_sel_acc=1.000000 episodes=16384

@@ -1,0 +1,1 @@
+device=cuda checkpoint=results/phaseB_from_early_at_s524288_rw0125_e6000_best.pt checkpoint_epoch=750 checkpoint_sel_acc=1.000000 episodes=16384

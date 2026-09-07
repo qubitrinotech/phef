@@ -1,0 +1,3 @@
+device=cuda checkpoint=phef/results/early_s65536_seed7_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 score_scale=2.014736 recency_scale=1.360013 alpha_over_beta=1.481409 memory_gate_sigmoid=0.686711 episodes_per_condition=2048
+[real] answer_acc=0.978027 retrieval_acc=0.978027 semantic_lead_rate=0.983887 B_norm_mean=2.9437
+saved: phef/results/mfr_early_k4194304_s65536_b2x1024.json

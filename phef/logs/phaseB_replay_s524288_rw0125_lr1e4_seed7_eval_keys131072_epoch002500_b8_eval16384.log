@@ -1,0 +1,7 @@
+device=cuda checkpoint=results/phaseB_replay_s524288_rw0125_lr1e4_seed7/epoch_002500.pt checkpoint_epoch=2500 checkpoint_sel_acc=0.990234 episodes=16384
+real answer      = 0.725342
+real retrieval   = 0.721313
+shuffled answer  = 0.015930
+shuffled retrieval= 0.000000
+masked answer    = 0.015869
+saved: results/phaseB_replay_s524288_rw0125_lr1e4_seed7/eval_keys131072_epoch002500_b8_eval16384.json

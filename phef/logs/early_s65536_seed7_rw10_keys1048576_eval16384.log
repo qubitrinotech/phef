@@ -1,0 +1,7 @@
+device=cuda checkpoint=results/early_s65536_seed7_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 episodes=16384
+[W902 00:29:32.152934889 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).
+[W902 00:29:37.434870725 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).
+[W902 00:29:48.127630539 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).
+[W902 00:29:53.640436687 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).
+[W902 00:29:59.445622249 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).
+[W902 00:30:21.085800215 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 21037056, total: 25252724736).

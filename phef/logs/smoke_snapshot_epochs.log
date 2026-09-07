@@ -1,0 +1,19 @@
+device=cpu memory=True retrieval_weight=1.0 emergent_mode=False answer_chance=0.125000 retrieval_chance=0.062500 escape_threshold=0.250000
+epoch     1 total 4.9158 answer 2.1142 retrieval 2.7789 answer_acc 0.0312 retrieval_acc 0.062500
+epoch     2 sel_acc 0.3750 best 0.3750 @ 2 escape 2
+snapshot saved: results/smoke_snapshot_epochs/epoch_000002.pt
+epoch     4 sel_acc 0.1250 best 0.3750 @ 2 escape 2
+snapshot saved: results/smoke_snapshot_epochs/epoch_000004.pt
+
+восстановлен best checkpoint: epoch 2 sel_acc 0.3750
+
+=== CONTROLS ===
+answer chance    = 0.125000
+retrieval chance = 0.062500
+real answer      = 0.125000
+real retrieval   = 0.250000
+shuffled answer  = 0.125000
+masked answer    = 0.000000
+control status   = FAIL
+
+сохранено: results/smoke_snapshot_epochs/report.json

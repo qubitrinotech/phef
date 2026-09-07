@@ -1,0 +1,8 @@
+nohup: ввод игнорируется
+device=cuda checkpoint=results/cap_k512_s262144_rw025_seed9.pt checkpoint_epoch=4750 checkpoint_sel_acc=1.000000 episodes=16384
+real answer      = 0.998291
+real retrieval   = 0.998291
+shuffled answer  = 0.014526
+shuffled retrieval= 0.001587
+masked answer    = 0.015991
+saved: results/cap_k512_s262144_rw025_seed9_eval16384.json

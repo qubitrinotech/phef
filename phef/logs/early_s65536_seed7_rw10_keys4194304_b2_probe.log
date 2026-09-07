@@ -1,0 +1,7 @@
+device=cuda checkpoint=results/early_s65536_seed7_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 episodes=2
+real answer      = 0.500000
+real retrieval   = 0.500000
+shuffled answer  = 0.000000
+shuffled retrieval= 0.000000
+masked answer    = 0.000000
+saved: results/early_s65536_seed7_rw10_keys4194304_b2_probe.json

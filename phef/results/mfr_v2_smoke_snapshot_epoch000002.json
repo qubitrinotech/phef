@@ -1,0 +1,919 @@
+{
+  "answer_chance": 0.125,
+  "checkpoint": "results/smoke_snapshot_epochs/epoch_000002.pt",
+  "checkpoint_epoch": 2,
+  "checkpoint_sel_acc": 0.375,
+  "config": {
+    "batch_size": 8,
+    "batches": 4,
+    "checkpoint": "results/smoke_snapshot_epochs/epoch_000002.pt",
+    "conditions": "real,shuffled,masked",
+    "cpu": true,
+    "dim": 16,
+    "key_dim": 4,
+    "n_keys": 8,
+    "n_segments": 16,
+    "n_values": 8,
+    "out": "results/mfr_v2_smoke_snapshot_epoch000002.json",
+    "overwrite_p": 0.3,
+    "seed": 123,
+    "tail_buckets": 4
+  },
+  "format_version": 2,
+  "hard_eval": true,
+  "results": {
+    "masked": {
+      "answer_acc": 0.1875,
+      "condition": "masked",
+      "episodes": 32,
+      "error_decomposition": null,
+      "histograms": {
+        "delta_sem": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        },
+        "dup_count": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.5,
+            2.5,
+            4.5,
+            8.5,
+            16.5,
+            64.5,
+            256.5,
+            1024.5
+          ],
+          "fraction": null,
+          "total": 0.0
+        },
+        "margin": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        },
+        "recency_budget": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.0,
+            10.0,
+            100.0,
+            1000.0,
+            10000.0,
+            100000.0,
+            1000000.0,
+            10000000.0,
+            1000000000.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        },
+        "recency_budget_norm": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            10.0,
+            100.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        }
+      },
+      "margin_nonpositive_rate": null,
+      "retrieval_acc": null,
+      "running": {
+        "delta_sem": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "delta_sem_positive": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "dup_count": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "entropy": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "margin": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "recency_budget": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "recency_budget_norm": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "recency_term_true": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "semantic_true": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "tail_distance": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "true_rank": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        }
+      },
+      "semantic_health": null,
+      "tail_buckets": null,
+      "tie_at_max_rate": null
+    },
+    "real": {
+      "answer_acc": 0.25,
+      "condition": "real",
+      "episodes": 32,
+      "error_decomposition": {
+        "same_key_recency_error": 0,
+        "same_key_recency_rate": 0.0,
+        "wrong_key_semantic_error": 27,
+        "wrong_key_semantic_rate": 0.84375
+      },
+      "histograms": {
+        "delta_sem": {
+          "counts": [
+            0.0,
+            0.0,
+            20.0,
+            7.0,
+            3.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.625,
+            0.21875,
+            0.09375,
+            0.0625,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "dup_count": {
+          "counts": [
+            4.0,
+            9.0,
+            11.0,
+            7.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.5,
+            2.5,
+            4.5,
+            8.5,
+            16.5,
+            64.5,
+            256.5,
+            1024.5
+          ],
+          "fraction": [
+            0.125,
+            0.28125,
+            0.34375,
+            0.21875,
+            0.03125,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "margin": {
+          "counts": [
+            0.0,
+            0.0,
+            19.0,
+            8.0,
+            5.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.59375,
+            0.25,
+            0.15625,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "recency_budget": {
+          "counts": [
+            0.0,
+            0.0,
+            3.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.0,
+            10.0,
+            100.0,
+            1000.0,
+            10000.0,
+            100000.0,
+            1000000.0,
+            10000000.0,
+            1000000000.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.6,
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 5.0
+        },
+        "recency_budget_norm": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            4.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            10.0,
+            100.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.2,
+            0.8,
+            0.0,
+            0.0
+          ],
+          "total": 5.0
+        }
+      },
+      "margin_nonpositive_rate": 0.84375,
+      "retrieval_acc": 0.15625,
+      "running": {
+        "delta_sem": {
+          "max": 0.01719571091234684,
+          "mean": -0.016921580354392063,
+          "min": -0.059877909719944,
+          "n": 32,
+          "std": 0.01786475212580408
+        },
+        "delta_sem_positive": {
+          "max": 0.01719571091234684,
+          "mean": 0.00874905283562839,
+          "min": 0.002133941976353526,
+          "n": 5,
+          "std": 0.005775712530709903
+        },
+        "dup_count": {
+          "max": 10.0,
+          "mean": 3.53125,
+          "min": 1.0,
+          "n": 32,
+          "std": 2.091416610219016
+        },
+        "entropy": {
+          "max": 2.7725839614868164,
+          "mean": 2.7725036814808846,
+          "min": 2.7722482681274414,
+          "n": 32,
+          "std": 8.533780921027129e-05
+        },
+        "margin": {
+          "max": 0.00048434361815452576,
+          "mean": -0.018147191407479113,
+          "min": -0.05927840992808342,
+          "n": 32,
+          "std": 0.01578406992642558
+        },
+        "recency_budget": {
+          "max": 141.74029541015625,
+          "mean": 72.11642990112304,
+          "min": 17.58959197998047,
+          "n": 5,
+          "std": 47.60787245053569
+        },
+        "recency_budget_norm": {
+          "max": 9.449353218078613,
+          "mean": 4.80776207447052,
+          "min": 1.1726394891738892,
+          "n": 5,
+          "std": 3.1738582283338728
+        },
+        "recency_term_true": {
+          "max": 0.001816276926547289,
+          "mean": 0.0014038307181181153,
+          "min": 0.0,
+          "n": 32,
+          "std": 0.0004599435854853752
+        },
+        "semantic_true": {
+          "max": 0.04473177343606949,
+          "mean": -0.010499525111526964,
+          "min": -0.059543631970882416,
+          "n": 32,
+          "std": 0.02353374560590752
+        },
+        "tail_distance": {
+          "max": 15.0,
+          "mean": 3.40625,
+          "min": 0.0,
+          "n": 32,
+          "std": 3.7985143066072555
+        },
+        "true_rank": {
+          "max": 16.0,
+          "mean": 6.90625,
+          "min": 1.0,
+          "n": 32,
+          "std": 4.692809492990313
+        }
+      },
+      "semantic_health": {
+        "delta_sem_evaluated": 32,
+        "semantic_inversion": 27,
+        "semantic_inversion_rate": 0.84375,
+        "semantic_lead_rate": 0.15625
+      },
+      "tail_buckets": {
+        "answer_acc": [
+          0.0,
+          0.45454545454545453,
+          0.3333333333333333,
+          0.14285714285714285
+        ],
+        "count": [
+          8,
+          11,
+          6,
+          7
+        ],
+        "margin_mean": [
+          -0.026553975651040673,
+          -0.013874440655027602,
+          -0.01712389717188974,
+          -0.016130869942052022
+        ],
+        "n_buckets": 4,
+        "retrieval_acc": [
+          0.0,
+          0.36363636363636365,
+          0.16666666666666666,
+          0.0
+        ],
+        "same_key_recency_rate": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "wrong_key_semantic_rate": [
+          1.0,
+          0.6363636363636364,
+          0.8333333333333334,
+          1.0
+        ]
+      },
+      "tie_at_max_rate": 0.0
+    },
+    "shuffled": {
+      "answer_acc": 0.25,
+      "condition": "shuffled",
+      "episodes": 32,
+      "error_decomposition": {
+        "same_key_recency_error": 1,
+        "same_key_recency_rate": 0.03125,
+        "wrong_key_semantic_error": 28,
+        "wrong_key_semantic_rate": 0.875
+      },
+      "histograms": {
+        "delta_sem": {
+          "counts": [
+            0.0,
+            0.0,
+            20.0,
+            12.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.05,
+            0.1,
+            0.25,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.625,
+            0.375,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "dup_count": {
+          "counts": [
+            4.0,
+            9.0,
+            11.0,
+            7.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.5,
+            2.5,
+            4.5,
+            8.5,
+            16.5,
+            64.5,
+            256.5,
+            1024.5
+          ],
+          "fraction": [
+            0.125,
+            0.28125,
+            0.34375,
+            0.21875,
+            0.03125,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "margin": {
+          "counts": [
+            0.0,
+            0.0,
+            21.0,
+            8.0,
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            -1.0,
+            -0.1,
+            -0.01,
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            5.0
+          ],
+          "fraction": [
+            0.0,
+            0.0,
+            0.65625,
+            0.25,
+            0.09375,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total": 32.0
+        },
+        "recency_budget": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            1.0,
+            10.0,
+            100.0,
+            1000.0,
+            10000.0,
+            100000.0,
+            1000000.0,
+            10000000.0,
+            1000000000.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        },
+        "recency_budget_norm": {
+          "counts": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "edges": [
+            0.0,
+            0.01,
+            0.1,
+            0.5,
+            1.0,
+            2.0,
+            10.0,
+            100.0
+          ],
+          "fraction": null,
+          "total": 0.0
+        }
+      },
+      "margin_nonpositive_rate": 0.90625,
+      "retrieval_acc": 0.09375,
+      "running": {
+        "delta_sem": {
+          "max": 0.0,
+          "mean": -0.017533439786348026,
+          "min": -0.04598069190979004,
+          "n": 32,
+          "std": 0.013908670936826217
+        },
+        "delta_sem_positive": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "dup_count": {
+          "max": 10.0,
+          "mean": 3.53125,
+          "min": 1.0,
+          "n": 32,
+          "std": 2.091416610219016
+        },
+        "entropy": {
+          "max": 2.7725844383239746,
+          "mean": 2.7725031822919846,
+          "min": 2.772291660308838,
+          "n": 32,
+          "std": 7.483370866205636e-05
+        },
+        "margin": {
+          "max": 0.0014530215412378311,
+          "mean": -0.018041440394881647,
+          "min": -0.06746527552604675,
+          "n": 32,
+          "std": 0.015638334000697796
+        },
+        "recency_budget": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "recency_budget_norm": {
+          "max": null,
+          "mean": null,
+          "min": null,
+          "n": 0,
+          "std": null
+        },
+        "recency_term_true": {
+          "max": 0.001816276926547289,
+          "mean": 0.0014038307181181153,
+          "min": 0.0,
+          "n": 32,
+          "std": 0.0004599435854853752
+        },
+        "semantic_true": {
+          "max": 0.030851656571030617,
+          "mean": -0.011517015742356307,
+          "min": -0.05453985929489136,
+          "n": 32,
+          "std": 0.02125529221018529
+        },
+        "tail_distance": {
+          "max": 15.0,
+          "mean": 3.40625,
+          "min": 0.0,
+          "n": 32,
+          "std": 3.7985143066072555
+        },
+        "true_rank": {
+          "max": 15.0,
+          "mean": 7.96875,
+          "min": 1.0,
+          "n": 32,
+          "std": 4.398042000424734
+        }
+      },
+      "semantic_health": {
+        "delta_sem_evaluated": 32,
+        "semantic_inversion": 32,
+        "semantic_inversion_rate": 1.0,
+        "semantic_lead_rate": 0.0
+      },
+      "tail_buckets": {
+        "answer_acc": [
+          0.125,
+          0.2727272727272727,
+          0.5,
+          0.14285714285714285
+        ],
+        "count": [
+          8,
+          11,
+          6,
+          7
+        ],
+        "margin_mean": [
+          -0.024627573555335402,
+          -0.016307699811560186,
+          -0.013944373155633608,
+          -0.016750652476080825
+        ],
+        "n_buckets": 4,
+        "retrieval_acc": [
+          0.25,
+          0.09090909090909091,
+          0.0,
+          0.0
+        ],
+        "same_key_recency_rate": [
+          0.125,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "wrong_key_semantic_rate": [
+          0.625,
+          0.9090909090909091,
+          1.0,
+          1.0
+        ]
+      },
+      "tie_at_max_rate": 0.0
+    }
+  },
+  "retrieval_chance": 0.0625,
+  "scalars": {
+    "alpha_over_abs_beta": 549.5179956030432,
+    "delta_sem_threshold_full_episode": 0.0018197766187849698,
+    "last_tie_rate": 0.0,
+    "memory_gate_raw": -0.0012274461332708597,
+    "memory_gate_sigmoid": 0.4996930956840515,
+    "recency_scale": 0.001816276926547289,
+    "score_scale": 0.998076856136322
+  },
+  "tool": "memory_flight_recorder"
+}

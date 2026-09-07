@@ -1,0 +1,8 @@
+nohup: ввод игнорируется
+device=cuda checkpoint=results/scr_s262144_seed7_rw025_e4000.pt checkpoint_epoch=3750 checkpoint_sel_acc=0.980469 episodes=16384
+real answer      = 0.978638
+real retrieval   = 0.997925
+shuffled answer  = 0.015747
+shuffled retrieval= 0.001343
+masked answer    = 0.014893
+saved: results/scr_s262144_seed7_rw025_e4000_eval16384.json

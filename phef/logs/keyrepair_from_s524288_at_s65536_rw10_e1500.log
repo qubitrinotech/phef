@@ -1,0 +1,37 @@
+init-checkpoint=results/scr_s524288_seed7_rw0125_e6000.pt loaded=16 skipped=0
+device=cuda memory=True retrieval_weight=1.0 emergent_mode=False answer_chance=0.015625 retrieval_chance=0.000015 escape_threshold=0.031250
+epoch     1 total 8.4615 answer 4.1455 retrieval 4.2994 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   100 total 8.3823 answer 4.0400 retrieval 4.3260 answer_acc 0.9844 retrieval_acc 0.984375
+epoch   200 total 8.4218 answer 4.0894 retrieval 4.3165 answer_acc 0.9922 retrieval_acc 0.992188
+epoch   250 sel_acc 1.0000 best 1.0000 @ 250 escape 250
+epoch   300 total 8.4607 answer 4.1313 retrieval 4.3138 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   400 total 8.4372 answer 4.1167 retrieval 4.3054 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   500 sel_acc 0.9961 best 1.0000 @ 250 escape 250
+epoch   500 total 8.4453 answer 4.0977 retrieval 4.3329 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   600 total 8.4427 answer 4.1069 retrieval 4.3213 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   700 total 8.3524 answer 4.0518 retrieval 4.2866 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   750 sel_acc 0.9980 best 1.0000 @ 250 escape 250
+epoch   800 total 8.3668 answer 4.0547 retrieval 4.2983 answer_acc 1.0000 retrieval_acc 1.000000
+epoch   900 total 8.3760 answer 4.0796 retrieval 4.2829 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  1000 sel_acc 1.0000 best 1.0000 @ 250 escape 250
+epoch  1000 total 8.3567 answer 4.0811 retrieval 4.2625 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  1100 total 8.3487 answer 4.0737 retrieval 4.2622 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  1200 total 8.4001 answer 4.0840 retrieval 4.3037 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  1250 sel_acc 0.9980 best 1.0000 @ 250 escape 250
+epoch  1300 total 8.4892 answer 4.1050 retrieval 4.3721 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  1400 total 8.3952 answer 4.0825 retrieval 4.3008 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  1500 sel_acc 0.9980 best 1.0000 @ 250 escape 250
+epoch  1500 total 8.3078 answer 4.0439 retrieval 4.2523 answer_acc 1.0000 retrieval_acc 1.000000
+
+восстановлен best checkpoint: epoch 250 sel_acc 1.0000
+
+=== CONTROLS ===
+answer chance    = 0.015625
+retrieval chance = 0.000015
+real answer      = 1.000000
+real retrieval   = 1.000000
+shuffled answer  = 0.019531
+masked answer    = 0.020508
+control status   = PASS
+
+сохранено: results/keyrepair_from_s524288_at_s65536_rw10_e1500.json

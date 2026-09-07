@@ -1,0 +1,3 @@
+device=cuda memory=True retrieval_weight=0.125 emergent_mode=False answer_chance=0.015625 retrieval_chance=0.000001 escape_threshold=0.031250
+epoch     1 total 6.1112 answer 4.3359 retrieval 13.8631 answer_acc 0.0000 retrieval_acc 0.000000
+epoch   100 total 5.9073 answer 4.1333 retrieval 13.8583 answer_acc 0.0078 retrieval_acc 0.023438
