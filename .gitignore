@@ -56,3 +56,4 @@ Thumbs.db
 # веса всё равно не версионируем, они большие
 phef/results/**/*.ckpt
 phef/results/**/*.safetensors
+*.bak
