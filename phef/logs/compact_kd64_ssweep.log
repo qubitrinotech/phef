@@ -1,0 +1,48 @@
+===== kd64 S=65536 =====
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 key_dim=64 n_keys=1073741824 n_segments=65536 n_eff_theory=45874.2 episodes=2048
+[real] 512/1024 batches elapsed=30.4s per_batch=0.0594s eta=30.4s answer_acc=0.817383 retrieval_acc=0.810547 n_eff_mean=45874.3 rss=1.07GiB gpu_alloc_peak=0.14GiB
+[real] 1024/1024 batches elapsed=61.2s per_batch=0.0598s eta=0.0s answer_acc=0.816895 retrieval_acc=0.812988 n_eff_mean=45875.0 rss=1.07GiB gpu_alloc_peak=0.14GiB
+[shuffled] 512/1024 batches elapsed=29.6s per_batch=0.0579s eta=29.6s answer_acc=0.015625 retrieval_acc=0.000000 n_eff_mean=45870.0 rss=1.09GiB gpu_alloc_peak=0.17GiB
+[shuffled] 1024/1024 batches elapsed=59.1s per_batch=0.0577s eta=0.0s answer_acc=0.014648 retrieval_acc=0.000000 n_eff_mean=45872.8 rss=1.09GiB gpu_alloc_peak=0.17GiB
+[masked] 512/1024 batches elapsed=29.4s per_batch=0.0573s eta=29.4s answer_acc=0.010742 retrieval_acc=nan n_eff_mean=45874.2 rss=1.09GiB gpu_alloc_peak=0.17GiB
+[masked] 1024/1024 batches elapsed=57.9s per_batch=0.0565s eta=0.0s answer_acc=0.012695 retrieval_acc=nan n_eff_mean=45873.2 rss=1.09GiB gpu_alloc_peak=0.17GiB
+real      answer=0.816895 retrieval=0.812988 episodes=2048 n_eff_mean=45875.0 wall=61.2s
+shuffled  answer=0.014648 retrieval=0.000000 episodes=2048 n_eff_mean=45872.8 wall=59.1s
+masked    answer=0.012695 retrieval=None episodes=2048 n_eff_mean=45873.2 wall=57.9s
+saved: phef/results/compact_kd64_ksat_s65536_b2x1024.json
+===== kd64 S=131072 =====
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 key_dim=64 n_keys=1073741824 n_segments=131072 n_eff_theory=91746.5 episodes=2048
+[real] 512/1024 batches elapsed=62.4s per_batch=0.1219s eta=62.4s answer_acc=0.742188 retrieval_acc=0.738281 n_eff_mean=91745.9 rss=1.11GiB gpu_alloc_peak=0.28GiB
+[real] 1024/1024 batches elapsed=124.7s per_batch=0.1218s eta=0.0s answer_acc=0.732910 retrieval_acc=0.728027 n_eff_mean=91742.5 rss=1.11GiB gpu_alloc_peak=0.28GiB
+[shuffled] 512/1024 batches elapsed=62.4s per_batch=0.1218s eta=62.4s answer_acc=0.015625 retrieval_acc=0.000000 n_eff_mean=91746.5 rss=1.12GiB gpu_alloc_peak=0.33GiB
+[shuffled] 1024/1024 batches elapsed=124.8s per_batch=0.1218s eta=0.0s answer_acc=0.015137 retrieval_acc=0.000000 n_eff_mean=91748.4 rss=1.12GiB gpu_alloc_peak=0.33GiB
+[masked] 512/1024 batches elapsed=61.7s per_batch=0.1205s eta=61.7s answer_acc=0.016602 retrieval_acc=nan n_eff_mean=91749.1 rss=1.13GiB gpu_alloc_peak=0.33GiB
+[masked] 1024/1024 batches elapsed=123.3s per_batch=0.1204s eta=0.0s answer_acc=0.017578 retrieval_acc=nan n_eff_mean=91745.4 rss=1.13GiB gpu_alloc_peak=0.33GiB
+real      answer=0.732910 retrieval=0.728027 episodes=2048 n_eff_mean=91742.5 wall=124.8s
+shuffled  answer=0.015137 retrieval=0.000000 episodes=2048 n_eff_mean=91748.4 wall=124.8s
+masked    answer=0.017578 retrieval=None episodes=2048 n_eff_mean=91745.4 wall=123.3s
+saved: phef/results/compact_kd64_ksat_s131072_b2x1024.json
+===== kd64 S=262144 =====
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 key_dim=64 n_keys=1073741824 n_segments=262144 n_eff_theory=183485.1 episodes=2048
+[real] 512/1024 batches elapsed=122.4s per_batch=0.2391s eta=122.4s answer_acc=0.647461 retrieval_acc=0.645508 n_eff_mean=183492.0 rss=1.31GiB gpu_alloc_peak=0.55GiB
+[real] 1024/1024 batches elapsed=245.0s per_batch=0.2393s eta=0.0s answer_acc=0.657715 retrieval_acc=0.653809 n_eff_mean=183485.8 rss=1.31GiB gpu_alloc_peak=0.55GiB
+[shuffled] 512/1024 batches elapsed=122.7s per_batch=0.2397s eta=122.7s answer_acc=0.014648 retrieval_acc=0.000000 n_eff_mean=183473.9 rss=1.32GiB gpu_alloc_peak=0.65GiB
+[shuffled] 1024/1024 batches elapsed=245.1s per_batch=0.2393s eta=0.0s answer_acc=0.015625 retrieval_acc=0.000000 n_eff_mean=183479.8 rss=1.32GiB gpu_alloc_peak=0.65GiB
+[masked] 512/1024 batches elapsed=121.6s per_batch=0.2375s eta=121.6s answer_acc=0.014648 retrieval_acc=nan n_eff_mean=183493.8 rss=1.34GiB gpu_alloc_peak=0.65GiB
+[masked] 1024/1024 batches elapsed=243.2s per_batch=0.2375s eta=0.0s answer_acc=0.019531 retrieval_acc=nan n_eff_mean=183484.3 rss=1.34GiB gpu_alloc_peak=0.65GiB
+real      answer=0.657715 retrieval=0.653809 episodes=2048 n_eff_mean=183485.8 wall=245.0s
+shuffled  answer=0.015625 retrieval=0.000000 episodes=2048 n_eff_mean=183479.8 wall=245.1s
+masked    answer=0.019531 retrieval=None episodes=2048 n_eff_mean=183484.3 wall=243.2s
+saved: phef/results/compact_kd64_ksat_s262144_b2x1024.json
+===== kd64 S=524288 =====
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt checkpoint_epoch=4500 checkpoint_sel_acc=1.000000 key_dim=64 n_keys=1073741824 n_segments=524288 n_eff_theory=366938.9 episodes=2048
+[real] 512/1024 batches elapsed=250.1s per_batch=0.4885s eta=250.1s answer_acc=0.581055 retrieval_acc=0.574219 n_eff_mean=366944.1 rss=1.72GiB gpu_alloc_peak=1.08GiB
+[real] 1024/1024 batches elapsed=500.5s per_batch=0.4888s eta=0.0s answer_acc=0.588379 retrieval_acc=0.582031 n_eff_mean=366943.2 rss=1.72GiB gpu_alloc_peak=1.08GiB
+[shuffled] 512/1024 batches elapsed=248.9s per_batch=0.4860s eta=248.9s answer_acc=0.021484 retrieval_acc=0.000000 n_eff_mean=366940.9 rss=1.74GiB gpu_alloc_peak=1.28GiB
+[shuffled] 1024/1024 batches elapsed=497.9s per_batch=0.4862s eta=0.0s answer_acc=0.018555 retrieval_acc=0.000000 n_eff_mean=366937.5 rss=1.74GiB gpu_alloc_peak=1.28GiB
+[masked] 512/1024 batches elapsed=247.3s per_batch=0.4830s eta=247.3s answer_acc=0.015625 retrieval_acc=nan n_eff_mean=366940.1 rss=1.75GiB gpu_alloc_peak=1.28GiB
+[masked] 1024/1024 batches elapsed=495.6s per_batch=0.4839s eta=0.0s answer_acc=0.015625 retrieval_acc=nan n_eff_mean=366945.1 rss=1.75GiB gpu_alloc_peak=1.28GiB
+real      answer=0.588379 retrieval=0.582031 episodes=2048 n_eff_mean=366943.2 wall=500.5s
+shuffled  answer=0.018555 retrieval=0.000000 episodes=2048 n_eff_mean=366937.5 wall=497.9s
+masked    answer=0.015625 retrieval=None episodes=2048 n_eff_mean=366945.1 wall=495.6s
+saved: phef/results/compact_kd64_ksat_s524288_b2x1024.json

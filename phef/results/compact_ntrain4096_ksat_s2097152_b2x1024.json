@@ -1,0 +1,52 @@
+{
+  "schema": "compact_eval_v1",
+  "checkpoint": "phef/results/ntrain_k4096_s65536_seed7_rw10_e6000_best.pt",
+  "checkpoint_epoch": 2500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 1467003.3378597498,
+  "real": {
+    "answer_acc": 0.94873046875,
+    "retrieval_acc": 0.94873046875,
+    "episodes": 2048,
+    "n_eff_mean": 1467010.1655273438,
+    "n_eff_min": 1464964,
+    "n_eff_max": 1469289,
+    "wall_seconds": 1282.843876905
+  },
+  "shuffled": {
+    "answer_acc": 0.02001953125,
+    "retrieval_acc": 0.0,
+    "episodes": 2048,
+    "n_eff_mean": 1466979.8579101562,
+    "n_eff_min": 1464741,
+    "n_eff_max": 1468947,
+    "wall_seconds": 1272.9041526309998
+  },
+  "masked": {
+    "answer_acc": 0.0146484375,
+    "retrieval_acc": null,
+    "episodes": 2048,
+    "n_eff_mean": 1466989.1069335938,
+    "n_eff_min": 1464816,
+    "n_eff_max": 1469412,
+    "wall_seconds": 1211.2217131520001
+  },
+  "config": {
+    "checkpoint": "phef/results/ntrain_k4096_s65536_seed7_rw10_e6000_best.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 2097152,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1024,
+    "seed": 7,
+    "progress_every": 256,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/compact_ntrain4096_ksat_s2097152_b2x1024.json"
+  }
+}

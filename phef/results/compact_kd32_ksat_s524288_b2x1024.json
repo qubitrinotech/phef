@@ -1,0 +1,52 @@
+{
+  "schema": "compact_eval_v1",
+  "checkpoint": "phef/results/early_s65536_seed7_rw10_e6000_best.pt",
+  "checkpoint_epoch": 4500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 366938.88731610775,
+  "real": {
+    "answer_acc": 0.89892578125,
+    "retrieval_acc": 0.8984375,
+    "episodes": 2048,
+    "n_eff_mean": 366941.12890625,
+    "n_eff_min": 365852,
+    "n_eff_max": 367884,
+    "wall_seconds": 288.412289762
+  },
+  "shuffled": {
+    "answer_acc": 0.015625,
+    "retrieval_acc": 0.0,
+    "episodes": 2048,
+    "n_eff_mean": 366930.6220703125,
+    "n_eff_min": 365825,
+    "n_eff_max": 368058,
+    "wall_seconds": 283.45673420000094
+  },
+  "masked": {
+    "answer_acc": 0.0166015625,
+    "retrieval_acc": null,
+    "episodes": 2048,
+    "n_eff_mean": 366942.5400390625,
+    "n_eff_min": 365711,
+    "n_eff_max": 368154,
+    "wall_seconds": 282.7852768650009
+  },
+  "config": {
+    "checkpoint": "phef/results/early_s65536_seed7_rw10_e6000_best.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 524288,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1024,
+    "seed": 7,
+    "progress_every": 512,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/compact_kd32_ksat_s524288_b2x1024.json"
+  }
+}

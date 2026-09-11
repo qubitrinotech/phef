@@ -1,0 +1,52 @@
+{
+  "schema": "compact_eval_v1",
+  "checkpoint": "phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt",
+  "checkpoint_epoch": 4500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 45874.22003531456,
+  "real": {
+    "answer_acc": 0.81689453125,
+    "retrieval_acc": 0.81298828125,
+    "episodes": 2048,
+    "n_eff_mean": 45875.03466796875,
+    "n_eff_min": 45486,
+    "n_eff_max": 46262,
+    "wall_seconds": 61.18446036000023
+  },
+  "shuffled": {
+    "answer_acc": 0.0146484375,
+    "retrieval_acc": 0.0,
+    "episodes": 2048,
+    "n_eff_mean": 45872.81201171875,
+    "n_eff_min": 45449,
+    "n_eff_max": 46262,
+    "wall_seconds": 59.05385154399846
+  },
+  "masked": {
+    "answer_acc": 0.0126953125,
+    "retrieval_acc": null,
+    "episodes": 2048,
+    "n_eff_mean": 45873.23095703125,
+    "n_eff_min": 45439,
+    "n_eff_max": 46297,
+    "wall_seconds": 57.894076059001236
+  },
+  "config": {
+    "checkpoint": "phef/results/early_s65536_seed7_kd64_rw10_e6000_best.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 64,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1024,
+    "seed": 7,
+    "progress_every": 512,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/compact_kd64_ksat_s65536_b2x1024.json"
+  }
+}
