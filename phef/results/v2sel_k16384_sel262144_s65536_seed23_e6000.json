@@ -1,0 +1,189 @@
+{
+  "task": "segmented_kv_recall",
+  "script": "train_recall_v2",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "retrieval_weight_late": -1.0,
+  "retrieval_weight_switch_epoch": 0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 1.52587890625e-05,
+  "answer_acc": 1.0,
+  "retrieval_acc": 1.0,
+  "shuffled_answer_acc": 0.0126953125,
+  "masked_answer_acc": 0.017578125,
+  "control_status": "PASS",
+  "best_acc": 0.999755859375,
+  "best_epoch": 4750,
+  "escape_epoch": 1250,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "phef/results/v2sel_k16384_sel262144_s65536_seed23_e6000_best.pt",
+  "sel_n_keys": 262144,
+  "sel_acc_n": 4096,
+  "sel_window": 3,
+  "sel_resolution": 0.000244140625,
+  "sel_independent": true,
+  "recency_scale": 1.6311498880386353,
+  "score_scale": 2.3656506538391113,
+  "memory_gate": 1.3488292694091797,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.010009765625,
+      "sel_score": 0.010009765625
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.013671875,
+      "sel_score": 0.0118408203125
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.01220703125,
+      "sel_score": 0.011962890625
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.02197265625,
+      "sel_score": 0.015950520833333332
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.0673828125,
+      "sel_score": 0.033854166666666664
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.4736328125,
+      "sel_score": 0.18766276041666666
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.94775390625,
+      "sel_score": 0.4962565104166667
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.9931640625,
+      "sel_score": 0.8048502604166666
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.992919921875,
+      "sel_score": 0.9779459635416666
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.989013671875,
+      "sel_score": 0.99169921875
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.990234375,
+      "sel_score": 0.99072265625
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.9921875,
+      "sel_score": 0.990478515625
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.99658203125,
+      "sel_score": 0.9930013020833334
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.999267578125,
+      "sel_score": 0.9960123697916666
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.99853515625,
+      "sel_score": 0.9981282552083334
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.998291015625,
+      "sel_score": 0.9986979166666666
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.9988606770833334
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.999267578125
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.999755859375
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.999755859375
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.999755859375
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 0.99951171875,
+      "sel_score": 0.9996744791666666
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 0.9990234375,
+      "sel_score": 0.9994303385416666
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.9994303385416666
+    }
+  ],
+  "snapshots": [],
+  "config": {
+    "n_keys": 16384,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 6000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "retrieval_weight_late": -1.0,
+    "retrieval_weight_switch_epoch": 0,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "sel_n_keys": 262144,
+    "sel_acc_n": 4096,
+    "sel_window": 3,
+    "no_memory": false,
+    "seed": 23,
+    "cpu": false,
+    "out": "phef/results/v2sel_k16384_sel262144_s65536_seed23_e6000.json",
+    "best_out": "phef/results/v2sel_k16384_sel262144_s65536_seed23_e6000_best.pt",
+    "init_checkpoint": null,
+    "snapshot_epochs": null,
+    "snapshot_dir": null
+  }
+}
