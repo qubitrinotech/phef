@@ -1,0 +1,52 @@
+device=cuda memory=True retrieval_weight=1.0 emergent_mode=False answer_chance=0.015625 retrieval_chance=0.000015 escape_threshold=0.031250
+epoch     1 total 15.3240 answer 4.1914 retrieval 11.0903 answer_acc 0.0078 retrieval_acc 0.000000
+epoch   100 total 15.3740 answer 4.2583 retrieval 11.0740 answer_acc 0.0156 retrieval_acc 0.000000
+epoch   200 total 15.3138 answer 4.2144 retrieval 11.0583 answer_acc 0.0234 retrieval_acc 0.007812
+epoch   250 sel_acc 0.0156 best 0.0156 @ 250 escape None
+
+восстановлен best checkpoint: epoch 250 sel_acc 0.0156
+
+=== CONTROLS ===
+answer chance    = 0.015625
+retrieval chance = 0.000015
+real answer      = 0.017578
+real retrieval   = 0.053711
+shuffled answer  = 0.016602
+masked answer    = 0.015625
+control status   = FAIL
+
+сохранено: phef/results/probe_ntrain_k32768_cost.json
+	Command being timed: "nohup bash -c 
+PYTHONPATH=phef PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
+.venv/bin/python phef/experiments/train_recall.py \
+  --n-keys 32768 --n-values 64 --n-segments 65536 --overwrite-p 0.3 \
+  --key-dim 32 --dim 128 --epochs 250 --batch-size 32 \
+  --eval-batch-size 16 --eval-batches 64 \
+  --lr 0.0003 --weight-decay 0.0001 --retrieval-weight 1.0 \
+  --aux-value-weight 0.01 --hard-eval --use-best \
+  --acc-every 250 --acc-n 512 --escape-factor 2.0 --seed 7 \
+  --out phef/results/probe_ntrain_k32768_cost.json \
+  --best-out phef/results/probe_ntrain_k32768_cost_best.pt
+"
+	User time (seconds): 134.58
+	System time (seconds): 14.67
+	Percent of CPU this job got: 101%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.75
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2282528
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 372
+	Minor (reclaiming a frame) page faults: 1094884
+	Voluntary context switches: 5644
+	Involuntary context switches: 1341
+	Swaps: 0
+	File system inputs: 969856
+	File system outputs: 488
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,36 @@
+{
+  "checkpoint": "phef/results/early_s65536_seed7_rw10_e6000_best.pt",
+  "checkpoint_epoch": 4500,
+  "checkpoint_sel_acc": 1.0,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "real": {
+    "answer_acc": 1.0,
+    "retrieval_acc": 1.0,
+    "episodes": 2
+  },
+  "shuffled": {
+    "answer_acc": 0.0,
+    "retrieval_acc": 0.0,
+    "episodes": 2
+  },
+  "masked": {
+    "answer_acc": 0.0,
+    "retrieval_acc": null,
+    "episodes": 2
+  },
+  "config": {
+    "checkpoint": "phef/results/early_s65536_seed7_rw10_e6000_best.pt",
+    "n_keys": 8388608,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1,
+    "seed": 7,
+    "cpu": false,
+    "out": "phef/results/early_s65536_seed7_rw10_keys8388608_b2_probe_retry2.json"
+  }
+}

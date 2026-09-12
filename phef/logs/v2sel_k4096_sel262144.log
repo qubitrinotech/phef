@@ -1,0 +1,100 @@
+script=train_recall_v2 device=cuda memory=True retrieval_weight=1.0 emergent_mode=False answer_chance=0.015625 retrieval_chance=0.000015 escape_threshold=0.031250
+selection: n_keys=262144 (train=4096) acc_n=4096 resolution=0.000244 window=3
+epoch     1 total 15.2508 answer 4.1182 retrieval 11.0903 answer_acc 0.0312 retrieval_acc 0.000000
+epoch   100 total 15.2946 answer 4.1831 retrieval 11.0697 answer_acc 0.0234 retrieval_acc 0.015625
+epoch   200 total 15.2661 answer 4.1777 retrieval 11.0473 answer_acc 0.0078 retrieval_acc 0.062500
+epoch   250 sel_acc 0.0176 score 0.0176 best 0.0176 @ 250 escape None
+epoch   300 total 15.2263 answer 4.1733 retrieval 11.0124 answer_acc 0.0234 retrieval_acc 0.093750
+epoch   400 total 15.1973 answer 4.2031 retrieval 10.9542 answer_acc 0.0391 retrieval_acc 0.132812
+epoch   500 sel_acc 0.0168 score 0.0172 best 0.0176 @ 250 escape None
+epoch   500 total 15.1156 answer 4.2119 retrieval 10.8643 answer_acc 0.0469 retrieval_acc 0.156250
+epoch   600 total 14.7945 answer 4.1768 retrieval 10.5790 answer_acc 0.0234 retrieval_acc 0.062500
+epoch   700 total 14.1418 answer 4.1807 retrieval 9.9230 answer_acc 0.0078 retrieval_acc 0.007812
+epoch   750 sel_acc 0.0178 score 0.0174 best 0.0176 @ 250 escape None
+epoch   800 total 13.1492 answer 4.2241 retrieval 8.8874 answer_acc 0.0078 retrieval_acc 0.023438
+epoch   900 total 12.1121 answer 4.1968 retrieval 7.8782 answer_acc 0.0234 retrieval_acc 0.031250
+epoch  1000 sel_acc 0.0195 score 0.0181 best 0.0181 @ 1000 escape None
+epoch  1000 total 11.1410 answer 4.1846 retrieval 6.9198 answer_acc 0.0234 retrieval_acc 0.164062
+epoch  1100 total 10.5511 answer 4.1714 retrieval 6.3441 answer_acc 0.0469 retrieval_acc 0.195312
+epoch  1200 total 9.6405 answer 4.1772 retrieval 5.4284 answer_acc 0.0547 retrieval_acc 0.328125
+epoch  1250 sel_acc 0.0596 score 0.0323 best 0.0323 @ 1250 escape 1250
+epoch  1300 total 9.1246 answer 4.1016 retrieval 4.9895 answer_acc 0.1562 retrieval_acc 0.523438
+epoch  1400 total 8.2102 answer 4.1294 retrieval 4.0487 answer_acc 0.2891 retrieval_acc 0.625000
+epoch  1500 sel_acc 0.2217 score 0.1003 best 0.1003 @ 1500 escape 1250
+epoch  1500 total 7.8887 answer 4.1450 retrieval 3.7131 answer_acc 0.3047 retrieval_acc 0.734375
+epoch  1600 total 7.3294 answer 4.1875 retrieval 3.1130 answer_acc 0.5000 retrieval_acc 0.804688
+epoch  1700 total 7.2790 answer 4.1562 retrieval 3.0955 answer_acc 0.5234 retrieval_acc 0.968750
+epoch  1750 sel_acc 0.6155 score 0.2989 best 0.2989 @ 1750 escape 1250
+epoch  1800 total 7.0326 answer 4.1509 retrieval 2.8563 answer_acc 0.7578 retrieval_acc 0.976562
+epoch  1900 total 6.8396 answer 4.0537 retrieval 2.7623 answer_acc 0.8516 retrieval_acc 1.000000
+epoch  2000 sel_acc 0.8584 score 0.5652 best 0.5652 @ 2000 escape 1250
+epoch  2000 total 6.7967 answer 4.0762 retrieval 2.6988 answer_acc 0.9141 retrieval_acc 1.000000
+epoch  2100 total 6.7868 answer 4.0732 retrieval 2.6936 answer_acc 0.9688 retrieval_acc 1.000000
+epoch  2200 total 6.6497 answer 4.0830 retrieval 2.5484 answer_acc 0.9922 retrieval_acc 1.000000
+epoch  2250 sel_acc 0.9778 score 0.8172 best 0.8172 @ 2250 escape 1250
+epoch  2300 total 6.8081 answer 4.0308 retrieval 2.7609 answer_acc 0.9766 retrieval_acc 1.000000
+epoch  2400 total 6.5980 answer 4.0181 retrieval 2.5652 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  2500 sel_acc 0.9973 score 0.9445 best 0.9445 @ 2500 escape 1250
+epoch  2500 total 6.5550 answer 4.0181 retrieval 2.5240 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  2600 total 6.6168 answer 3.9966 retrieval 2.6089 answer_acc 0.9922 retrieval_acc 1.000000
+epoch  2700 total 6.3591 answer 3.9385 retrieval 2.4109 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  2750 sel_acc 0.9973 score 0.9908 best 0.9908 @ 2750 escape 1250
+epoch  2800 total 6.3816 answer 3.9282 retrieval 2.4452 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  2900 total 6.4095 answer 3.9443 retrieval 2.4583 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3000 sel_acc 0.9958 score 0.9968 best 0.9968 @ 3000 escape 1250
+epoch  3000 total 6.3518 answer 3.8359 retrieval 2.5103 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3100 total 6.3074 answer 3.8213 retrieval 2.4816 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3200 total 6.2510 answer 3.7817 retrieval 2.4657 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3250 sel_acc 0.9985 score 0.9972 best 0.9972 @ 3250 escape 1250
+epoch  3300 total 6.4234 answer 3.8604 retrieval 2.5603 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3400 total 6.0942 answer 3.7070 retrieval 2.3851 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3500 sel_acc 0.9880 score 0.9941 best 0.9972 @ 3250 escape 1250
+epoch  3500 total 5.9740 answer 3.6016 retrieval 2.3709 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  3600 total 5.9594 answer 3.5181 retrieval 2.4404 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3700 total 5.9195 answer 3.4473 retrieval 2.4716 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  3750 sel_acc 0.9824 score 0.9897 best 0.9972 @ 3250 escape 1250
+epoch  3800 total 5.8419 answer 3.3569 retrieval 2.4845 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  3900 total 5.4117 answer 3.0901 retrieval 2.3213 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4000 sel_acc 0.9812 score 0.9839 best 0.9972 @ 3250 escape 1250
+epoch  4000 total 5.3848 answer 3.0669 retrieval 2.3178 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  4100 total 5.1128 answer 2.7279 retrieval 2.3848 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4200 total 5.4595 answer 3.0227 retrieval 2.4367 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4250 sel_acc 0.9824 score 0.9820 best 0.9972 @ 3250 escape 1250
+epoch  4300 total 5.3748 answer 2.9463 retrieval 2.4285 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4400 total 4.9260 answer 2.5434 retrieval 2.3826 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4500 sel_acc 0.9880 score 0.9839 best 0.9972 @ 3250 escape 1250
+epoch  4500 total 5.0995 answer 2.7339 retrieval 2.3656 answer_acc 0.9922 retrieval_acc 0.992188
+epoch  4600 total 4.9024 answer 2.4946 retrieval 2.4078 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4700 total 4.6012 answer 2.2887 retrieval 2.3125 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4750 sel_acc 0.9924 score 0.9876 best 0.9972 @ 3250 escape 1250
+epoch  4800 total 4.7834 answer 2.4266 retrieval 2.3568 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  4900 total 4.4573 answer 2.1691 retrieval 2.2882 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5000 sel_acc 0.9932 score 0.9912 best 0.9972 @ 3250 escape 1250
+epoch  5000 total 4.2766 answer 1.9941 retrieval 2.2825 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5100 total 3.9899 answer 1.7858 retrieval 2.2041 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5200 total 4.3467 answer 2.0703 retrieval 2.2764 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5250 sel_acc 0.9949 score 0.9935 best 0.9972 @ 3250 escape 1250
+epoch  5300 total 4.0096 answer 1.8029 retrieval 2.2067 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5400 total 3.7235 answer 1.5296 retrieval 2.1939 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5500 sel_acc 0.9983 score 0.9954 best 0.9972 @ 3250 escape 1250
+epoch  5500 total 4.0163 answer 1.7938 retrieval 2.2225 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5600 total 3.6956 answer 1.5668 retrieval 2.1288 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5700 total 3.6581 answer 1.4922 retrieval 2.1659 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5750 sel_acc 0.9973 score 0.9968 best 0.9972 @ 3250 escape 1250
+epoch  5800 total 3.4686 answer 1.3538 retrieval 2.1148 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  5900 total 4.1846 answer 1.9237 retrieval 2.2609 answer_acc 1.0000 retrieval_acc 1.000000
+epoch  6000 sel_acc 0.9978 score 0.9978 best 0.9978 @ 6000 escape 1250
+epoch  6000 total 3.9364 answer 1.8125 retrieval 2.1239 answer_acc 1.0000 retrieval_acc 1.000000
+
+восстановлен best checkpoint: epoch 6000 sel_acc 0.9978
+
+=== CONTROLS ===
+answer chance    = 0.015625
+retrieval chance = 0.000015
+real answer      = 1.000000
+real retrieval   = 1.000000
+shuffled answer  = 0.014648
+masked answer    = 0.016602
+control status   = PASS
+
+сохранено: phef/results/v2sel_k4096_sel262144_s65536_seed7_e6000.json
