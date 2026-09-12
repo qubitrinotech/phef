@@ -1,0 +1,25 @@
+=== EVAL seed=11 S=524288 ===
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/v2sel_k4096_sel262144_s65536_seed11_e6000_best.pt checkpoint_epoch=6000 checkpoint_sel_acc=0.998535 key_dim=32 n_keys=1073741824 n_segments=524288 n_eff_theory=366938.9 episodes=2048
+[real] 512/1024 batches elapsed=151.6s per_batch=0.2961s eta=151.6s answer_acc=0.993164 retrieval_acc=0.993164 n_eff_mean=366950.9 rss=1.37GiB gpu_alloc_peak=0.99GiB
+[real] 1024/1024 batches elapsed=305.1s per_batch=0.2979s eta=0.0s answer_acc=0.995117 retrieval_acc=0.994629 n_eff_mean=366941.1 rss=1.37GiB gpu_alloc_peak=0.99GiB
+[shuffled] 512/1024 batches elapsed=152.3s per_batch=0.2975s eta=152.3s answer_acc=0.013672 retrieval_acc=0.000000 n_eff_mean=366926.8 rss=1.38GiB gpu_alloc_peak=1.11GiB
+[shuffled] 1024/1024 batches elapsed=301.6s per_batch=0.2945s eta=0.0s answer_acc=0.013184 retrieval_acc=0.000000 n_eff_mean=366930.6 rss=1.38GiB gpu_alloc_peak=1.11GiB
+[masked] 512/1024 batches elapsed=149.1s per_batch=0.2913s eta=149.1s answer_acc=0.012695 retrieval_acc=nan n_eff_mean=366936.0 rss=1.39GiB gpu_alloc_peak=1.11GiB
+[masked] 1024/1024 batches elapsed=298.1s per_batch=0.2911s eta=0.0s answer_acc=0.015625 retrieval_acc=nan n_eff_mean=366942.5 rss=1.39GiB gpu_alloc_peak=1.11GiB
+real      answer=0.995117 retrieval=0.994629 episodes=2048 n_eff_mean=366941.1 wall=305.1s
+shuffled  answer=0.013184 retrieval=0.000000 episodes=2048 n_eff_mean=366930.6 wall=301.6s
+masked    answer=0.015625 retrieval=None episodes=2048 n_eff_mean=366942.5 wall=298.1s
+saved: phef/results/compact_v2sel_k4096_seed11_ksat_s524288_b2x1024.json
+=== EVAL seed=23 S=524288 ===
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/v2sel_k4096_sel262144_s65536_seed23_e6000_best.pt checkpoint_epoch=5500 checkpoint_sel_acc=0.997884 key_dim=32 n_keys=1073741824 n_segments=524288 n_eff_theory=366938.9 episodes=2048
+[real] 512/1024 batches elapsed=150.7s per_batch=0.2943s eta=150.7s answer_acc=0.987305 retrieval_acc=0.987305 n_eff_mean=366950.9 rss=1.37GiB gpu_alloc_peak=0.99GiB
+[real] 1024/1024 batches elapsed=303.1s per_batch=0.2960s eta=0.0s answer_acc=0.986816 retrieval_acc=0.985840 n_eff_mean=366941.1 rss=1.37GiB gpu_alloc_peak=0.99GiB
+[shuffled] 512/1024 batches elapsed=150.5s per_batch=0.2939s eta=150.5s answer_acc=0.014648 retrieval_acc=0.000000 n_eff_mean=366926.8 rss=1.38GiB gpu_alloc_peak=1.11GiB
+[shuffled] 1024/1024 batches elapsed=301.6s per_batch=0.2945s eta=0.0s answer_acc=0.014160 retrieval_acc=0.000000 n_eff_mean=366930.6 rss=1.38GiB gpu_alloc_peak=1.11GiB
+[masked] 512/1024 batches elapsed=149.1s per_batch=0.2913s eta=149.1s answer_acc=0.009766 retrieval_acc=nan n_eff_mean=366936.0 rss=1.39GiB gpu_alloc_peak=1.11GiB
+[masked] 1024/1024 batches elapsed=297.0s per_batch=0.2900s eta=0.0s answer_acc=0.014648 retrieval_acc=nan n_eff_mean=366942.5 rss=1.39GiB gpu_alloc_peak=1.11GiB
+real      answer=0.986816 retrieval=0.985840 episodes=2048 n_eff_mean=366941.1 wall=303.1s
+shuffled  answer=0.014160 retrieval=0.000000 episodes=2048 n_eff_mean=366930.6 wall=301.6s
+masked    answer=0.014648 retrieval=None episodes=2048 n_eff_mean=366942.5 wall=297.0s
+saved: phef/results/compact_v2sel_k4096_seed23_ksat_s524288_b2x1024.json
+EVAL_DONE
