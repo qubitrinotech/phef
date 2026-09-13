@@ -1,0 +1,52 @@
+{
+  "schema": "compact_eval_v1",
+  "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed23_e6000_best.pt",
+  "checkpoint_epoch": 5000,
+  "checkpoint_sel_acc": 0.9999186197916666,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 8043754.669741631,
+  "real": {
+    "answer_acc": 0.984375,
+    "retrieval_acc": 0.984375,
+    "episodes": 128,
+    "n_eff_mean": 8043761.6640625,
+    "n_eff_min": 8039844,
+    "n_eff_max": 8048786,
+    "wall_seconds": 536.5423304440046
+  },
+  "shuffled": {
+    "answer_acc": 0.03125,
+    "retrieval_acc": 0.0,
+    "episodes": 128,
+    "n_eff_mean": 8043876.3828125,
+    "n_eff_min": 8039800,
+    "n_eff_max": 8047805,
+    "wall_seconds": 521.5970140990103
+  },
+  "masked": {
+    "answer_acc": 0.015625,
+    "retrieval_acc": null,
+    "episodes": 128,
+    "n_eff_mean": 8043606.96875,
+    "n_eff_min": 8039071,
+    "n_eff_max": 8048107,
+    "wall_seconds": 502.88015625200933
+  },
+  "config": {
+    "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed23_e6000_best.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 11534336,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 64,
+    "seed": 7,
+    "progress_every": 8,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/capacity8m_pilot_k32768_seed23_b2x64.json"
+  }
+}
