@@ -1,0 +1,189 @@
+{
+  "task": "segmented_kv_recall",
+  "script": "train_recall_v2",
+  "use_memory": true,
+  "retrieval_weight": 1.0,
+  "retrieval_weight_late": -1.0,
+  "retrieval_weight_switch_epoch": 0,
+  "emergent_mode": false,
+  "answer_chance": 0.015625,
+  "retrieval_chance": 1.52587890625e-05,
+  "answer_acc": 1.0,
+  "retrieval_acc": 1.0,
+  "shuffled_answer_acc": 0.013671875,
+  "masked_answer_acc": 0.0205078125,
+  "control_status": "PASS",
+  "best_acc": 0.999755859375,
+  "best_epoch": 4750,
+  "escape_epoch": 1250,
+  "escape_threshold": 0.03125,
+  "escape_criterion": "val_accuracy",
+  "selection": "val_accuracy",
+  "best_checkpoint": "phef/results/v2sel_k16384_sel262144_s65536_seed7_e6000_best.pt",
+  "sel_n_keys": 262144,
+  "sel_acc_n": 4096,
+  "sel_window": 3,
+  "sel_resolution": 0.000244140625,
+  "sel_independent": true,
+  "recency_scale": 1.6333292722702026,
+  "score_scale": 2.3823461532592773,
+  "memory_gate": 1.3790812492370605,
+  "tie_rate": 0.0,
+  "history": [
+    {
+      "epoch": 250,
+      "sel_acc": 0.017822265625,
+      "sel_score": 0.017822265625
+    },
+    {
+      "epoch": 500,
+      "sel_acc": 0.021240234375,
+      "sel_score": 0.01953125
+    },
+    {
+      "epoch": 750,
+      "sel_acc": 0.012939453125,
+      "sel_score": 0.017333984375
+    },
+    {
+      "epoch": 1000,
+      "sel_acc": 0.0244140625,
+      "sel_score": 0.01953125
+    },
+    {
+      "epoch": 1250,
+      "sel_acc": 0.065185546875,
+      "sel_score": 0.0341796875
+    },
+    {
+      "epoch": 1500,
+      "sel_acc": 0.35107421875,
+      "sel_score": 0.14689127604166666
+    },
+    {
+      "epoch": 1750,
+      "sel_acc": 0.850830078125,
+      "sel_score": 0.42236328125
+    },
+    {
+      "epoch": 2000,
+      "sel_acc": 0.990966796875,
+      "sel_score": 0.73095703125
+    },
+    {
+      "epoch": 2250,
+      "sel_acc": 0.99755859375,
+      "sel_score": 0.9464518229166666
+    },
+    {
+      "epoch": 2500,
+      "sel_acc": 0.9912109375,
+      "sel_score": 0.9932454427083334
+    },
+    {
+      "epoch": 2750,
+      "sel_acc": 0.9912109375,
+      "sel_score": 0.9933268229166666
+    },
+    {
+      "epoch": 3000,
+      "sel_acc": 0.994384765625,
+      "sel_score": 0.9922688802083334
+    },
+    {
+      "epoch": 3250,
+      "sel_acc": 0.998046875,
+      "sel_score": 0.9945475260416666
+    },
+    {
+      "epoch": 3500,
+      "sel_acc": 0.998046875,
+      "sel_score": 0.996826171875
+    },
+    {
+      "epoch": 3750,
+      "sel_acc": 0.99853515625,
+      "sel_score": 0.9982096354166666
+    },
+    {
+      "epoch": 4000,
+      "sel_acc": 0.998779296875,
+      "sel_score": 0.9984537760416666
+    },
+    {
+      "epoch": 4250,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.9990234375
+    },
+    {
+      "epoch": 4500,
+      "sel_acc": 1.0,
+      "sel_score": 0.99951171875
+    },
+    {
+      "epoch": 4750,
+      "sel_acc": 0.99951171875,
+      "sel_score": 0.999755859375
+    },
+    {
+      "epoch": 5000,
+      "sel_acc": 0.9990234375,
+      "sel_score": 0.99951171875
+    },
+    {
+      "epoch": 5250,
+      "sel_acc": 0.9990234375,
+      "sel_score": 0.9991861979166666
+    },
+    {
+      "epoch": 5500,
+      "sel_acc": 1.0,
+      "sel_score": 0.9993489583333334
+    },
+    {
+      "epoch": 5750,
+      "sel_acc": 0.999755859375,
+      "sel_score": 0.9995930989583334
+    },
+    {
+      "epoch": 6000,
+      "sel_acc": 0.99951171875,
+      "sel_score": 0.999755859375
+    }
+  ],
+  "snapshots": [],
+  "config": {
+    "n_keys": 16384,
+    "n_values": 64,
+    "n_segments": 65536,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "hard_eval": true,
+    "dim": 128,
+    "epochs": 6000,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "retrieval_weight": 1.0,
+    "retrieval_weight_late": -1.0,
+    "retrieval_weight_switch_epoch": 0,
+    "aux_value_weight": 0.01,
+    "use_best": true,
+    "acc_every": 250,
+    "acc_n": 512,
+    "escape_factor": 2.0,
+    "sel_n_keys": 262144,
+    "sel_acc_n": 4096,
+    "sel_window": 3,
+    "no_memory": false,
+    "seed": 7,
+    "cpu": false,
+    "out": "phef/results/v2sel_k16384_sel262144_s65536_seed7_e6000.json",
+    "best_out": "phef/results/v2sel_k16384_sel262144_s65536_seed7_e6000_best.pt",
+    "init_checkpoint": null,
+    "snapshot_epochs": null,
+    "snapshot_dir": null
+  }
+}
