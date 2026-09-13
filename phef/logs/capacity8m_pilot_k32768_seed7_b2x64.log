@@ -1,0 +1,103 @@
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt checkpoint_epoch=4750 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=1073741824 n_segments=11534336 n_eff_theory=8043754.7 episodes=128
+[W913 23:24:04.467135112 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:12.524649579 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:20.501997192 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:28.426196504 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:36.372691679 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:44.355205815 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:24:52.460945204 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 8/64 batches elapsed=64.4s per_batch=8.0536s eta=451.0s answer_acc=0.875000 retrieval_acc=0.875000 n_eff_mean=8043734.2 rss=10.06GiB gpu_alloc_peak=17.87GiB
+[W913 23:25:00.555788696 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:08.646215015 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:16.783647231 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:25.053306101 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:33.414366953 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:41.613124618 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:50.014404225 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:25:58.369701717 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 16/64 batches elapsed=130.3s per_batch=8.1463s eta=391.0s answer_acc=0.937500 retrieval_acc=0.937500 n_eff_mean=8043359.5 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:26:06.654806332 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:15.005637517 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:23.052748850 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:31.089379184 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:39.214741660 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:47.139023962 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:26:55.047759324 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:03.067504303 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 24/64 batches elapsed=195.0s per_batch=8.1269s eta=325.1s answer_acc=0.958333 retrieval_acc=0.958333 n_eff_mean=8043478.5 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:27:11.328868076 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:19.414764325 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:27.571469040 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:35.776349891 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:44.285668509 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:27:52.610524530 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:01.954698840 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:09.215588514 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 32/64 batches elapsed=261.2s per_batch=8.1623s eta=261.2s answer_acc=0.968750 retrieval_acc=0.968750 n_eff_mean=8043560.3 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:28:17.501099333 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:26.812924162 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:33.781906945 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:41.684486573 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:49.669123973 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:28:57.671382262 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:05.718844101 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:14.915536675 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 40/64 batches elapsed=325.9s per_batch=8.1471s eta=195.5s answer_acc=0.975000 retrieval_acc=0.975000 n_eff_mean=8043603.9 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:29:22.127438422 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:30.519657586 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:39.799184623 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:47.118571027 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:29:55.558854326 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:04.853574379 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:12.153732587 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:20.636391498 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 48/64 batches elapsed=392.6s per_batch=8.1794s eta=130.9s answer_acc=0.968750 retrieval_acc=0.968750 n_eff_mean=8043600.4 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:30:29.935239813 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:37.195124125 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:45.425476021 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:30:53.658144678 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:02.871760644 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:10.125544604 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:18.398310633 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:26.674443735 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 56/64 batches elapsed=458.6s per_batch=8.1901s eta=65.5s answer_acc=0.973214 retrieval_acc=0.973214 n_eff_mean=8043741.1 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:31:35.084055226 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:43.321228155 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:31:51.568479685 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:32:00.883212152 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:32:08.157506745 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:32:16.490451284 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:32:25.861533984 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:32:33.222003797 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[real] 64/64 batches elapsed=525.2s per_batch=8.2062s eta=0.0s answer_acc=0.976562 retrieval_acc=0.976562 n_eff_mean=8043761.7 rss=10.06GiB gpu_alloc_peak=17.88GiB
+[W913 23:32:41.580654255 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:33:21.691736230 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:33:29.716359206 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:33:38.044234300 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[shuffled] 8/64 batches elapsed=64.8s per_batch=8.0969s eta=453.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043692.9 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[W913 23:33:46.143764370 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[shuffled] 16/64 batches elapsed=128.8s per_batch=8.0513s eta=386.5s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043707.2 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[W913 23:34:58.420223690 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:35:06.791629209 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:35:31.590759221 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[shuffled] 24/64 batches elapsed=194.6s per_batch=8.1078s eta=324.3s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043837.2 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[W913 23:35:56.102474449 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:36:04.365249458 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[W913 23:36:37.896512627 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18546688, total: 25252724736).
+[shuffled] 32/64 batches elapsed=259.5s per_batch=8.1087s eta=259.5s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043887.9 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[shuffled] 40/64 batches elapsed=322.1s per_batch=8.0535s eta=193.3s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043885.4 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[shuffled] 48/64 batches elapsed=384.1s per_batch=8.0023s eta=128.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043991.0 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[shuffled] 56/64 batches elapsed=446.2s per_batch=7.9680s eta=63.7s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043913.0 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[shuffled] 64/64 batches elapsed=510.2s per_batch=7.9716s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=8043876.4 rss=10.06GiB gpu_alloc_peak=20.31GiB
+[masked] 8/64 batches elapsed=64.0s per_batch=7.9973s eta=447.9s answer_acc=0.062500 retrieval_acc=nan n_eff_mean=8044059.8 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 16/64 batches elapsed=128.4s per_batch=8.0249s eta=385.2s answer_acc=0.062500 retrieval_acc=nan n_eff_mean=8043872.4 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 24/64 batches elapsed=193.2s per_batch=8.0520s eta=322.1s answer_acc=0.041667 retrieval_acc=nan n_eff_mean=8043803.3 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 32/64 batches elapsed=257.8s per_batch=8.0565s eta=257.8s answer_acc=0.031250 retrieval_acc=nan n_eff_mean=8043700.6 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 40/64 batches elapsed=321.2s per_batch=8.0300s eta=192.7s answer_acc=0.025000 retrieval_acc=nan n_eff_mean=8043634.4 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 48/64 batches elapsed=382.9s per_batch=7.9762s eta=127.6s answer_acc=0.031250 retrieval_acc=nan n_eff_mean=8043550.1 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 56/64 batches elapsed=443.9s per_batch=7.9270s eta=63.4s answer_acc=0.026786 retrieval_acc=nan n_eff_mean=8043522.9 rss=10.07GiB gpu_alloc_peak=20.31GiB
+[masked] 64/64 batches elapsed=504.8s per_batch=7.8871s eta=0.0s answer_acc=0.023438 retrieval_acc=nan n_eff_mean=8043607.0 rss=10.07GiB gpu_alloc_peak=20.31GiB
+real      answer=0.976562 retrieval=0.976562 episodes=128 n_eff_mean=8043761.7 wall=525.2s
+shuffled  answer=0.000000 retrieval=0.000000 episodes=128 n_eff_mean=8043876.4 wall=510.2s
+masked    answer=0.023438 retrieval=None episodes=128 n_eff_mean=8043607.0 wall=504.8s
+saved: phef/results/capacity8m_pilot_k32768_seed7_b2x64.json

@@ -90,7 +90,8 @@ class PHEF(nn.Module):
                     "bd,bkd->bk",
                     query_state,
                     memory_keys,
-                ) / math.sqrt(self.dim),
+                )
+                / math.sqrt(self.dim),
                 1,
                 slots,
             )
@@ -103,20 +104,22 @@ class PHEF(nn.Module):
             scores = self.score_scale * semantic
             scores = scores + self.recency_scale * recency
 
-            memory_values = self.value_emb.weight.to(query_state.dtype)[values]
-
             if hard:
                 max_scores = scores.max(dim=1, keepdim=True).values
                 tie_count = scores.ge(max_scores - 1e-6).sum(dim=1)
-                self.last_tie_rate = (
-                    tie_count.gt(1).float().mean().item()
-                )
+                self.last_tie_rate = tie_count.gt(1).float().mean().item()
                 index = scores.argmax(dim=1)
-                memory_state = memory_values[
+                selected_values = values[
                     torch.arange(batch_size, device=values.device),
                     index,
                 ]
+                memory_state = self.value_emb(selected_values).to(
+                    query_state.dtype
+                )
             else:
+                memory_values = self.value_emb.weight.to(query_state.dtype)[
+                    values
+                ]
                 weights = torch.softmax(scores, dim=1)
                 memory_state = torch.einsum(
                     "bs,bsd->bd",
