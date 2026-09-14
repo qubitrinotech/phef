@@ -42,6 +42,56 @@ class PHEF(nn.Module):
         self.head = nn.Linear(dim, n_values)
         self.last_tie_rate = 0.0
 
+    def _streamed_hard_retrieval(
+        self,
+        slots,
+        codebook,
+        values,
+        timestamps,
+        query_state,
+        permutation,
+        chunk_size,
+    ):
+        """Return hard retrieval indices and selected values without dense scores."""
+        batch_size, n_events = values.shape
+        indices = []
+        selected_values = []
+
+        for b in range(batch_size):
+            src = int(permutation[b])
+            memory_keys = self.key_encoder(codebook[src])
+            best_score = None
+            best_index = None
+
+            for start in range(0, n_events, chunk_size):
+                stop = min(start + chunk_size, n_events)
+                event_slots = slots[src, start:stop]
+                event_times = timestamps[src, start:stop]
+                semantic = (
+                    memory_keys[event_slots] @ query_state[b]
+                ) / math.sqrt(self.dim)
+                chunk_scores = (
+                    self.score_scale * semantic
+                    + self.recency_scale
+                    * event_times.float()
+                    / max(1, self.n_segments - 1)
+                )
+                local_score, local_index = chunk_scores.max(dim=0)
+                candidate_index = start + int(local_index)
+
+                # Strict > preserves torch.argmax's earliest-index tie rule.
+                if best_score is None or local_score > best_score:
+                    best_score = local_score
+                    best_index = candidate_index
+
+            indices.append(best_index)
+            selected_values.append(values[src, best_index])
+
+        return (
+            torch.tensor(indices, device=values.device, dtype=torch.long),
+            torch.stack(selected_values),
+        )
+
     def forward(
         self,
         slots,
@@ -53,10 +103,73 @@ class PHEF(nn.Module):
         mask_memory=False,
         hard=False,
         return_retrieval=False,
+        stream_hard_chunk_size=0,
+        return_retrieval_indices=False,
     ):
-        batch_size, n_events = values.shape
+        if stream_hard_chunk_size < 0:
+            raise ValueError("stream_hard_chunk_size must be >= 0")
+        if return_retrieval and return_retrieval_indices:
+            raise ValueError(
+                "return_retrieval and return_retrieval_indices are exclusive"
+            )
+        if stream_hard_chunk_size:
+            if not hard:
+                raise ValueError("streamed hard retrieval requires hard=True")
+            if not return_retrieval_indices:
+                raise ValueError(
+                    "streamed hard retrieval requires return_retrieval_indices=True"
+                )
+            if self.training:
+                raise ValueError("streamed hard retrieval requires model.eval()")
+            if torch.is_grad_enabled():
+                raise ValueError(
+                    "streamed hard retrieval requires disabled gradients"
+                )
+        elif return_retrieval_indices:
+            raise ValueError(
+                "return_retrieval_indices requires stream_hard_chunk_size > 0"
+            )
 
+        batch_size, n_events = values.shape
         query_state = self.query_encoder(query_keys)
+
+        if stream_hard_chunk_size and (not self.use_memory or mask_memory):
+            raise ValueError(
+                "streamed hard retrieval requires enabled, unmasked memory"
+            )
+
+        if stream_hard_chunk_size:
+            if shuffle:
+                shift = torch.randint(
+                    1,
+                    batch_size,
+                    (),
+                    device=values.device,
+                )
+                permutation = torch.roll(
+                    torch.arange(batch_size, device=values.device),
+                    shifts=int(shift.item()),
+                )
+            else:
+                permutation = torch.arange(batch_size, device=values.device)
+
+            index, selected_values = self._streamed_hard_retrieval(
+                slots,
+                codebook,
+                values,
+                timestamps,
+                query_state,
+                permutation,
+                stream_hard_chunk_size,
+            )
+            self.last_tie_rate = None
+            memory_state = self.value_emb(selected_values).to(
+                query_state.dtype
+            )
+            gate = torch.sigmoid(self.memory_gate)
+            hidden = self.norm(query_state + gate * memory_state)
+            logits = self.head(hidden)
+            return logits, index
 
         if not self.use_memory or mask_memory:
             memory_state = torch.zeros_like(query_state)

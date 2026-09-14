@@ -33,8 +33,9 @@ The RNG stream differs from BranchingWorld (fewer normal draws per batch),
 so results are NOT bit-identical to eval_recall_checkpoint.py. Equivalence
 is distributional and MUST be validated as such.
 
-Output JSON uses schema "compact_eval_v1" and is deliberately distinct
-from the old evaluator's schema.
+Output JSON uses "compact_eval_v1" for the legacy dense path and
+"compact_eval_v2_streamed_hard" when --stream-hard-chunk-size is positive.
+Both are deliberately distinct from the old evaluator's schema.
 """
 
 import argparse
@@ -51,7 +52,8 @@ import torch
 from phef.model import PHEF
 from phef.world import BranchingWorld
 
-SCHEMA = "compact_eval_v1"
+LEGACY_SCHEMA = "compact_eval_v1"
+STREAMED_SCHEMA = "compact_eval_v2_streamed_hard"
 HARD_EVAL = True
 
 
@@ -165,6 +167,7 @@ def evaluate(
     progress_every,
     shuffle=False,
     mask_memory=False,
+    stream_hard_chunk_size=0,
 ):
     model.eval()
     correct = 0
@@ -193,22 +196,46 @@ def evaluate(
             answer_positions,
         ) = move_batch(batch, device)
 
-        logits, retrieval_scores = model(
-            slots_b,
-            codebook,
-            values,
-            timestamps,
-            query_keys,
-            shuffle=shuffle,
-            mask_memory=mask_memory,
-            hard=HARD_EVAL,
-            return_retrieval=True,
+        use_streamed_hard = (
+            stream_hard_chunk_size > 0 and not mask_memory
         )
+        if use_streamed_hard:
+            logits, retrieval_indices = model(
+                slots_b,
+                codebook,
+                values,
+                timestamps,
+                query_keys,
+                shuffle=shuffle,
+                hard=HARD_EVAL,
+                stream_hard_chunk_size=stream_hard_chunk_size,
+                return_retrieval_indices=True,
+            )
+        else:
+            logits, retrieval_scores = model(
+                slots_b,
+                codebook,
+                values,
+                timestamps,
+                query_keys,
+                shuffle=shuffle,
+                mask_memory=mask_memory,
+                hard=HARD_EVAL,
+                return_retrieval=True,
+            )
         correct += logits.argmax(dim=-1).eq(answers).sum().item()
         if score_retrieval:
-            retrieval_correct += (
-                retrieval_scores.argmax(dim=-1).eq(answer_positions).sum().item()
-            )
+            if use_streamed_hard:
+                retrieval_correct += (
+                    retrieval_indices.eq(answer_positions).sum().item()
+                )
+            else:
+                retrieval_correct += (
+                    retrieval_scores.argmax(dim=-1)
+                    .eq(answer_positions)
+                    .sum()
+                    .item()
+                )
         total += answers.numel()
 
         done = i + 1
@@ -256,6 +283,7 @@ def main():
     parser.add_argument("--eval-batches", type=int, default=8192)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--progress-every", type=int, default=256)
+    parser.add_argument("--stream-hard-chunk-size", type=int, default=0)
     parser.add_argument("--cpu", action="store_true")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--out", required=True)
@@ -266,6 +294,8 @@ def main():
             "eval_batch_size must be >= 2: PHEF.forward(shuffle=True) calls "
             "torch.randint(1, batch_size, ...), which is invalid for 1"
         )
+    if args.stream_hard_chunk_size < 0:
+        raise SystemExit("--stream-hard-chunk-size must be >= 0")
 
     if os.path.exists(args.out) and not args.force:
         raise SystemExit(
@@ -310,14 +340,20 @@ def main():
     ).to(device)
     model.load_state_dict(checkpoint["state_dict"])
 
+    schema = (
+        STREAMED_SCHEMA
+        if args.stream_hard_chunk_size > 0
+        else LEGACY_SCHEMA
+    )
     print(
-        f"schema={SCHEMA} device={device} checkpoint={args.checkpoint} "
+        f"schema={schema} device={device} checkpoint={args.checkpoint} "
         f"checkpoint_epoch={checkpoint['epoch']} "
         f"checkpoint_sel_acc={checkpoint['sel_acc']:.6f} "
         f"key_dim={args.key_dim} n_keys={args.n_keys} "
         f"n_segments={args.n_segments} "
         f"n_eff_theory={n_eff_theory(args.n_keys, args.n_segments, args.overwrite_p):.1f} "
-        f"episodes={args.eval_batch_size * args.eval_batches}",
+        f"episodes={args.eval_batch_size * args.eval_batches} "
+        f"stream_hard_chunk_size={args.stream_hard_chunk_size}",
         flush=True,
     )
 
@@ -335,11 +371,13 @@ def main():
             args.eval_batches,
             label,
             args.progress_every,
+            stream_hard_chunk_size=args.stream_hard_chunk_size,
             **kwargs,
         )
 
     report = {
-        "schema": SCHEMA,
+        "schema": schema,
+        "stream_hard_chunk_size": args.stream_hard_chunk_size,
         "checkpoint": args.checkpoint,
         "checkpoint_epoch": checkpoint["epoch"],
         "checkpoint_sel_acc": checkpoint["sel_acc"],
