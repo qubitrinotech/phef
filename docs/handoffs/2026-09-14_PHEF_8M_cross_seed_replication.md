@@ -321,3 +321,47 @@ phef/logs/capacitycurve_nseg10000000_seed7_evalseed19_b2x64.log
 ```
 
 Interpretation: this is one full-control pilot at measured `n_eff≈6.977M`. It supports feasibility and provides an intermediate point for a future capacity curve. It does not by itself estimate a capacity trend, establish a difference from 8.044M, or replace the 8M 2×2 cross-seed replication.
+
+## Follow-up: approximately 9.0M effective-memory resource probe
+
+**Date:** 15 September 2026
+**Status:** completed 2-episode-per-condition resource probe; not a capacity result
+
+A short full-protocol probe tested the next capacity-curve target above the completed 8.044M study:
+
+```text
+checkpoint: phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt
+training seed: 7
+selected epoch: 4750
+evaluation seed: 19
+n_keys: 1,073,741,824
+n_segments: 12,900,000
+overwrite_p: 0.3
+n_values: 64
+key_dim: 32
+dim: 128
+hard_eval: true
+eval_batch_size: 2
+eval_batches: 1
+episodes: 2 per condition
+```
+
+Measured effective depth:
+
+```text
+n_eff_theory: 8,992,135.8
+real n_eff_mean: 8,990,361.0
+shuffled n_eff_mean: 8,991,882.5
+masked n_eff_mean: 8,991,542.0
+```
+
+The one-batch real, shuffled, and masked conditions all completed and the evaluator wrote a complete `compact_eval_v1` JSON. The worst cumulative GPU allocation peak was 22.60 GiB after shuffled, with real reaching 19.88 GiB. This leaves a small margin on a 24 GiB RTX 4090 and is materially closer to the boundary than the completed 8M full protocol.
+
+Artifacts:
+
+```text
+phef/results/capacitycurve_probe_nseg12900000_seed7_evalseed19_b2x1.json
+phef/logs/capacitycurve_probe_nseg12900000_seed7_evalseed19_b2x1.log
+```
+
+Interpretation: this confirms that the evaluator can complete one full-control batch at measured `n_eff≈8.99M`; it does not establish retrieval accuracy at 9M and does not justify a 128-episode full run with the current memory profile. Before a 9M pilot or 16M study, profile and redesign the evaluator/control path for a more robust memory margin.
