@@ -256,3 +256,68 @@ The current `eval_batch_size=2` full protocol is near GPU capacity at 8M due to 
 ### 4. Move beyond synthetic key-value retrieval
 
 A practical memory benchmark should include stored source records, provenance, updates and conflicts, semantic or approximate queries, distractors, multi-hop retrieval, and comparisons against exact lookup and ANN/RAG baselines. Retrieval accuracy should remain separate from answer-generation quality.
+
+## Follow-up: approximately 6.98M effective-memory capacity-curve pilot
+
+**Date:** 15 September 2026
+**Status:** completed single-cell pilot; not a cross-seed replication
+
+This follow-up adds one controlled point below the completed 8.044M study:
+
+```text
+checkpoint: phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt
+training seed: 7
+selected epoch: 4750
+evaluation seed: 19
+n_keys: 1,073,741,824
+n_segments: 10,000,000
+overwrite_p: 0.3
+n_values: 64
+key_dim: 32
+dim: 128
+hard_eval: true
+eval_batch_size: 2
+eval_batches: 64
+episodes: 128 per condition
+```
+
+Measured and theoretical effective depth:
+
+```text
+n_eff_theory: 6,977,232.1
+real n_eff_mean: 6,977,123.2
+shuffled n_eff_mean: 6,977,252.5
+masked n_eff_mean: 6,977,331.6
+```
+
+Results:
+
+| Condition | Episodes | Answer accuracy | Retrieval accuracy |
+|---|---:|---:|---:|
+| Real | 128 | 0.9765625 (125/128) | 0.9765625 (125/128) |
+| Shuffled | 128 | 0.0078125 (1/128) | 0.0000000 (0/128) |
+| Masked | 128 | 0.0078125 (1/128) | not scored |
+
+The real answer and retrieval metrics were equal. The shuffled retrieval control was 0/128, while shuffled and masked answer accuracy were each 1/128, consistent with the 64-class chance baseline.
+
+Resource profile for the full three-condition run:
+
+```text
+real peak GPU allocation: 15.51 GiB
+worst cumulative GPU allocation peak after shuffled: 17.62 GiB
+peak RSS: 8.86 GiB
+real/shuffled/masked wall time: 439.5 s / 437.8 s / 437.3 s
+full three-condition wall time: approximately 21.9 minutes
+```
+
+Artifacts:
+
+```text
+phef/results/capacitycurve_probe_nseg10000000_seed7_evalseed19_b2x1.json
+phef/logs/capacitycurve_probe_nseg10000000_seed7_evalseed19_b2x1.log
+
+phef/results/capacitycurve_nseg10000000_seed7_evalseed19_b2x64.json
+phef/logs/capacitycurve_nseg10000000_seed7_evalseed19_b2x64.log
+```
+
+Interpretation: this is one full-control pilot at measured `n_eff≈6.977M`. It supports feasibility and provides an intermediate point for a future capacity curve. It does not by itself estimate a capacity trend, establish a difference from 8.044M, or replace the 8M 2×2 cross-seed replication.
