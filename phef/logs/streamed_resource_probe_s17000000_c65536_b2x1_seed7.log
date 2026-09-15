@@ -1,0 +1,8 @@
+schema=compact_eval_v2_streamed_hard device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt checkpoint_epoch=4750 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=1073741824 n_segments=17000000 n_eff_theory=11834300.6 episodes=2 stream_hard_chunk_size=65536
+[real] 1/1 batches elapsed=12.3s per_batch=12.3335s eta=0.0s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=11835588.0 rss=10.33GiB gpu_alloc_peak=20.52GiB
+[shuffled] 1/1 batches elapsed=12.2s per_batch=12.2326s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11835042.0 rss=10.91GiB gpu_alloc_peak=20.52GiB
+[masked] 1/1 batches elapsed=12.1s per_batch=12.0601s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11835271.5 rss=10.92GiB gpu_alloc_peak=20.52GiB
+real      answer=1.000000 retrieval=1.000000 episodes=2 n_eff_mean=11835588.0 wall=12.3s
+shuffled  answer=0.000000 retrieval=0.000000 episodes=2 n_eff_mean=11835042.0 wall=12.2s
+masked    answer=0.000000 retrieval=None episodes=2 n_eff_mean=11835271.5 wall=12.1s
+saved: phef/results/streamed_resource_probe_s17000000_c65536_b2x1_seed7.json
