@@ -1,0 +1,54 @@
+{
+  "schema": "compact_eval_v2_streamed_hard",
+  "stream_hard_chunk_size": 65536,
+  "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+  "checkpoint_epoch": 4750,
+  "checkpoint_sel_acc": 0.9999186197916666,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 9755413.643591642,
+  "real": {
+    "answer_acc": 1.0,
+    "retrieval_acc": 1.0,
+    "episodes": 2,
+    "n_eff_mean": 9756961.0,
+    "n_eff_min": 9755009,
+    "n_eff_max": 9758913,
+    "wall_seconds": 10.146840031997272
+  },
+  "shuffled": {
+    "answer_acc": 0.0,
+    "retrieval_acc": 0.0,
+    "episodes": 2,
+    "n_eff_mean": 9755734.0,
+    "n_eff_min": 9755501,
+    "n_eff_max": 9755967,
+    "wall_seconds": 9.887083130000974
+  },
+  "masked": {
+    "answer_acc": 0.0,
+    "retrieval_acc": null,
+    "episodes": 2,
+    "n_eff_mean": 9755087.0,
+    "n_eff_min": 9753918,
+    "n_eff_max": 9756256,
+    "wall_seconds": 9.528705233999062
+  },
+  "config": {
+    "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 14000000,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1,
+    "seed": 7,
+    "progress_every": 1,
+    "stream_hard_chunk_size": 65536,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/streamed_resource_probe_s14000000_c65536_b2x1_seed7.json"
+  }
+}
