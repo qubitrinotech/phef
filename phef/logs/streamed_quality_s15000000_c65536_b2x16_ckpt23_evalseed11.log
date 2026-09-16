@@ -1,0 +1,54 @@
+schema=compact_eval_v2_streamed_hard device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed23_e6000_best.pt checkpoint_epoch=5000 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=1073741824 n_segments=15000000 n_eff_theory=10448827.8 episodes=32 stream_hard_chunk_size=65536
+[real] 1/16 batches elapsed=10.9s per_batch=10.8689s eta=163.0s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10447476.0 rss=9.21GiB gpu_alloc_peak=18.12GiB
+[real] 2/16 batches elapsed=21.7s per_batch=10.8329s eta=151.7s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448088.0 rss=12.71GiB gpu_alloc_peak=18.12GiB
+[real] 3/16 batches elapsed=32.3s per_batch=10.7791s eta=140.1s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448989.0 rss=12.74GiB gpu_alloc_peak=18.12GiB
+[real] 4/16 batches elapsed=42.9s per_batch=10.7214s eta=128.7s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448748.1 rss=12.74GiB gpu_alloc_peak=18.12GiB
+[real] 5/16 batches elapsed=53.6s per_batch=10.7168s eta=117.9s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448720.6 rss=12.74GiB gpu_alloc_peak=18.12GiB
+[real] 6/16 batches elapsed=64.3s per_batch=10.7177s eta=107.2s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448639.6 rss=12.74GiB gpu_alloc_peak=18.12GiB
+[real] 7/16 batches elapsed=75.1s per_batch=10.7330s eta=96.6s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448736.0 rss=12.74GiB gpu_alloc_peak=18.12GiB
+[real] 8/16 batches elapsed=85.9s per_batch=10.7385s eta=85.9s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448953.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 9/16 batches elapsed=96.6s per_batch=10.7325s eta=75.1s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448851.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 10/16 batches elapsed=107.3s per_batch=10.7327s eta=64.4s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=10448993.9 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 11/16 batches elapsed=118.0s per_batch=10.7294s eta=53.6s answer_acc=0.954545 retrieval_acc=0.954545 n_eff_mean=10449075.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 12/16 batches elapsed=128.7s per_batch=10.7236s eta=42.9s answer_acc=0.958333 retrieval_acc=0.958333 n_eff_mean=10448929.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 13/16 batches elapsed=139.3s per_batch=10.7189s eta=32.2s answer_acc=0.961538 retrieval_acc=0.961538 n_eff_mean=10448877.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 14/16 batches elapsed=150.0s per_batch=10.7156s eta=21.4s answer_acc=0.964286 retrieval_acc=0.964286 n_eff_mean=10449007.8 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 15/16 batches elapsed=160.7s per_batch=10.7143s eta=10.7s answer_acc=0.966667 retrieval_acc=0.966667 n_eff_mean=10449013.8 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[real] 16/16 batches elapsed=171.4s per_batch=10.7135s eta=0.0s answer_acc=0.968750 retrieval_acc=0.968750 n_eff_mean=10449121.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 1/16 batches elapsed=10.8s per_batch=10.7619s eta=161.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10447343.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 2/16 batches elapsed=21.5s per_batch=10.7475s eta=150.5s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10447497.2 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 3/16 batches elapsed=32.2s per_batch=10.7371s eta=139.6s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448613.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 4/16 batches elapsed=42.9s per_batch=10.7246s eta=128.7s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448941.9 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 5/16 batches elapsed=53.6s per_batch=10.7175s eta=117.9s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10449059.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 6/16 batches elapsed=64.3s per_batch=10.7173s eta=107.2s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10449188.7 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 7/16 batches elapsed=75.0s per_batch=10.7143s eta=96.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10449233.2 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 8/16 batches elapsed=85.7s per_batch=10.7163s eta=85.7s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448973.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 9/16 batches elapsed=96.4s per_batch=10.7129s eta=75.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448985.7 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 10/16 batches elapsed=106.9s per_batch=10.6860s eta=64.1s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448899.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 11/16 batches elapsed=117.2s per_batch=10.6551s eta=53.3s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448939.7 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[W916 00:49:38.052956518 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 12/16 batches elapsed=127.8s per_batch=10.6469s eta=42.6s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448977.1 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 13/16 batches elapsed=138.1s per_batch=10.6266s eta=31.9s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10449164.3 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 14/16 batches elapsed=148.5s per_batch=10.6085s eta=21.2s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10449042.1 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 15/16 batches elapsed=158.8s per_batch=10.5883s eta=10.6s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448913.7 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[shuffled] 16/16 batches elapsed=169.1s per_batch=10.5701s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=10448917.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 1/16 batches elapsed=10.3s per_batch=10.2765s eta=154.1s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=10448039.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 2/16 batches elapsed=20.5s per_batch=10.2532s eta=143.5s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=10448611.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 3/16 batches elapsed=30.7s per_batch=10.2365s eta=133.1s answer_acc=0.166667 retrieval_acc=nan n_eff_mean=10448714.3 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 4/16 batches elapsed=40.9s per_batch=10.2250s eta=122.7s answer_acc=0.125000 retrieval_acc=nan n_eff_mean=10448701.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 5/16 batches elapsed=51.1s per_batch=10.2299s eta=112.5s answer_acc=0.100000 retrieval_acc=nan n_eff_mean=10448208.2 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 6/16 batches elapsed=61.4s per_batch=10.2308s eta=102.3s answer_acc=0.083333 retrieval_acc=nan n_eff_mean=10448329.2 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 7/16 batches elapsed=71.7s per_batch=10.2361s eta=92.1s answer_acc=0.071429 retrieval_acc=nan n_eff_mean=10448610.9 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 8/16 batches elapsed=81.8s per_batch=10.2306s eta=81.8s answer_acc=0.062500 retrieval_acc=nan n_eff_mean=10448676.1 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 9/16 batches elapsed=92.1s per_batch=10.2326s eta=71.6s answer_acc=0.055556 retrieval_acc=nan n_eff_mean=10448646.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 10/16 batches elapsed=102.3s per_batch=10.2301s eta=61.4s answer_acc=0.050000 retrieval_acc=nan n_eff_mean=10448554.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 11/16 batches elapsed=112.5s per_batch=10.2269s eta=51.1s answer_acc=0.045455 retrieval_acc=nan n_eff_mean=10448859.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 12/16 batches elapsed=122.7s per_batch=10.2287s eta=40.9s answer_acc=0.041667 retrieval_acc=nan n_eff_mean=10448963.9 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 13/16 batches elapsed=132.9s per_batch=10.2263s eta=30.7s answer_acc=0.038462 retrieval_acc=nan n_eff_mean=10448921.3 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 14/16 batches elapsed=143.2s per_batch=10.2293s eta=20.5s answer_acc=0.035714 retrieval_acc=nan n_eff_mean=10448887.0 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 15/16 batches elapsed=153.6s per_batch=10.2398s eta=10.2s answer_acc=0.033333 retrieval_acc=nan n_eff_mean=10448792.5 rss=12.74GiB gpu_alloc_peak=18.13GiB
+[masked] 16/16 batches elapsed=163.8s per_batch=10.2372s eta=0.0s answer_acc=0.031250 retrieval_acc=nan n_eff_mean=10448803.4 rss=12.74GiB gpu_alloc_peak=18.13GiB
+real      answer=0.968750 retrieval=0.968750 episodes=32 n_eff_mean=10449121.5 wall=171.4s
+shuffled  answer=0.000000 retrieval=0.000000 episodes=32 n_eff_mean=10448917.5 wall=169.1s
+masked    answer=0.031250 retrieval=None episodes=32 n_eff_mean=10448803.4 wall=163.8s
+saved: phef/results/streamed_quality_s15000000_c65536_b2x16_ckpt23_evalseed11.json
