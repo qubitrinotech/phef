@@ -1,0 +1,75 @@
+schema=compact_eval_v2_streamed_hard device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt checkpoint_epoch=4750 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=1073741824 n_segments=17000000 n_eff_theory=11834300.6 episodes=32 stream_hard_chunk_size=65536
+[real] 1/16 batches elapsed=11.9s per_batch=11.9004s eta=178.5s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=11833264.0 rss=10.32GiB gpu_alloc_peak=20.52GiB
+[W916 01:47:09.105313811 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[real] 2/16 batches elapsed=23.8s per_batch=11.9052s eta=166.7s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=11833719.8 rss=14.24GiB gpu_alloc_peak=20.52GiB
+[W916 01:47:21.028697335 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 3/16 batches elapsed=35.7s per_batch=11.9110s eta=154.8s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=11834106.5 rss=14.24GiB gpu_alloc_peak=20.52GiB
+[W916 01:47:33.938933032 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 4/16 batches elapsed=47.6s per_batch=11.9110s eta=142.9s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=11833693.4 rss=14.24GiB gpu_alloc_peak=20.52GiB
+[real] 5/16 batches elapsed=59.4s per_batch=11.8798s eta=130.7s answer_acc=0.900000 retrieval_acc=0.900000 n_eff_mean=11833525.7 rss=14.24GiB gpu_alloc_peak=20.52GiB
+[W916 01:47:56.542189104 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 6/16 batches elapsed=71.4s per_batch=11.9022s eta=119.0s answer_acc=0.916667 retrieval_acc=0.916667 n_eff_mean=11833823.2 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:48:08.642797586 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 7/16 batches elapsed=83.3s per_batch=11.9068s eta=107.2s answer_acc=0.928571 retrieval_acc=0.928571 n_eff_mean=11833788.1 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:48:20.498974907 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[real] 8/16 batches elapsed=95.4s per_batch=11.9212s eta=95.4s answer_acc=0.937500 retrieval_acc=0.937500 n_eff_mean=11834065.8 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[real] 9/16 batches elapsed=107.2s per_batch=11.9068s eta=83.3s answer_acc=0.944444 retrieval_acc=0.944444 n_eff_mean=11834089.1 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[real] 10/16 batches elapsed=118.9s per_batch=11.8923s eta=71.4s answer_acc=0.950000 retrieval_acc=0.950000 n_eff_mean=11834232.1 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:48:56.141792660 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 11/16 batches elapsed=130.9s per_batch=11.8957s eta=59.5s answer_acc=0.954545 retrieval_acc=0.954545 n_eff_mean=11834231.5 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:49:08.058110940 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 12/16 batches elapsed=142.8s per_batch=11.8969s eta=47.6s answer_acc=0.958333 retrieval_acc=0.958333 n_eff_mean=11834336.4 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:49:20.970470186 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 13/16 batches elapsed=154.7s per_batch=11.8981s eta=35.7s answer_acc=0.961538 retrieval_acc=0.961538 n_eff_mean=11834305.3 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[real] 14/16 batches elapsed=166.4s per_batch=11.8873s eta=23.8s answer_acc=0.964286 retrieval_acc=0.964286 n_eff_mean=11834264.7 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:49:43.614148816 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 15/16 batches elapsed=178.3s per_batch=11.8881s eta=11.9s answer_acc=0.966667 retrieval_acc=0.966667 n_eff_mean=11834246.5 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:49:55.517931053 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[real] 16/16 batches elapsed=190.2s per_batch=11.8890s eta=0.0s answer_acc=0.937500 retrieval_acc=0.937500 n_eff_mean=11834207.2 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[shuffled] 1/16 batches elapsed=11.8s per_batch=11.7583s eta=176.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11832797.5 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:50:19.199195701 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 2/16 batches elapsed=23.7s per_batch=11.8376s eta=165.7s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833257.0 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:50:31.111711808 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 3/16 batches elapsed=35.6s per_batch=11.8627s eta=154.2s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833405.3 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:50:43.006551395 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 4/16 batches elapsed=47.5s per_batch=11.8706s eta=142.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833771.1 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[shuffled] 5/16 batches elapsed=59.3s per_batch=11.8519s eta=130.4s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833779.6 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:51:07.881093801 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 6/16 batches elapsed=71.4s per_batch=11.8931s eta=118.9s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833832.8 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:51:19.883528245 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 7/16 batches elapsed=83.4s per_batch=11.9086s eta=107.2s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11833971.3 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[shuffled] 8/16 batches elapsed=95.1s per_batch=11.8915s eta=95.1s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11834053.9 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:51:42.506829084 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 9/16 batches elapsed=107.1s per_batch=11.9053s eta=83.3s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11834395.9 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:51:54.623003248 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 10/16 batches elapsed=119.1s per_batch=11.9099s eta=71.5s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11834455.1 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[shuffled] 11/16 batches elapsed=130.9s per_batch=11.8968s eta=59.5s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11834198.9 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:52:18.285689342 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 12/16 batches elapsed=142.8s per_batch=11.8971s eta=47.6s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=11834233.5 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:52:30.222399225 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 18677760, total: 25252724736).
+[shuffled] 13/16 batches elapsed=154.7s per_batch=11.8998s eta=35.7s answer_acc=0.038462 retrieval_acc=0.000000 n_eff_mean=11834175.4 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:52:42.106134504 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 14/16 batches elapsed=166.6s per_batch=11.8988s eta=23.8s answer_acc=0.035714 retrieval_acc=0.000000 n_eff_mean=11834192.0 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[shuffled] 15/16 batches elapsed=178.4s per_batch=11.8902s eta=11.9s answer_acc=0.033333 retrieval_acc=0.000000 n_eff_mean=11834227.0 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[W916 01:53:05.742280062 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 16580608, total: 25252724736).
+[shuffled] 16/16 batches elapsed=190.2s per_batch=11.8890s eta=0.0s answer_acc=0.031250 retrieval_acc=0.000000 n_eff_mean=11834379.8 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[masked] 1/16 batches elapsed=11.6s per_batch=11.6195s eta=174.3s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11832033.0 rss=14.25GiB gpu_alloc_peak=20.53GiB
+[masked] 2/16 batches elapsed=23.3s per_batch=11.6389s eta=162.9s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11832487.2 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 3/16 batches elapsed=34.9s per_batch=11.6384s eta=151.3s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11833992.5 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 4/16 batches elapsed=46.6s per_batch=11.6430s eta=139.7s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11833893.5 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 5/16 batches elapsed=58.2s per_batch=11.6411s eta=128.1s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834280.6 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 6/16 batches elapsed=69.8s per_batch=11.6349s eta=116.3s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834335.5 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 7/16 batches elapsed=81.4s per_batch=11.6329s eta=104.7s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834373.6 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 8/16 batches elapsed=93.1s per_batch=11.6333s eta=93.1s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834282.3 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 9/16 batches elapsed=104.7s per_batch=11.6367s eta=81.5s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834360.7 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 10/16 batches elapsed=116.3s per_batch=11.6335s eta=69.8s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834327.3 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 11/16 batches elapsed=128.0s per_batch=11.6344s eta=58.2s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834357.5 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 12/16 batches elapsed=139.6s per_batch=11.6363s eta=46.5s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834329.3 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 13/16 batches elapsed=151.3s per_batch=11.6347s eta=34.9s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834425.3 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 14/16 batches elapsed=162.9s per_batch=11.6340s eta=23.3s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834474.8 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 15/16 batches elapsed=174.5s per_batch=11.6350s eta=11.6s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834262.5 rss=14.29GiB gpu_alloc_peak=20.53GiB
+[masked] 16/16 batches elapsed=186.2s per_batch=11.6357s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=11834324.8 rss=14.29GiB gpu_alloc_peak=20.53GiB
+real      answer=0.937500 retrieval=0.937500 episodes=32 n_eff_mean=11834207.2 wall=190.2s
+shuffled  answer=0.031250 retrieval=0.000000 episodes=32 n_eff_mean=11834379.8 wall=190.2s
+masked    answer=0.000000 retrieval=None episodes=32 n_eff_mean=11834324.8 wall=186.2s
+saved: phef/results/streamed_quality_s17000000_c65536_b2x16_ckpt7_evalseed11.json
