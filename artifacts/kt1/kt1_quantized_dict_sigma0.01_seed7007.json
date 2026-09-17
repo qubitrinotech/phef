@@ -1,0 +1,14 @@
+{
+  "schema": "kt1_baseline_v1",
+  "mechanism": "quantized_dict",
+  "sigma": 0.01,
+  "episodes": 64,
+  "retrieval_correct": 43,
+  "n_segments": 20000,
+  "n_values": 64,
+  "overwrite_p": 0.3,
+  "key_dim": 32,
+  "seed": 7007,
+  "delta": 1.0,
+  "memory_bytes": 2835400
+}
