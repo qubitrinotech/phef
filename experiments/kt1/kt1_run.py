@@ -313,47 +313,6 @@ def stage3(args) -> int:
 # --------------------------------------------------------------------------
 
 
-def check_depth_invariance(args) -> int:
-    """Проверяет, что кривая baseline по sigma не зависит от n_segments.
-
-    Обязательна к однократному исполнению: обосновывает прогон baseline на
-    редуцированной глубине. Без неё расхождение глубин -- методологическая дыра.
-    """
-    print("Проверка инвариантности кривой baseline по глубине\n")
-    grid = (0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0)
-    for n_seg in (5_000, 20_000, 80_000):
-        line = []
-        for sigma in SIGMAS:
-            hits = 0
-            for ep in range(args.episodes):
-                rng = np.random.default_rng([7, ep])
-                d = make_episode(n_seg, rng=rng)
-                sc = key_scale(d["keys"])
-                best, _ = max(
-                    (
-                        (
-                            dl,
-                            sum(
-                                int(
-                                    QuantizedDict(dl, sc).__class__ is QuantizedDict
-                                )
-                            ),
-                        )
-                        for dl in grid
-                    ),
-                    key=lambda t: t[1],
-                )
-                m = QuantizedDict(3.0, sc)
-                m.build(d["keys"], d["values"])
-                r = np.random.default_rng([7, ep, int(sigma * 1e6)])
-                q = perturb_keys(d["query_key"], sigma, sc, r)
-                hits += int(np.all(m.query(q) == d["answer"]))
-            line.append(hits / args.episodes)
-        print(f"  n_segments={n_seg:>7}: " + " ".join(f"{x:.3f}" for x in line))
-    print("\nЕсли строки близки -- baseline на редуцированной глубине обоснован.")
-    return 0
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description="Оркестратор KT-1")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -362,7 +321,6 @@ def main() -> int:
         ("stage1", stage1),
         ("stage2", stage2),
         ("stage3", stage3),
-        ("check-depth-invariance", check_depth_invariance),
     ):
         p = sub.add_parser(name)
         p.set_defaults(fn=fn)
