@@ -1,0 +1,17 @@
+schema=compact_eval_v1 device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt checkpoint_epoch=4750 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=1048576 n_segments=4096 n_eff_theory=2863.3 episodes=8 stream_hard_chunk_size=0
+[real] 1/4 batches elapsed=0.1s per_batch=0.1360s eta=0.4s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=2836.0 rss=0.97GiB gpu_alloc_peak=0.01GiB
+[real] 2/4 batches elapsed=0.1s per_batch=0.0699s eta=0.1s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=2843.0 rss=0.97GiB gpu_alloc_peak=0.01GiB
+[real] 3/4 batches elapsed=0.1s per_batch=0.0476s eta=0.0s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=2854.8 rss=0.97GiB gpu_alloc_peak=0.01GiB
+[real] 4/4 batches elapsed=0.1s per_batch=0.0364s eta=0.0s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=2861.9 rss=0.97GiB gpu_alloc_peak=0.01GiB
+[shuffled] 1/4 batches elapsed=0.0s per_batch=0.0051s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=2891.0 rss=0.98GiB gpu_alloc_peak=0.02GiB
+[shuffled] 2/4 batches elapsed=0.0s per_batch=0.0042s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=2897.8 rss=0.98GiB gpu_alloc_peak=0.02GiB
+[shuffled] 3/4 batches elapsed=0.0s per_batch=0.0038s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=2881.5 rss=0.98GiB gpu_alloc_peak=0.02GiB
+[shuffled] 4/4 batches elapsed=0.0s per_batch=0.0035s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=2870.2 rss=0.98GiB gpu_alloc_peak=0.02GiB
+[masked] 1/4 batches elapsed=0.0s per_batch=0.0042s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=2842.5 rss=0.99GiB gpu_alloc_peak=0.02GiB
+[masked] 2/4 batches elapsed=0.0s per_batch=0.0036s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=2878.8 rss=0.99GiB gpu_alloc_peak=0.02GiB
+[masked] 3/4 batches elapsed=0.0s per_batch=0.0033s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=2859.8 rss=0.99GiB gpu_alloc_peak=0.02GiB
+[masked] 4/4 batches elapsed=0.0s per_batch=0.0030s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=2854.9 rss=0.99GiB gpu_alloc_peak=0.02GiB
+real      answer=1.000000 retrieval=1.000000 episodes=8 n_eff_mean=2861.9 wall=0.1s
+shuffled  answer=0.000000 retrieval=0.000000 episodes=8 n_eff_mean=2870.2 wall=0.0s
+masked    answer=0.000000 retrieval=None episodes=8 n_eff_mean=2854.9 wall=0.0s
+saved: phef/results/smoke_compact_v1_dense_cuda_s4096_b2x4.json

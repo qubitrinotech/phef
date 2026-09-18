@@ -1,0 +1,8 @@
+schema=compact_eval_v2_streamed_hard device=cpu checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt checkpoint_epoch=4750 checkpoint_sel_acc=0.999919 key_dim=32 n_keys=128 n_segments=17 n_eff_theory=11.4 episodes=2 stream_hard_chunk_size=5
+[real] 1/1 batches elapsed=0.0s per_batch=0.0094s eta=0.0s answer_acc=1.000000 retrieval_acc=1.000000 n_eff_mean=12.5 rss=0.51GiB gpu_alloc_peak=0.00GiB
+[shuffled] 1/1 batches elapsed=0.0s per_batch=0.0008s eta=0.0s answer_acc=0.000000 retrieval_acc=0.000000 n_eff_mean=13.5 rss=0.51GiB gpu_alloc_peak=0.00GiB
+[masked] 1/1 batches elapsed=0.0s per_batch=0.0003s eta=0.0s answer_acc=0.000000 retrieval_acc=nan n_eff_mean=13.5 rss=0.51GiB gpu_alloc_peak=0.00GiB
+real      answer=1.000000 retrieval=1.000000 episodes=2 n_eff_mean=12.5 wall=0.0s
+shuffled  answer=0.000000 retrieval=0.000000 episodes=2 n_eff_mean=13.5 wall=0.0s
+masked    answer=0.000000 retrieval=None episodes=2 n_eff_mean=13.5 wall=0.0s
+saved: phef/results/smoke_compact_v2_streamed_cpu_s17_b2x1.json
