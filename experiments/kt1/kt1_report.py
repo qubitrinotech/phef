@@ -121,8 +121,22 @@ sh_out = sum(a['sh_out'] for a in agg.values())
 L.append(f"3. `shuffled answer` вышел за пределы chance-интервала в {sh_out} из "
          f"{tot} ячеек. При множественном сравнении без поправки это не является "
          f"находкой, но подлежит фиксации.")
-L.append("4. `q_cos` устойчиво выше `raw_cos`: обученный `query_encoder` подавляет "
-         "возмущение, сокращая угловое отклонение примерно вдвое.")
+ratios = []
+for sg in sorted(agg):
+    a = agg[sg]
+    if not a['qcos'] or not a['rawcos'] or sg == 0.0:
+        continue
+    qc = sum(a['qcos'])/len(a['qcos']); rc = sum(a['rawcos'])/len(a['rawcos'])
+    if rc < 1.0:
+        ratios.append((sg, (1.0-qc)/(1.0-rc)))
+if ratios:
+    detail = ", ".join(f"sigma={sg}: {r:.2f}" for sg, r in ratios)
+    L.append(f"4. `q_cos` устойчиво выше `raw_cos`: обученный `query_encoder` "
+             f"подавляет возмущение. Отношение углового отклонения после энкодера "
+             f"к отклонению на сырых ключах, (1-q_cos)/(1-raw_cos): {detail}. "
+             f"Величина подавления зависит от sigma и не является константой.")
+else:
+    L.append("4. Данных для оценки подавления шума энкодером недостаточно.")
 L.append("5. Узкое место по времени — однопоточная numpy-генерация мира "
          "(`_sample_slots`), не GPU-скоринг. Wall time не характеризует стоимость "
          "streamed retrieval.\n")
