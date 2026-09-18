@@ -1,6 +1,8 @@
 """Пороги baseline v2 с консервативной монотонной огибающей.
 
-ЗАЧЕМ ОГИБАЮЩАЯ. Baseline считается на 64 эпизодах против 256 у PHEF,
+ЗАЧЕМ ОГИБАЮЩАЯ. Baseline v3 считается на 256 эпизодах (паритет с PHEF). Немонотонность
+сохраняется при sigma=0.42 (5/256) против 0.50 (8/256), но интервалы
+перекрываются -- различие не значимо,
 поэтому при малых счётчиках оценка нестабильна. Измерено: sigma=0.42 дала
 1/64, sigma=0.50 дала 5/64 -- baseline "вырос" при большем шуме, что
 физически невозможно. Интервалы Уилсона перекрываются, различие не значимо.
@@ -23,7 +25,7 @@ def wilson(x, n, z=1.959963984540054):
     return max(0.0, c-h), min(1.0, c+h)
 
 
-def load_baseline(pattern='artifacts/kt1/baseline_v2/kt1_quantized_dict_sigma*.json'):
+def load_baseline(pattern='artifacts/kt1/baseline_v3/kt1_quantized_dict_sigma*.json'):
     out = {}
     for f in glob.glob(pattern):
         d = json.load(open(f))

@@ -2,9 +2,12 @@
 import glob, json, math, os, re
 from datetime import datetime
 
-# baseline v2: (hits, n, delta) -- честный подбор delta по validation той же длины
-THRESH = {0.0:(64,64,0.01), 0.3:(9,64,3.0), 0.5:(5,64,3.0),
-          0.7:(3,64,10.0), 1.0:(3,64,10.0), 1.5:(3,64,10.0)}
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from kt1_thresholds import thresholds, load_baseline
+
+THRESH = thresholds(envelope=True)   # консервативная монотонная огибающая
+BASELINE = load_baseline()
 CONTROL_CI = (0.9334, 0.9920)
 CHANCE = 1.0/64
 
@@ -70,19 +73,19 @@ L.append("|---:|---:|---:|---|---:|---:|---:|:--:|")
 for sg in sorted(agg):
     a = agg[sg]
     lo, hi = wilson(a['hit'], a['n'])
-    t = THRESH.get(round(sg, 2))
+    thr = THRESH.get(round(sg, 2))
     qc = sum(a['qcos'])/len(a['qcos']) if a['qcos'] else 1.0
     rc = sum(a['rawcos'])/len(a['rawcos']) if a['rawcos'] else 1.0
-    if t is None:
+    if thr is None:
         thr_s, dom = "н/д", "—"
     else:
-        thr = wilson(t[0], t[1])[1]
         thr_s = f"{thr:.4f}"
         dom = "**ДА**" if lo > thr else "нет"
     L.append(f"| {sg} | {a['cells']}/4 | {a['hit']}/{a['n']} = {a['hit']/a['n']:.4f} | "
              f"[{lo:.4f}, {hi:.4f}] | {qc:.4f} | {rc:.4f} | {thr_s} | {dom} |")
 
-L.append("\nПорог — верхняя граница 95% интервала Уилсона для квантованного словаря "
+L.append("\nПорог — КОНСЕРВАТИВНАЯ монотонная огибающая верхних границ 95% интервала "
+         "Уилсона для квантованного словаря "
          "(baseline v2, delta подобрана по validation той же длины, 32 запроса). "
          "Доминирование = нижняя граница PHEF строго выше порога.\n")
 

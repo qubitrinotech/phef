@@ -1,0 +1,10 @@
+{
+  "schema": "kt1_baseline_v3",
+  "mechanism": "exact_hash_map",
+  "sigma": 0.7,
+  "episodes": 256,
+  "retrieval_correct": 0,
+  "n_segments": 20000,
+  "delta": null,
+  "delta_selection": "same_length_validation_32_queries"
+}
