@@ -1,0 +1,12 @@
+schema=kt2a_exact_nn_v1 device=cpu n_keys=1073741824 n_segments=14000000 overwrite_p=0.3 n_values=64 key_dim=32 episodes_per_sigma=256 batch_size=2 seed=7 noise_seed=11 tie_eps=1e-12 sigmas=0.5
+[sigma=0.5] 32/256 episodes elapsed=170.5s slot_acc=1.000000 pos_acc=1.000000 n_eff_mean=9755875.6 rss=11.57GiB
+[sigma=0.5] 64/256 episodes elapsed=340.3s slot_acc=1.000000 pos_acc=1.000000 n_eff_mean=9755728.1 rss=11.57GiB
+[sigma=0.5] 96/256 episodes elapsed=514.3s slot_acc=0.989583 pos_acc=0.989583 n_eff_mean=9755675.3 rss=11.57GiB
+[sigma=0.5] 128/256 episodes elapsed=684.6s slot_acc=0.992188 pos_acc=0.992188 n_eff_mean=9755659.9 rss=11.57GiB
+[sigma=0.5] 160/256 episodes elapsed=853.4s slot_acc=0.993750 pos_acc=0.993750 n_eff_mean=9755550.6 rss=11.57GiB
+[sigma=0.5] 192/256 episodes elapsed=1025.1s slot_acc=0.994792 pos_acc=0.994792 n_eff_mean=9755551.9 rss=11.57GiB
+[sigma=0.5] 224/256 episodes elapsed=1199.7s slot_acc=0.995536 pos_acc=0.995536 n_eff_mean=9755557.5 rss=11.57GiB
+[sigma=0.5] 256/256 episodes elapsed=1374.9s slot_acc=0.996094 pos_acc=0.996094 n_eff_mean=9755516.1 rss=11.57GiB
+sigma=0.5 slot=255/256=0.996094 wilson=[0.978209,0.999310] pos=255/256=0.996094 wilson=[0.978209,0.999310] ties=0 n_eff_mean=9755516.1 build_per_ep=115.067ms query_per_ep=262.529ms cand_mib=1191.44 wall=1374.9s
+VERDICT: ANN_PARITY
+saved: artifacts/kt2/kt2a/kt2a_sigma050_s14M.json

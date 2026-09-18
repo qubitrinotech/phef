@@ -1,0 +1,210 @@
+{
+  "schema": "kt2a_exact_nn_v1",
+  "device": "cpu",
+  "config": {
+    "n_keys": 262144,
+    "n_values": 64,
+    "n_segments": 4096,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "episodes_per_sigma": 16,
+    "batch_size": 2,
+    "seed": 7,
+    "noise_seed": 11,
+    "sigmas": "0.50,1.00,1.50",
+    "tie_eps": 1e-12,
+    "progress_every": 16,
+    "phef_reference": "",
+    "force": true,
+    "out": "artifacts/kt2/kt2a/kt2a_depthprobe_s4096.json"
+  },
+  "decision_sigmas": [
+    "0.30",
+    "0.35",
+    "0.42",
+    "0.50"
+  ],
+  "phef_reference_source": "recorded_KT1_inline",
+  "phef_reference": {
+    "0.00": [
+      249,
+      256
+    ],
+    "0.30": [
+      199,
+      256
+    ],
+    "0.35": [
+      170,
+      256
+    ],
+    "0.42": [
+      119,
+      256
+    ],
+    "0.50": [
+      76,
+      256
+    ],
+    "0.70": [
+      14,
+      256
+    ],
+    "1.00": [
+      3,
+      256
+    ],
+    "1.50": [
+      1,
+      256
+    ]
+  },
+  "points": {
+    "0.50": {
+      "sigma": 0.5,
+      "episodes": 16,
+      "slot_hit": {
+        "successes": 16,
+        "n": 16,
+        "point": 1.0,
+        "wilson95": [
+          0.8063923194655636,
+          1.0000000000000002
+        ]
+      },
+      "position_hit": {
+        "successes": 16,
+        "n": 16,
+        "point": 1.0,
+        "wilson95": [
+          0.8063923194655636,
+          1.0000000000000002
+        ]
+      },
+      "tie_events": 0,
+      "tie_rate": 0.0,
+      "n_eff_mean": 2863.3125,
+      "n_eff_min": 2808,
+      "n_eff_max": 2903,
+      "build_seconds_total": 0.0005490908515639603,
+      "build_seconds_per_episode": 3.431817822274752e-05,
+      "query_seconds_total": 0.0010684459703043103,
+      "query_seconds_per_episode": 6.67778731440194e-05,
+      "candidate_bytes_max": 371584,
+      "candidate_mib_max": 0.3543701171875,
+      "wall_seconds": 0.027229400002397597,
+      "key_scale_mean": 0.17676660977303982,
+      "query_key_cosine_raw": 0.9040723517537117
+    },
+    "1.00": {
+      "sigma": 1.0,
+      "episodes": 16,
+      "slot_hit": {
+        "successes": 15,
+        "n": 16,
+        "point": 0.9375,
+        "wilson95": [
+          0.7167126242970107,
+          0.9888806552353575
+        ]
+      },
+      "position_hit": {
+        "successes": 15,
+        "n": 16,
+        "point": 0.9375,
+        "wilson95": [
+          0.7167126242970107,
+          0.9888806552353575
+        ]
+      },
+      "tie_events": 0,
+      "tie_rate": 0.0,
+      "n_eff_mean": 2863.3125,
+      "n_eff_min": 2808,
+      "n_eff_max": 2903,
+      "build_seconds_total": 0.00042896386003121734,
+      "build_seconds_per_episode": 2.6810241251951084e-05,
+      "query_seconds_total": 0.0011530451010912657,
+      "query_seconds_per_episode": 7.20653188182041e-05,
+      "candidate_bytes_max": 371584,
+      "candidate_mib_max": 0.3543701171875,
+      "wall_seconds": 0.028737402986735106,
+      "key_scale_mean": 0.17676660977303982,
+      "query_key_cosine_raw": 0.7371444255113602
+    },
+    "1.50": {
+      "sigma": 1.5,
+      "episodes": 16,
+      "slot_hit": {
+        "successes": 10,
+        "n": 16,
+        "point": 0.625,
+        "wilson95": [
+          0.38641040545502725,
+          0.8151876744113636
+        ]
+      },
+      "position_hit": {
+        "successes": 10,
+        "n": 16,
+        "point": 0.625,
+        "wilson95": [
+          0.38641040545502725,
+          0.8151876744113636
+        ]
+      },
+      "tie_events": 0,
+      "tie_rate": 0.0,
+      "n_eff_mean": 2863.3125,
+      "n_eff_min": 2808,
+      "n_eff_max": 2903,
+      "build_seconds_total": 0.00042327900882810354,
+      "build_seconds_per_episode": 2.645493805175647e-05,
+      "query_seconds_total": 0.0011388839920982718,
+      "query_seconds_per_episode": 7.118024950614199e-05,
+      "candidate_bytes_max": 371584,
+      "candidate_mib_max": 0.3543701171875,
+      "wall_seconds": 0.02858883695444092,
+      "key_scale_mean": 0.17676660977303982,
+      "query_key_cosine_raw": 0.5999016016721725
+    }
+  },
+  "comparisons": {
+    "0.30": {
+      "status": "MISSING"
+    },
+    "0.35": {
+      "status": "MISSING"
+    },
+    "0.42": {
+      "status": "MISSING"
+    },
+    "0.50": {
+      "baseline_wilson95": [
+        0.8063923194655636,
+        1.0000000000000002
+      ],
+      "phef_reference_successes": 76,
+      "phef_reference_n": 256,
+      "phef_wilson95": [
+        0.24424521529493903,
+        0.3555107263780712
+      ],
+      "baseline_parity_or_better": true,
+      "phef_strictly_higher": false
+    }
+  },
+  "verdict": "ANN_PARITY",
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "numpy": "2.5.3",
+    "torch": "2.14.0+cu130"
+  },
+  "rss_gib_peak": 0.5042343139648438,
+  "caveats": [
+    "Exact NN is an upper bound on any approximate index in this space; no HNSW or IVF-PQ measurement is performed here.",
+    "PHEF figures are the recorded KT-1 values at 14M depth and are not recomputed; this run is at the n_segments given in config, so the comparison addresses the search rule, not matched resources.",
+    "Candidate memory reported is the per-episode candidate array only, not a persistent index footprint."
+  ]
+}
