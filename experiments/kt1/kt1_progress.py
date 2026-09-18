@@ -1,7 +1,10 @@
 """Прогресс KT-1: читает готовые JSON, считает интервалы и проверяет пороги."""
 import glob, json, math, os, re, sys
 
-THRESH = {0.0:1.0000, 0.3:0.2462, 0.35:0.2090, 0.42:0.0833, 0.5:0.1702, 0.7:0.1290, 1.0:0.1290, 1.5:0.1290}
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from kt1_thresholds import thresholds
+THRESH = thresholds(envelope=True)   # baseline_v3 + консервативная огибающая
 
 def wilson(x,n,z=1.959963984540054):
     if n<=0: return (0.,1.)
@@ -26,4 +29,4 @@ for sg in sorted(agg):
     dom='—' if thr is None else ('ДА' if lo>thr else 'нет')
     print(f"{sg:>6} {s['cells']:>4}/4 {s['c']:>4}/{s['n']:<5} {s['c']/s['n']:>8.4f} "
           f"[{lo:.4f},{hi:.4f}] {qc:>8.4f} {thr if thr else 0:>8.4f} {dom:>5}")
-print(f"\nвсего ячеек: {sum(a['cells'] for a in agg.values())}/24  (6 sigma x 4)")
+print(f"\nвсего ячеек: {sum(a['cells'] for a in agg.values())}/32  (8 sigma x 4)")
