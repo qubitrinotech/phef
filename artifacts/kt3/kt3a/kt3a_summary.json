@@ -1,0 +1,270 @@
+{
+  "schema": "kt3a_hard_soft_bridge_stats_v1",
+  "expected_cells": [
+    [
+      7,
+      7
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      23,
+      7
+    ],
+    [
+      23,
+      11
+    ]
+  ],
+  "criteria": {
+    "tie_rate_max": 0.01,
+    "primary_wilson_lower_bound_min": 0.95,
+    "abs_hard_soft_gap_max": 0.05
+  },
+  "aggregate": {
+    "hard_answer": {
+      "successes": 4094,
+      "n": 4096,
+      "point": 0.99951171875,
+      "wilson95": [
+        0.9982212896544476,
+        0.9998660854551866
+      ]
+    },
+    "soft_answer": {
+      "successes": 3857,
+      "n": 4096,
+      "point": 0.941650390625,
+      "wilson95": [
+        0.9340495438956447,
+        0.948423604478416
+      ]
+    },
+    "hard_retrieval": {
+      "successes": 4094,
+      "n": 4096,
+      "point": 0.99951171875,
+      "wilson95": [
+        0.9982212896544476,
+        0.9998660854551866
+      ]
+    },
+    "retrieval_value": {
+      "successes": 4094,
+      "n": 4096,
+      "point": 0.99951171875,
+      "wilson95": [
+        0.9982212896544476,
+        0.9998660854551866
+      ]
+    },
+    "hard_soft_gap": 0.057861328125,
+    "tie_rate": 0.0,
+    "entropy_norm": 0.07474957151862327,
+    "episodes": 4096
+  },
+  "cells": [
+    {
+      "train_seed": 7,
+      "eval_seed": 7,
+      "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+      "checkpoint_epoch": 4750,
+      "hard_answer": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "soft_answer": {
+        "successes": 970,
+        "n": 1024,
+        "point": 0.947265625,
+        "wilson95": [
+          0.93182845585867,
+          0.9593595694336581
+        ]
+      },
+      "retrieval": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "retrieval_value": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "hard_soft_gap": 0.052734375,
+      "tie_rate": 0.0,
+      "entropy_norm": 0.07799697964219376,
+      "wall_seconds": 86.60160385799827,
+      "gpu_alloc_peak_gib": 4.535739421844482,
+      "rss_peak_gib": 3.13336181640625
+    },
+    {
+      "train_seed": 7,
+      "eval_seed": 11,
+      "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+      "checkpoint_epoch": 4750,
+      "hard_answer": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "soft_answer": {
+        "successes": 964,
+        "n": 1024,
+        "point": 0.94140625,
+        "wilson95": [
+          0.9253038995713028,
+          0.9542091734246192
+        ]
+      },
+      "retrieval": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "retrieval_value": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "hard_soft_gap": 0.0576171875,
+      "tie_rate": 0.0,
+      "entropy_norm": 0.07678683858830482,
+      "wall_seconds": 85.00292393396376,
+      "gpu_alloc_peak_gib": 4.535739421844482,
+      "rss_peak_gib": 3.1335411071777344
+    },
+    {
+      "train_seed": 23,
+      "eval_seed": 7,
+      "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed23_e6000_best.pt",
+      "checkpoint_epoch": 5000,
+      "hard_answer": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "soft_answer": {
+        "successes": 964,
+        "n": 1024,
+        "point": 0.94140625,
+        "wilson95": [
+          0.9253038995713028,
+          0.9542091734246192
+        ]
+      },
+      "retrieval": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "retrieval_value": {
+        "successes": 1024,
+        "n": 1024,
+        "point": 1.0,
+        "wilson95": [
+          0.9962625959599825,
+          1.0
+        ]
+      },
+      "hard_soft_gap": 0.05859375,
+      "tie_rate": 0.0,
+      "entropy_norm": 0.07348864676896483,
+      "wall_seconds": 85.85536453098757,
+      "gpu_alloc_peak_gib": 4.535739421844482,
+      "rss_peak_gib": 3.133281707763672
+    },
+    {
+      "train_seed": 23,
+      "eval_seed": 11,
+      "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed23_e6000_best.pt",
+      "checkpoint_epoch": 5000,
+      "hard_answer": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "soft_answer": {
+        "successes": 959,
+        "n": 1024,
+        "point": 0.9365234375,
+        "wilson95": [
+          0.9198973002358306,
+          0.9498866458464197
+        ]
+      },
+      "retrieval": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "retrieval_value": {
+        "successes": 1023,
+        "n": 1024,
+        "point": 0.9990234375,
+        "wilson95": [
+          0.9944891786428686,
+          0.9998275919343796
+        ]
+      },
+      "hard_soft_gap": 0.0625,
+      "tie_rate": 0.0,
+      "entropy_norm": 0.07072582107502967,
+      "wall_seconds": 85.79918099299539,
+      "gpu_alloc_peak_gib": 4.535739421844482,
+      "rss_peak_gib": 3.1334571838378906
+    }
+  ],
+  "pass_conditions": {
+    "all_cells_valid": true,
+    "all_cell_tie_rates_le_0_01": true,
+    "hard_retrieval_wilson_lower_ge_0_95": true,
+    "hard_answer_wilson_lower_ge_0_95": true,
+    "abs_hard_soft_gap_le_0_05": false
+  },
+  "outcome": "BRIDGE_FAIL"
+}
