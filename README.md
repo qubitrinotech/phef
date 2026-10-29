@@ -1,155 +1,104 @@
-# PHEF — predictive hysteresis memory
+# PHEF — predictive hysteresis memory: отрицательный результат
 
-Экспериментальная модель памяти с гистерезисом: замеры ёмкости (`n_segments`),
-динамика выхода с плато (`escape_epoch`) и curriculum-маршрут по удвоению
-числа сегментов.
+**Обучаемая ассоциативная память против тривиального бейзлайна: полный цикл фальсификации, от претензии до механизма поражения.**
 
-Репозиторий: `git@gitlab.qubitrinotech.ru:root/agi.git`
+Этот репозиторий документирует честный отрицательный результат. Экспериментальный
+механизм памяти PHEF был построен, обучен, протестирован на глубинах до 17 млн
+сегментов — и затем фальсифицирован предрегистрированным тестом: тривиальный
+exact nearest neighbor по сырым ключам решает ту же задачу радикально лучше,
+без обучения, на CPU, за минуты. Причина поражения локализована измерением.
+Все критерии фиксировались до запусков и не менялись после получения чисел.
 
----
+## TL;DR
+
+| Этап | Что показано | Исход |
+|---|---|---|
+| KT-1 | PHEF превосходит quantized dictionary v3 при зашумлённом запросе (σ ≤ 0.50, глубина 14M) | `SUCCESS_WIDE` |
+| KT-3A | Shuffled retrieval = 0/128 на всех глубинах; механизм извлекает информацию, а не угадывает | селективность подтверждена |
+| KT-2A | Exact NN по сырым ключам: **255/256 (0.996)** против PHEF **76/256 (0.297)** при σ=0.50, Wilson-интервалы не пересекаются | **`BASELINE_DOMINATES`** |
+| KT-7A | Причина: обученный энкодер сохраняет средний косинус, но режет дискриминационный хвост; raw NN > enc NN > полная модель | **`C2_CLOSED_NEGATIVE`** |
+
+## Механизм
+
+PHEF — key-value память с обучаемыми `query_encoder`/`key_encoder`,
+score = `score_scale · semantic + recency_scale · recency`, hard/soft
+считывание через value embedding. Синтетический мир `BranchingWorld`:
+ключи — случайные точки на единичной сфере в ℝ³², ключи сэмплируются
+заново каждый батч (lookup-таблица структурно невозможна), запрос —
+зашумлённая копия ключа («imprecise query», память не портится).
+
+## Трёхслойная картина поражения (KT-7A, глубина 131k, 128 эпизодов на точку)
+
+| σ | raw_cos | state_cos | raw NN | enc NN | PHEF |
+|---|---|---|---|---|---|
+| 0.30 | 0.959 | 0.978 | **1.000** | 0.961 | 0.672 |
+| 0.50 | 0.898 | 0.946 | **1.000** | 0.828 | 0.477 |
+| 1.00 | 0.706 | 0.795 | 0.695 | 0.180 | 0.133 |
+
+- `state_cos > raw_cos` на всех σ: энкодер **не усиливает** шум — гипотеза
+  «энкодер портит сигнал» опровергнута.
+- Но `enc_nn < raw_nn` везде: обученное пространство выравнивает сходства
+  и теряет запас отрыва истинного ключа от конкурентов.
+- Полная модель хуже даже своего энкодера: recency-член и голова
+  классификатора добавляют собственные потери.
+
+Следствие: в постановке с изотропным гауссовым шумом поточечный
+детерминированный энкодер не может превзойти сырой косинус
+(достаточная статистика); условие C2 (дифференцируемый retrieval как
+потенциальная ниша) для этого класса задач закрыто эмпирически.
+Подробности: [`docs/kt7/KT7A_c2_diagnostic_report.md`](docs/kt7/KT7A_c2_diagnostic_report.md).
+
+## Что НЕ опровергнуто
+
+- **Инженерная база.** Streamed hard retrieval: полные matched-control
+  оценки на 14M–17M сегментов на одной RTX 4090 (24 GiB), CPU-equivalence
+  dense/streamed включая tie через границы чанков, CUDA parity.
+  Воспроизводимость `n_eff` подтверждена независимо.
+- **Селективность.** Shuffled = 0/128 на всех глубинах: механизм читает
+  именно память.
+- **KT-1 арифметически верен** — неверен был вывод о практической нише.
 
 ## Структура
 
 ```text
-pyproject.toml                  пакет phef (setuptools, packages.find where=["phef"])
-README.md                       этот файл
-docs/                           документы, отчёты, хендоффы
-  HOLOGRAPHIC_MEMORY_ABLATION.md  отчёт по предыдущей модели (отрицательный результат)
-  PHEF формула, ... .md/.pdf      патентный поиск, план экспериментов, коммерциализация
-  handoffs/NN_PHEF_HANDOFF.md     хендоффы сессий, 1..16
-
-phef/phef/                      пакет модели
-  model.py                      class PHEF (nn.Module)
-  world.py                      BranchingWorld (numpy)
-  world_gpu.py                  BranchingWorldGPU (побитовой совместимости с numpy нет)
-  memory.py
-
-phef/experiments/               скрипты
-  analyze_memory.py             основной train/analyze
-  probe_gap.py probe_recency.py probe_twostage.py profile_step.py
-  collect_capacity_results.py collect_results.py fit_escape.py plot_curve.py
-  parity_check.py train_recall.py
-
-phef/results/                   JSON-результаты и веса .pt (версионируются)
-phef/logs/                      логи прогонов (версионируются)
-phef/output/                    сводные CSV и графики
+phef/phef/            модель (model.py), мир (world.py, world_gpu.py), память
+phef/experiments/     analyze_memory.py, eval_recall_compact.py, пробники
+experiments/kt2/      KT-2A: exact-NN baseline, код + отчёт
+experiments/kt7/      KT-7A: диагностика энкодера (kt7a_c2_diagnostic.py)
+artifacts/            JSON-результаты и логи всех ключевых прогонов
+docs/                 roadmap, отчёты об абляциях, хендоффы сессий
+docs/README-operations.md  операционный README: правила запуска, окружение, лестница
 ```
 
-`.gitignore` версионирует `phef/results/**` и `phef/logs/**` принудительно,
-включая `.pt`. Исключены только `.ckpt` и `.safetensors`.
-
----
-
-## Правила запуска
-
-Единственный допустимый интерпретатор:
-
-```text
-/home/linux/qubitrino-projects/agi/venv/bin/python
-```
-
-Перед запуском обязательно:
+## Воспроизведение
 
 ```bash
-cd ~/qubitrino-projects/agi/phef
-export PYTHONPATH=.
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python3.12 -m venv .venv && .venv/bin/pip install -e .
+# KT-7A (минуты на GPU):
+.venv/bin/python experiments/kt7/kt7a_c2_diagnostic.py --repo . \
+  --checkpoint phef/results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt \
+  --n-keys 1073741824 --n-segments 131072 --n-values 64 \
+  --sigma-list 0.30,0.50,1.00 \
+  --eval-batch-size 2 --eval-batches 64 \
+  --out artifacts/kt7/repro.json
 ```
 
-Запуск только через `nohup ... > файл.log 2>&1 &`. `tail` в пайпе с обучением
-запрещён — читать уже записанный лог через `grep`/`sed`.
+Окружение замеров: RTX 4090 24 GiB, torch 2.13–2.14+cu130, numpy 2.5.
 
----
+## Методологическая позиция
 
-## Окружение
+Критерии провала фиксировались до запусков и не пересматривались после
+получения чисел. Известное расхождение автоматического поля `verdict`
+в артефактах KT-2A с зарегистрированным исходом задокументировано,
+а не скрыто (см. `experiments/kt2/KT2A_exact_nn_baseline_report.md`, §5).
+Решающий falsification-тест стоил один вечер и ноль GPU-часов —
+и сэкономил потенциальные месяцы работы в ложном направлении.
 
-Замеры на машине `linux-desktop2`:
+Отрицательный результат — тоже результат.
 
-| Компонент | Версия |
-|---|---|
-| GPU | NVIDIA GeForce RTX 4090, 24564 MiB |
-| Драйвер | 595.84 |
-| Python | 3.12.3 |
-| torch | 2.13.0+cu130 |
-| numpy | 2.5.1 |
-| CUDA-стек | nvidia-*-cu13 (cublas 13.1.1.3, cudnn 9.20.0.48, nccl 2.29.7) |
+## Статус
 
-### Восстановление после переустановки системы
-
-1. Установить драйвер NVIDIA.
-2. `git clone git@gitlab.qubitrinotech.ru:root/agi.git`
-3. `cd agi && python3.12 -m venv venv`
-4. `venv/bin/pip install torch==2.13.0 numpy==2.5.1`
-5. `venv/bin/pip install -e .`
-6. Проверить: `venv/bin/python -c "import torch; print(torch.__version__, torch.cuda.is_available())"`
-
-**Неизвестно**, ставился ли torch с `--index-url https://download.pytorch.org/whl/cu130`
-или из дефолтного PyPI. `direct_url.json` в `torch-2.13.0.dist-info` отсутствует,
-`INSTALLER` = `pip`, `pip.conf` нет — источник индекса не сохранён. Зависимости
-`cu13` жёстко прописаны в самом wheel (`Requires-Dist: nvidia-cudnn-cu13==9.20.0.48`
-и др.), поэтому установка по имени должна подтянуть их автоматически; если
-дефолтный индекс не отдаст сборку `+cu130`, использовать индекс PyTorch.
-
-Веса и результаты в git, поэтому переобучение лестницы после клона не требуется.
-
----
-
-## Параметры analyze_memory.py
-
-```text
---n-keys --n-values --n-segments --overwrite-p --key-dim --dim
---epochs --batch-size --eval-batch-size --eval-batches --lr
---freeze-recency --recency-value --use-best
---acc-every --acc-n --ckpt-every --accum-steps
---select-metric {soft,hard} --escape-factor --lr-decay
---seed --out --init-weights --world {numpy,gpu}
-```
-
-Ключевые:
-
-- `--accum-steps` — gradient accumulation, эффективный batch = `batch_size * accum_steps`, `1` выключено.
-- `--ckpt-every` — checkpoint каждые N замеров `acc-every`, `0` выключено. При `acc-every=250` и `ckpt-every=10` checkpoint пишется каждые 2500 эпох; при `ckpt-every=1` — каждые 250 эпох, то есть на каждом замере. Для прогонов короче `acc-every * ckpt-every` эпох срез не запишется ни разу.
-- `--select-metric soft` — ридаут пробника для отбора чекпойнта, сопоставим с серией capacity.
-- `--escape-factor` — порог выхода с плато в кратности chance (`2.0` => `2/n_values`).
-
-Промежуточные checkpoint пишут `*_last.pt`, `*_best.pt`, `*_history.json`
-атомарно. AdamW и RNG не сохраняются — побитового resume нет.
-
----
-
-## Статус лестницы
-
-| Шаг | Конфигурация | escape_epoch | answer_acc | recency_scale | best_epoch |
-|---|---|---:|---:|---:|---:|
-| 16384 | batch 256 | — | — | — | — |
-| 32768 эталон | init 16384, batch 256 | 250 | 1.000000 | 99.149139 | 34250 |
-| 32768 jump | init 8192 напрямую | 250 | 1.000000 | 70.483154 | 36000 |
-| 32768 accum-контроль | 128 × 2, eff. 256 | 250 | 1.000000 | 102.347481 | 38000 |
-| 131072 probe | 64 × 4, 250 эпох | 250 | 1.000000 | 99.390300 | 250 |
-| 131072 траектория | 64 × 4, 2500 эпох, init 32768 | 250 | — | — | в работе |
-
-Эталонные стартовые веса для 131072:
-`results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt`
-(6 корневых ключей, 16 тензоров, `escape_epoch=250`, `best_epoch=34250`,
-`best_acc=0.9912109375`).
-
-Jump 8192 → 32768 даёт ту же top-1 точность при другой геометрии
-(`recency_scale` 70.48 против 99.15, `hard_soft_gap` 0.0201 против 0.0109) —
-срезать лестницу нельзя.
-
-Probe 131072 занимал 14639 MiB из 24564 MiB при utilization 39–40%.
-Память и скорость полного прогона не экстраполируются с probe — только замер.
-
-Замерено 24 августа 2026: 131072 при 64 × 4 идёт ≈ 14.9 с/эпоху
-(250 эпох за 3717 с). Отсюда 40000 эпох ≈ 6.9 суток. Фаза `analyze`
-у probe доходила до 24018 MiB из 24564 MiB и печатала warning
-аллокатора `expandable_segments: memory mapping failed with OOM`.
-
----
-
-## Правила работы с результатами
-
-- Финальные метрики читать только из корневых полей итогового JSON. При `--use-best` корневые поля и финальный `.pt` описывают выбранные best-веса, а `history[-1]` — последнюю обученную точку; они могут не совпадать.
-- Перед использованием каждого `.pt` выполнять `torch.load` и печатать фактические ключи. Перед использованием каждого JSON — `json.load` и фактические ключи.
-- Память и скорость — только замер конкретного прогона, не перенос между конфигурациями.
-- Расхождения не объяснять рассуждением: помечать как неизвестное и предлагать проверку.
+Проект приостановлен 19.09.2026, закрыт окончательно после KT-7A
+(октябрь 2026). Возможное продолжение — только в постановке, где сырой
+вход структурно не является ключом (обучаемое представление наблюдений),
+с обязательным exact-NN бейзлайном и предрегистрацией критериев.
