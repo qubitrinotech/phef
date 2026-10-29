@@ -1,0 +1,10 @@
+{
+  "schema": "kt1_baseline_v2",
+  "mechanism": "quantized_dict",
+  "sigma": 0.0,
+  "episodes": 64,
+  "retrieval_correct": 64,
+  "n_segments": 20000,
+  "delta": 0.01,
+  "delta_selection": "same_length_validation_32_queries"
+}

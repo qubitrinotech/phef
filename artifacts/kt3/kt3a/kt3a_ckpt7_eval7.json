@@ -1,0 +1,77 @@
+{
+  "schema": "kt3a_hard_soft_bridge_v1",
+  "protocol": "KT-3A hard-soft bridge",
+  "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+  "checkpoint_epoch": 4750,
+  "checkpoint_sel_acc": 0.9999186197916666,
+  "train_seed": 7,
+  "eval_seed": 7,
+  "config": {
+    "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+    "train_seed": 7,
+    "eval_seed": 7,
+    "n_keys": 262144,
+    "n_segments": 65536,
+    "n_values": 64,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 16,
+    "eval_batches": 64,
+    "out": "artifacts/kt3/kt3a/kt3a_ckpt7_eval7.json",
+    "cpu": false
+  },
+  "metrics": {
+    "episodes": 1024,
+    "hard_answer_correct": 1024,
+    "soft_answer_correct": 970,
+    "retrieval_correct": 1024,
+    "retrieval_value_correct": 1024,
+    "tie_rows": 0,
+    "tie_total": 1024,
+    "entropy_sum": 79.86890715360641,
+    "entropy_total": 1024,
+    "bucket_answer_correct": [
+      213,
+      208,
+      166,
+      152,
+      107,
+      83,
+      58,
+      37
+    ],
+    "bucket_slot_hit": [
+      213,
+      208,
+      166,
+      152,
+      107,
+      83,
+      58,
+      37
+    ],
+    "bucket_total": [
+      213,
+      208,
+      166,
+      152,
+      107,
+      83,
+      58,
+      37
+    ],
+    "wall_seconds": 86.60160385799827,
+    "rss_peak_gib": 3.13336181640625,
+    "gpu_alloc_peak_gib": 4.535739421844482
+  },
+  "provenance": {
+    "git_commit": "c21428f936f38b3aded913f957fbadb60aabde13",
+    "git_branch": "kt1-key-perturbation",
+    "git_dirty": true,
+    "python": "3.14.4",
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+    "numpy": "2.5.3",
+    "torch": "2.14.0+cu130"
+  }
+}

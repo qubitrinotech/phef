@@ -1,0 +1,144 @@
+{
+  "schema": "kt7a_c2_diagnostic_v1",
+  "checkpoint": "phef/results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt",
+  "config": {
+    "repo": ".",
+    "checkpoint": "phef/results/capacity_scan_dim128_curr32768/dim128_seg32768_s0_e40k_curr.pt",
+    "n_keys": 1073741824,
+    "n_values": 64,
+    "n_segments": 131072,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 64,
+    "sigma_list": "0.30,0.50,1.00",
+    "seed": 0,
+    "noise_seed": 7,
+    "cpu": false,
+    "out": "artifacts/kt7/kt7a_c2_diagnostic_smoke.json"
+  },
+  "points": [
+    {
+      "sigma": 0.3,
+      "episodes": 128,
+      "n_eff_mean": 91739.125,
+      "raw_cos": 0.9591080946847796,
+      "state_cos": 0.9782511750236154,
+      "raw_nn": {
+        "correct": 128,
+        "acc": 1.0,
+        "wilson95": [
+          0.9708630432802273,
+          0.9999999999999999
+        ]
+      },
+      "enc_nn": {
+        "correct": 123,
+        "acc": 0.9609375,
+        "wilson95": [
+          0.911812978715417,
+          0.9832013893085425
+        ]
+      },
+      "phef_answer": {
+        "correct": 86,
+        "acc": 0.671875,
+        "wilson95": [
+          0.5865640153035567,
+          0.7471701558240214
+        ]
+      },
+      "phef_retrieval": {
+        "correct": 85,
+        "acc": 0.6640625,
+        "wilson95": [
+          0.578518208317162,
+          0.7400462277591626
+        ]
+      }
+    },
+    {
+      "sigma": 0.5,
+      "episodes": 128,
+      "n_eff_mean": 91720.671875,
+      "raw_cos": 0.8976761950179935,
+      "state_cos": 0.9457517601549625,
+      "raw_nn": {
+        "correct": 128,
+        "acc": 1.0,
+        "wilson95": [
+          0.9708630432802273,
+          0.9999999999999999
+        ]
+      },
+      "enc_nn": {
+        "correct": 106,
+        "acc": 0.828125,
+        "wilson95": [
+          0.7534600312712283,
+          0.8836688408814208
+        ]
+      },
+      "phef_answer": {
+        "correct": 61,
+        "acc": 0.4765625,
+        "wilson95": [
+          0.3919887254233325,
+          0.5625020694229068
+        ]
+      },
+      "phef_retrieval": {
+        "correct": 61,
+        "acc": 0.4765625,
+        "wilson95": [
+          0.3919887254233325,
+          0.5625020694229068
+        ]
+      }
+    },
+    {
+      "sigma": 1.0,
+      "episodes": 128,
+      "n_eff_mean": 91732.21875,
+      "raw_cos": 0.7057211259379983,
+      "state_cos": 0.7950235372409225,
+      "raw_nn": {
+        "correct": 89,
+        "acc": 0.6953125,
+        "wilson95": [
+          0.6108489909144987,
+          0.76839438536684
+        ]
+      },
+      "enc_nn": {
+        "correct": 23,
+        "acc": 0.1796875,
+        "wilson95": [
+          0.12282459937109706,
+          0.2552162635275072
+        ]
+      },
+      "phef_answer": {
+        "correct": 17,
+        "acc": 0.1328125,
+        "wilson95": [
+          0.08460228501625933,
+          0.20242016757482367
+        ]
+      },
+      "phef_retrieval": {
+        "correct": 16,
+        "acc": 0.125,
+        "wilson95": [
+          0.07842644609872867,
+          0.19342627144110075
+        ]
+      }
+    }
+  ],
+  "encoder_verdict": "ENCODER_NEUTRAL",
+  "c2_verdict": "C2_CLOSED_NEGATIVE",
+  "anchor_kt1": "ANCHOR_MISMATCH",
+  "anchor_delta": 0.1796875
+}

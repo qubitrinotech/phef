@@ -1,0 +1,54 @@
+{
+  "schema": "compact_eval_v1",
+  "stream_hard_chunk_size": 0,
+  "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+  "checkpoint_epoch": 4750,
+  "checkpoint_sel_acc": 0.9999186197916666,
+  "hard_eval": true,
+  "answer_chance": 0.015625,
+  "n_eff_theory": 2851.5824199680355,
+  "real": {
+    "answer_acc": 1.0,
+    "retrieval_acc": 1.0,
+    "episodes": 2,
+    "n_eff_mean": 2846.0,
+    "n_eff_min": 2841,
+    "n_eff_max": 2851,
+    "wall_seconds": 0.13005052899825387
+  },
+  "shuffled": {
+    "answer_acc": 0.0,
+    "retrieval_acc": 0.0,
+    "episodes": 2,
+    "n_eff_mean": 2828.5,
+    "n_eff_min": 2819,
+    "n_eff_max": 2838,
+    "wall_seconds": 0.006285543000558391
+  },
+  "masked": {
+    "answer_acc": 0.0,
+    "retrieval_acc": null,
+    "episodes": 2,
+    "n_eff_mean": 2836.0,
+    "n_eff_min": 2818,
+    "n_eff_max": 2854,
+    "wall_seconds": 0.004850525998335797
+  },
+  "config": {
+    "checkpoint": "phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt",
+    "n_keys": 262144,
+    "n_values": 64,
+    "n_segments": 4096,
+    "overwrite_p": 0.3,
+    "key_dim": 32,
+    "dim": 128,
+    "eval_batch_size": 2,
+    "eval_batches": 1,
+    "seed": 314159,
+    "progress_every": 1,
+    "stream_hard_chunk_size": 0,
+    "cpu": false,
+    "force": false,
+    "out": "phef/results/cuda_parity_legacy_s4096_b2x1_seed314159.json"
+  }
+}

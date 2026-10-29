@@ -1,0 +1,27 @@
+schema=kt2a_exact_nn_v1 device=cpu n_keys=262144 n_segments=4096 overwrite_p=0.3 n_values=64 key_dim=32 episodes_per_sigma=16 batch_size=2 seed=7 noise_seed=11 tie_eps=1e-12 sigmas=0.5,1,1.5
+[sigma=0.5] 16/16 episodes elapsed=0.0s slot_acc=1.000000 pos_acc=1.000000 n_eff_mean=2863.3 rss=0.50GiB
+sigma=0.5 slot=16/16=1.000000 wilson=[0.806392,1.000000] pos=16/16=1.000000 wilson=[0.806392,1.000000] ties=0 n_eff_mean=2863.3 build_per_ep=0.034ms query_per_ep=0.067ms cand_mib=0.35 wall=0.0s
+[sigma=1] 16/16 episodes elapsed=0.0s slot_acc=0.937500 pos_acc=0.937500 n_eff_mean=2863.3 rss=0.50GiB
+sigma=1 slot=15/16=0.937500 wilson=[0.716713,0.988881] pos=15/16=0.937500 wilson=[0.716713,0.988881] ties=0 n_eff_mean=2863.3 build_per_ep=0.027ms query_per_ep=0.072ms cand_mib=0.35 wall=0.0s
+[sigma=1.5] 16/16 episodes elapsed=0.0s slot_acc=0.625000 pos_acc=0.625000 n_eff_mean=2863.3 rss=0.50GiB
+sigma=1.5 slot=10/16=0.625000 wilson=[0.386410,0.815188] pos=10/16=0.625000 wilson=[0.386410,0.815188] ties=0 n_eff_mean=2863.3 build_per_ep=0.026ms query_per_ep=0.071ms cand_mib=0.35 wall=0.0s
+VERDICT: ANN_PARITY
+saved: artifacts/kt2/kt2a/kt2a_depthprobe_s4096.json
+schema=kt2a_exact_nn_v1 device=cpu n_keys=262144 n_segments=65536 overwrite_p=0.3 n_values=64 key_dim=32 episodes_per_sigma=16 batch_size=2 seed=7 noise_seed=11 tie_eps=1e-12 sigmas=0.5,1,1.5
+[sigma=0.5] 16/16 episodes elapsed=0.3s slot_acc=1.000000 pos_acc=1.000000 n_eff_mean=42052.2 rss=0.57GiB
+sigma=0.5 slot=16/16=1.000000 wilson=[0.806392,1.000000] pos=16/16=1.000000 wilson=[0.806392,1.000000] ties=0 n_eff_mean=42052.2 build_per_ep=0.184ms query_per_ep=0.752ms cand_mib=5.15 wall=0.3s
+[sigma=1] 16/16 episodes elapsed=0.3s slot_acc=0.687500 pos_acc=0.687500 n_eff_mean=42052.2 rss=0.57GiB
+sigma=1 slot=11/16=0.687500 wilson=[0.444044,0.858354] pos=11/16=0.687500 wilson=[0.444044,0.858354] ties=0 n_eff_mean=42052.2 build_per_ep=0.200ms query_per_ep=0.778ms cand_mib=5.15 wall=0.3s
+[sigma=1.5] 16/16 episodes elapsed=0.3s slot_acc=0.250000 pos_acc=0.250000 n_eff_mean=42052.2 rss=0.57GiB
+sigma=1.5 slot=4/16=0.250000 wilson=[0.101821,0.494983] pos=4/16=0.250000 wilson=[0.101821,0.494983] ties=0 n_eff_mean=42052.2 build_per_ep=0.200ms query_per_ep=0.744ms cand_mib=5.15 wall=0.3s
+VERDICT: ANN_PARITY
+saved: artifacts/kt2/kt2a/kt2a_depthprobe_s65536.json
+schema=kt2a_exact_nn_v1 device=cpu n_keys=262144 n_segments=524288 overwrite_p=0.3 n_values=64 key_dim=32 episodes_per_sigma=16 batch_size=2 seed=7 noise_seed=11 tie_eps=1e-12 sigmas=0.5,1,1.5
+[sigma=0.5] 16/16 episodes elapsed=1.7s slot_acc=1.000000 pos_acc=1.000000 n_eff_mean=197542.8 rss=0.79GiB
+sigma=0.5 slot=16/16=1.000000 wilson=[0.806392,1.000000] pos=16/16=1.000000 wilson=[0.806392,1.000000] ties=0 n_eff_mean=197542.8 build_per_ep=1.782ms query_per_ep=5.821ms cand_mib=24.15 wall=1.7s
+[sigma=1] 16/16 episodes elapsed=1.6s slot_acc=0.500000 pos_acc=0.500000 n_eff_mean=197542.8 rss=0.80GiB
+sigma=1 slot=8/16=0.500000 wilson=[0.279996,0.720004] pos=8/16=0.500000 wilson=[0.279996,0.720004] ties=0 n_eff_mean=197542.8 build_per_ep=1.488ms query_per_ep=4.835ms cand_mib=24.15 wall=1.6s
+[sigma=1.5] 16/16 episodes elapsed=1.6s slot_acc=0.000000 pos_acc=0.000000 n_eff_mean=197542.8 rss=0.80GiB
+sigma=1.5 slot=0/16=0.000000 wilson=[0.000000,0.193608] pos=0/16=0.000000 wilson=[0.000000,0.193608] ties=0 n_eff_mean=197542.8 build_per_ep=1.500ms query_per_ep=5.044ms cand_mib=24.15 wall=1.6s
+VERDICT: ANN_PARITY
+saved: artifacts/kt2/kt2a/kt2a_depthprobe_s524288.json

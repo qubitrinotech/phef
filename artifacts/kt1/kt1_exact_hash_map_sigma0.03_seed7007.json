@@ -1,0 +1,14 @@
+{
+  "schema": "kt1_baseline_v1",
+  "mechanism": "exact_hash_map",
+  "sigma": 0.03,
+  "episodes": 64,
+  "retrieval_correct": 0,
+  "n_segments": 20000,
+  "n_values": 64,
+  "overwrite_p": 0.3,
+  "key_dim": 32,
+  "seed": 7007,
+  "delta": null,
+  "memory_bytes": 2837200
+}

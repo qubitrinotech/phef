@@ -1,0 +1,2 @@
+schema=kt3a_hard_soft_bridge_v1 device=cuda checkpoint=phef/results/v2sel_k32768_sel262144_s65536_seed7_e6000_best.pt train_seed=7 eval_seed=11 episodes=1024
+hard_answer=1023/1024 soft_answer=964/1024 retrieval=1023/1024 tie_rate=0.000000 saved=artifacts/kt3/kt3a/kt3a_ckpt7_eval11.json
